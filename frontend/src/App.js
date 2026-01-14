@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, MapPin, Clock, Shield, Truck, CheckCircle, ChevronRight, Menu, X, Calculator, Users, Building2, Wrench, FileText, Award, ArrowRight, Star, ChevronDown } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Clock, Shield, Truck, CheckCircle, ChevronRight, Menu, X, Calculator, Users, Building2, Wrench, FileText, ArrowRight, Star, ChevronDown, ArrowUpRight } from 'lucide-react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
 const WHATSAPP_NUMBER = '919876543210';
 const PHONE_NUMBER = '+919876543210';
 
-// Navigation Component
+// Navigation Component - Clean, minimal
 const Navigation = ({ currentPage, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'inventory', label: 'Inventory' },
+    { id: 'about', label: 'About' },
+    { id: 'inventory', label: 'Equipment' },
     { id: 'services', label: 'Services' },
     { id: 'projects', label: 'Projects' },
     { id: 'process', label: 'Process' },
@@ -21,34 +28,32 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   ];
 
   return (
-    <nav className="bg-primary-500 text-white sticky top-0 z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           <div 
             className="flex items-center cursor-pointer" 
             onClick={() => setCurrentPage('home')}
             data-testid="logo"
           >
-            <div className="bg-white rounded-lg p-1.5">
-              <img 
-                src="/logo.png" 
-                alt="Jakota - Engineered Formwork & Scaffolds" 
-                className="h-8 md:h-9 w-auto"
-              />
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Jakota" 
+              className="h-10 w-auto"
+            />
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map(item => (
               <button
                 key={item.id}
                 data-testid={`nav-${item.id}`}
                 onClick={() => setCurrentPage(item.id)}
-                className={`px-3 py-2 rounded text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors ${
                   currentPage === item.id 
-                    ? 'bg-accent-500 text-primary-900' 
-                    : 'text-steel-200 hover:text-white hover:bg-primary-600'
+                    ? 'text-primary-500' 
+                    : scrolled ? 'text-steel-600 hover:text-primary-500' : 'text-steel-700 hover:text-primary-500'
                 }`}
               >
                 {item.label}
@@ -56,31 +61,30 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-2">
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
             <a 
               href={`tel:${PHONE_NUMBER}`}
-              className="flex items-center px-3 py-2 text-sm bg-primary-600 rounded hover:bg-primary-700 transition-colors"
+              className="text-sm text-steel-600 hover:text-primary-500 transition-colors"
               data-testid="header-call-btn"
             >
-              <Phone size={16} className="mr-1" />
-              Call Now
+              +91 98765 43210
             </a>
             <a 
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need scaffolding for my project`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center px-4 py-2 text-sm bg-green-500 rounded hover:bg-green-600 transition-colors font-medium"
+              className="inline-flex items-center px-5 py-2.5 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
               data-testid="header-whatsapp-btn"
             >
-              <MessageCircle size={16} className="mr-1" />
-              WhatsApp
+              Get Quote
+              <ArrowUpRight size={14} className="ml-1.5" />
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 text-steel-700"
             onClick={() => setIsOpen(!isOpen)}
             data-testid="mobile-menu-btn"
           >
@@ -90,35 +94,35 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden py-4 border-t border-primary-600">
+          <div className="lg:hidden py-6 border-t border-steel-100 bg-white">
             {navItems.map(item => (
               <button
                 key={item.id}
                 data-testid={`mobile-nav-${item.id}`}
                 onClick={() => { setCurrentPage(item.id); setIsOpen(false); }}
-                className={`block w-full text-left px-4 py-3 text-sm font-medium ${
+                className={`block w-full text-left px-2 py-3 text-sm font-medium ${
                   currentPage === item.id 
-                    ? 'bg-accent-500 text-primary-900' 
-                    : 'text-steel-200 hover:bg-primary-600'
+                    ? 'text-primary-500' 
+                    : 'text-steel-600 hover:text-primary-500'
                 }`}
               >
                 {item.label}
               </button>
             ))}
-            <div className="flex space-x-2 mt-4 px-4">
+            <div className="flex flex-col space-y-3 mt-6 pt-6 border-t border-steel-100">
               <a 
                 href={`tel:${PHONE_NUMBER}`}
-                className="flex-1 flex items-center justify-center px-3 py-3 text-sm bg-primary-600 rounded"
+                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium border border-steel-200 text-steel-700 rounded-md"
               >
-                <Phone size={16} className="mr-2" /> Call
+                <Phone size={16} className="mr-2" /> +91 98765 43210
               </a>
               <a 
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center px-3 py-3 text-sm bg-green-500 rounded font-medium"
+                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium bg-primary-500 text-white rounded-md"
               >
-                <MessageCircle size={16} className="mr-2" /> WhatsApp
+                Get Quote <ArrowUpRight size={14} className="ml-1.5" />
               </a>
             </div>
           </div>
@@ -128,57 +132,56 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   );
 };
 
-// Hero Section
+// Hero Section - Elegant, confident
 const HeroSection = ({ setCurrentPage }) => (
-  <section className="bg-primary-500 text-white py-16 md:py-24" data-testid="hero-section">
-    <div className="max-w-7xl mx-auto px-4">
+  <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-gradient-to-b from-steel-50 to-white" data-testid="hero-section">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8">
       <div className="max-w-3xl">
-        <div className="inline-block px-3 py-1 bg-accent-500/20 text-accent-500 text-sm font-semibold rounded-full mb-4 border border-accent-500/30">
-          Trusted by 50+ Builders in NCR
-        </div>
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-          Scaffolding Rental in Gurgaon
-          <span className="text-accent-500 block mt-2">No Bakwas. Just Delivery.</span>
+        <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-4">
+          Scaffolding Solutions for NCR
+        </p>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-steel-900 leading-[1.1] tracking-tight mb-6">
+          Infrastructure you can
+          <span className="block text-primary-500">rely on</span>
         </h1>
-        <p className="text-lg md:text-xl text-steel-300 mb-8 leading-relaxed">
-          Exact delivery date. Exact quantity. One point of contact.
-          <br className="hidden md:block" />
-          Cuplock, Ringlock, Slab Props — ready for your project.
+        <p className="text-lg md:text-xl text-steel-500 leading-relaxed mb-10 max-w-2xl">
+          Engineered formwork and scaffolding for large-scale construction projects. 
+          Systems-led delivery. Verified weights. One point of accountability.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <a 
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need a quote for scaffolding rental`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
             target="_blank"
             rel="noopener noreferrer"
-            className="whatsapp-pulse flex items-center justify-center px-8 py-4 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-all text-lg shadow-lg"
+            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
             data-testid="hero-whatsapp-btn"
           >
-            <MessageCircle size={24} className="mr-2" />
-            Get Instant Quote on WhatsApp
+            Request a Quote
+            <ArrowRight size={16} className="ml-2" />
           </a>
-          <a 
-            href={`tel:${PHONE_NUMBER}`}
-            className="flex items-center justify-center px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-all text-lg border border-white/20"
-            data-testid="hero-call-btn"
+          <button 
+            onClick={() => setCurrentPage('inventory')}
+            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-steel-700 border border-steel-200 rounded-md hover:border-steel-300 hover:bg-steel-50 transition-colors"
+            data-testid="hero-inventory-btn"
           >
-            <Phone size={24} className="mr-2" />
-            Call: +91 98765 43210
-          </a>
+            View Equipment
+          </button>
         </div>
 
-        <div className="flex flex-wrap gap-6 text-sm text-steel-300">
+        {/* Trust indicators - subtle */}
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-steel-500">
           <div className="flex items-center">
-            <CheckCircle size={18} className="text-accent-500 mr-2" />
-            Same Day Delivery
+            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
+            500+ tons ready stock
           </div>
           <div className="flex items-center">
-            <CheckCircle size={18} className="text-accent-500 mr-2" />
-            500+ Tons Ready Stock
+            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
+            Same-day delivery available
           </div>
           <div className="flex items-center">
-            <CheckCircle size={18} className="text-accent-500 mr-2" />
-            Free Site Survey
+            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
+            Serving 50+ builders in NCR
           </div>
         </div>
       </div>
@@ -186,20 +189,21 @@ const HeroSection = ({ setCurrentPage }) => (
   </section>
 );
 
-// Stats Section
+// Stats Section - Clean numbers
 const StatsSection = () => (
-  <section className="bg-steel-50 py-12 border-b border-steel-200" data-testid="stats-section">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+  <section className="py-20 bg-white border-y border-steel-100" data-testid="stats-section">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {[
-          { value: '500+', label: 'Tons Ready Stock' },
-          { value: '50+', label: 'Projects Delivered' },
-          { value: '100%', label: 'On-Time Delivery' },
-          { value: '8+', label: 'Years Experience' },
+          { value: '500+', label: 'Tons Inventory', sublabel: 'Ready stock' },
+          { value: '50+', label: 'Projects', sublabel: 'Successfully delivered' },
+          { value: '100%', label: 'On-Time Rate', sublabel: 'Delivery commitment' },
+          { value: '8+', label: 'Years', sublabel: 'Industry experience' },
         ].map((stat, index) => (
-          <div key={index} data-testid={`stat-${index}`}>
-            <div className="text-3xl md:text-4xl font-bold text-accent-500">{stat.value}</div>
-            <div className="text-steel-500 text-sm mt-1">{stat.label}</div>
+          <div key={index} data-testid={`stat-${index}`} className="text-center md:text-left">
+            <div className="text-3xl md:text-4xl font-semibold text-primary-500 mb-1">{stat.value}</div>
+            <div className="text-sm font-medium text-steel-800">{stat.label}</div>
+            <div className="text-xs text-steel-400 mt-0.5">{stat.sublabel}</div>
           </div>
         ))}
       </div>
@@ -207,85 +211,94 @@ const StatsSection = () => (
   </section>
 );
 
-// Inventory Section
-const InventorySection = ({ setCurrentPage }) => {
-  const inventory = [
+// Equipment Section - Card-based, professional
+const EquipmentSection = ({ setCurrentPage }) => {
+  const equipment = [
     {
       id: 'cuplock',
       name: 'Cuplock Scaffolding',
-      rate: '₹45/ton/day',
-      desc: 'High-rise construction, industrial projects',
-      features: ['Hot-dip galvanized', 'Load: 30 kN/leg', 'Quick assembly'],
-      icon: Building2
+      rate: '₹45',
+      unit: '/ton/day',
+      desc: 'Industry standard for high-rise and industrial construction',
+      specs: ['Hot-dip galvanized steel', '30 kN load capacity', 'Quick assembly system'],
     },
     {
       id: 'ringlock',
       name: 'Ringlock Scaffolding',
-      rate: '₹55/ton/day',
-      desc: 'Complex structures, curved surfaces',
-      features: ['Q345 Steel', 'Load: 40 kN/leg', '8-way connection'],
-      icon: Wrench
+      rate: '₹55',
+      unit: '/ton/day',
+      desc: 'Premium solution for complex structures and curved surfaces',
+      specs: ['Q345 steel construction', '40 kN load capacity', '8-way connection points'],
     },
     {
       id: 'slab_props',
-      name: 'Adjustable Slab Props',
-      rate: '₹30/ton/day',
-      desc: 'Slab support, formwork',
-      features: ['1.8m to 4.0m range', 'Load: 25 kN', 'Heavy-duty steel'],
-      icon: Shield
+      name: 'Adjustable Props',
+      rate: '₹30',
+      unit: '/ton/day',
+      desc: 'Heavy-duty support for slab formwork and shoring',
+      specs: ['1.8m to 4.0m range', '25 kN load capacity', 'Fine adjustment thread'],
     },
     {
       id: 'ms_ladder',
       name: 'MS Ladders',
-      rate: '₹35/ton/day',
-      desc: 'Access solutions, maintenance',
-      features: ['Mild Steel', '300mm rung spacing', 'Anti-slip rungs'],
-      icon: Users
+      rate: '₹35',
+      unit: '/ton/day',
+      desc: 'Safe access solutions for scaffolding systems',
+      specs: ['Anti-slip rungs', '300mm rung spacing', 'Multiple lengths available'],
     },
   ];
 
   return (
-    <section className="py-16 bg-white" data-testid="inventory-section">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary-500 mb-4">Our Equipment</h2>
-          <p className="text-steel-500 max-w-2xl mx-auto">
-            Premium quality scaffolding equipment. Inspected before every delivery. Clear weight documentation.
+    <section className="py-24 bg-steel-50" data-testid="inventory-section">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-2xl mb-16">
+          <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Equipment</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+            Quality scaffolding, ready to deploy
+          </h2>
+          <p className="text-lg text-steel-500 leading-relaxed">
+            Every piece inspected before delivery. Weighbridge-verified quantities. 
+            Clear documentation for every transaction.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {inventory.map((item) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {equipment.map((item) => (
             <div 
               key={item.id}
-              className="bg-steel-50 rounded-xl p-6 shadow-sm card-hover border border-steel-100 hover:border-accent-500 transition-colors"
+              className="bg-white rounded-lg p-8 border border-steel-100 hover:border-steel-200 hover:shadow-sm transition-all"
               data-testid={`inventory-${item.id}`}
             >
-              <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center mb-4">
-                <item.icon className="text-accent-500" size={24} />
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-steel-900 mb-1">{item.name}</h3>
+                  <p className="text-sm text-steel-500">{item.desc}</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-2xl font-semibold text-primary-500">{item.rate}</span>
+                  <span className="text-sm text-steel-400">{item.unit}</span>
+                </div>
               </div>
-              <h3 className="text-lg font-semibold text-steel-900 mb-1">{item.name}</h3>
-              <div className="text-accent-600 font-bold mb-2">{item.rate}</div>
-              <p className="text-steel-500 text-sm mb-4">{item.desc}</p>
-              <ul className="space-y-2">
-                {item.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-steel-500">
-                    <CheckCircle size={14} className="text-accent-500 mr-2 flex-shrink-0" />
-                    {feature}
-                  </li>
+              <div className="space-y-2">
+                {item.specs.map((spec, idx) => (
+                  <div key={idx} className="flex items-center text-sm text-steel-600">
+                    <CheckCircle size={14} className="text-steel-400 mr-2 flex-shrink-0" />
+                    {spec}
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="mt-12 text-center">
           <button 
             onClick={() => setCurrentPage('inventory')}
-            className="inline-flex items-center px-6 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-colors"
+            className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
             data-testid="view-inventory-btn"
           >
-            View Full Inventory <ChevronRight size={20} className="ml-1" />
+            View detailed specifications
+            <ArrowRight size={16} className="ml-1.5" />
           </button>
         </div>
       </div>
@@ -293,7 +306,7 @@ const InventorySection = ({ setCurrentPage }) => {
   );
 };
 
-// Calculator Component
+// Calculator Component - Clean, professional
 const CostCalculator = () => {
   const [equipment, setEquipment] = useState('cuplock');
   const [tonnage, setTonnage] = useState(10);
@@ -324,208 +337,212 @@ const CostCalculator = () => {
   };
 
   return (
-    <section className="py-16 bg-primary-500" data-testid="calculator-section">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            <Calculator className="inline mr-2 mb-1 text-accent-500" size={32} />
-            Instant Cost Calculator
-          </h2>
-          <p className="text-steel-300">Get an estimate in seconds. Final quote on WhatsApp.</p>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl">
-          <div className="grid md:grid-cols-3 gap-6 mb-6">
-            <div>
-              <label className="block text-sm font-medium text-steel-700 mb-2">Equipment Type</label>
-              <select 
-                value={equipment}
-                onChange={(e) => setEquipment(e.target.value)}
-                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent bg-steel-50"
-                data-testid="calc-equipment"
-              >
-                <option value="cuplock">Cuplock Scaffolding</option>
-                <option value="ringlock">Ringlock Scaffolding</option>
-                <option value="slab_props">Slab Props</option>
-                <option value="ms_ladder">MS Ladders</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-steel-700 mb-2">Quantity (Tons)</label>
-              <input 
-                type="number"
-                value={tonnage}
-                onChange={(e) => setTonnage(Number(e.target.value))}
-                min="1"
-                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent bg-steel-50"
-                data-testid="calc-tonnage"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-steel-700 mb-2">Duration (Days)</label>
-              <input 
-                type="number"
-                value={days}
-                onChange={(e) => setDays(Number(e.target.value))}
-                min="1"
-                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent bg-steel-50"
-                data-testid="calc-days"
-              />
+    <section className="py-24 bg-white" data-testid="calculator-section">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Pricing</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+              Transparent rental estimates
+            </h2>
+            <p className="text-lg text-steel-500 leading-relaxed mb-8">
+              Get an instant estimate for your project. Final pricing includes bulk discounts, 
+              and is confirmed via WhatsApp within 2 hours.
+            </p>
+            
+            <div className="space-y-4 text-sm text-steel-600">
+              <div className="flex items-start">
+                <CheckCircle size={16} className="text-primary-500 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Volume discounts: 5% (10+ tons), 10% (20+ tons), 15% (50+ tons)</span>
+              </div>
+              <div className="flex items-start">
+                <CheckCircle size={16} className="text-primary-500 mr-3 mt-0.5 flex-shrink-0" />
+                <span>GST and transportation charged separately</span>
+              </div>
+              <div className="flex items-start">
+                <CheckCircle size={16} className="text-primary-500 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Flexible rental periods with weekly and monthly options</span>
+              </div>
             </div>
           </div>
 
-          <button 
-            onClick={calculate}
-            disabled={loading}
-            className="w-full py-4 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-colors disabled:opacity-50 text-lg"
-            data-testid="calc-submit"
-          >
-            {loading ? 'Calculating...' : 'Calculate Estimate'}
-          </button>
-
-          {result && (
-            <div className="mt-6 p-6 bg-steel-50 rounded-xl border border-steel-200" data-testid="calc-result">
-              <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="bg-steel-50 rounded-lg p-8 border border-steel-100">
+            <h3 className="text-lg font-semibold text-steel-900 mb-6">Cost Calculator</h3>
+            
+            <div className="space-y-5 mb-6">
+              <div>
+                <label className="block text-sm font-medium text-steel-700 mb-2">Equipment Type</label>
+                <select 
+                  value={equipment}
+                  onChange={(e) => setEquipment(e.target.value)}
+                  className="w-full px-4 py-3 bg-white border border-steel-200 rounded-md text-steel-800 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors"
+                  data-testid="calc-equipment"
+                >
+                  <option value="cuplock">Cuplock Scaffolding</option>
+                  <option value="ringlock">Ringlock Scaffolding</option>
+                  <option value="slab_props">Adjustable Props</option>
+                  <option value="ms_ladder">MS Ladders</option>
+                </select>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <span className="text-steel-500 text-sm">Equipment</span>
-                  <p className="font-medium text-steel-800">{result.equipment}</p>
+                  <label className="block text-sm font-medium text-steel-700 mb-2">Quantity (Tons)</label>
+                  <input 
+                    type="number"
+                    value={tonnage}
+                    onChange={(e) => setTonnage(Number(e.target.value))}
+                    min="1"
+                    className="w-full px-4 py-3 bg-white border border-steel-200 rounded-md text-steel-800 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors"
+                    data-testid="calc-tonnage"
+                  />
                 </div>
                 <div>
-                  <span className="text-steel-500 text-sm">Rate</span>
-                  <p className="font-medium text-steel-800">₹{result.rate_per_ton_per_day}/ton/day</p>
-                </div>
-                <div>
-                  <span className="text-steel-500 text-sm">Base Cost</span>
-                  <p className="font-medium text-steel-800">₹{result.base_cost.toLocaleString()}</p>
-                </div>
-                <div>
-                  <span className="text-steel-500 text-sm">Bulk Discount ({result.discount_percent}%)</span>
-                  <p className="font-medium text-green-600">-₹{result.discount_amount.toLocaleString()}</p>
+                  <label className="block text-sm font-medium text-steel-700 mb-2">Duration (Days)</label>
+                  <input 
+                    type="number"
+                    value={days}
+                    onChange={(e) => setDays(Number(e.target.value))}
+                    min="1"
+                    className="w-full px-4 py-3 bg-white border border-steel-200 rounded-md text-steel-800 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors"
+                    data-testid="calc-days"
+                  />
                 </div>
               </div>
-              <div className="border-t border-steel-200 pt-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-medium text-steel-700">Estimated Total</span>
-                  <span className="text-2xl font-bold text-accent-600">₹{result.final_cost.toLocaleString()}</span>
-                </div>
-                <p className="text-sm text-steel-500 mt-2">{result.note}</p>
-              </div>
-              <a 
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need a quote for ${result.equipment}. Quantity: ${result.quantity_tons} tons, Duration: ${result.duration_days} days. Calculator estimate: ₹${result.final_cost.toLocaleString()}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 w-full flex items-center justify-center py-3 bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 transition-colors"
-                data-testid="calc-whatsapp"
-              >
-                <MessageCircle size={20} className="mr-2" />
-                Get Final Quote on WhatsApp
-              </a>
             </div>
-          )}
+
+            <button 
+              onClick={calculate}
+              disabled={loading}
+              className="w-full py-3.5 bg-primary-500 text-white text-sm font-medium rounded-md hover:bg-primary-600 transition-colors disabled:opacity-50"
+              data-testid="calc-submit"
+            >
+              {loading ? 'Calculating...' : 'Calculate Estimate'}
+            </button>
+
+            {result && (
+              <div className="mt-6 pt-6 border-t border-steel-200" data-testid="calc-result">
+                <div className="space-y-3 mb-4">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-steel-500">Base cost ({result.quantity_tons}t × {result.duration_days}d × ₹{result.rate_per_ton_per_day})</span>
+                    <span className="text-steel-700">₹{result.base_cost.toLocaleString()}</span>
+                  </div>
+                  {result.discount_percent > 0 && (
+                    <div className="flex justify-between text-sm">
+                      <span className="text-steel-500">Volume discount ({result.discount_percent}%)</span>
+                      <span className="text-green-600">-₹{result.discount_amount.toLocaleString()}</span>
+                    </div>
+                  )}
+                </div>
+                <div className="flex justify-between items-center pt-4 border-t border-steel-200">
+                  <span className="font-medium text-steel-700">Estimated Total</span>
+                  <span className="text-2xl font-semibold text-primary-500">₹{result.final_cost.toLocaleString()}</span>
+                </div>
+                <p className="text-xs text-steel-400 mt-3">{result.note}</p>
+                
+                <a 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need a quote for ${result.equipment}. Quantity: ${result.quantity_tons} tons, Duration: ${result.duration_days} days. Estimated: ₹${result.final_cost.toLocaleString()}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 w-full inline-flex items-center justify-center py-3 text-sm font-medium text-primary-500 border border-primary-500 rounded-md hover:bg-primary-50 transition-colors"
+                  data-testid="calc-whatsapp"
+                >
+                  <MessageCircle size={16} className="mr-2" />
+                  Get Final Quote
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-// Services Section
+// Services Section - Professional grid
 const ServicesSection = ({ setCurrentPage }) => {
   const services = [
     {
-      title: 'Scaffolding Rental',
-      desc: 'Cuplock, Ringlock, Props — daily, weekly, monthly rates. Transparent pricing, no hidden charges.',
+      title: 'Equipment Rental',
+      desc: 'Cuplock, Ringlock, Props, and Ladders available on flexible rental terms. Daily, weekly, or monthly rates with volume discounts.',
       icon: Building2
     },
     {
       title: 'Erection & Dismantling',
-      desc: 'Trained crew. Safety-compliant installation. Proper anchoring and bracing.',
+      desc: 'Trained crews for safety-compliant installation. Proper anchoring, bracing, and base plate work included.',
       icon: Wrench
     },
     {
       title: 'Safety Audits',
-      desc: 'Periodic inspection of installed scaffolding. Compliance certificates.',
+      desc: 'Periodic inspection of installed scaffolding. Load testing, compliance certificates, and remediation recommendations.',
       icon: Shield
     },
     {
       title: 'Emergency Supply',
-      desc: 'Urgent requirement? 4-hour response in Gurgaon. 24/7 availability.',
+      desc: '4-hour response time in Gurgaon. 24/7 availability for urgent project requirements.',
       icon: Truck
     },
   ];
 
   return (
-    <section className="py-16 bg-steel-50" data-testid="services-section">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary-500 mb-4">What We Do</h2>
-          <p className="text-steel-500 max-w-2xl mx-auto">
-            End-to-end scaffolding solutions. From equipment rental to complete project execution.
+    <section className="py-24 bg-steel-50" data-testid="services-section">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-2xl mb-16">
+          <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Services</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+            End-to-end scaffolding solutions
+          </h2>
+          <p className="text-lg text-steel-500 leading-relaxed">
+            From equipment rental to complete project execution—one partner, one point of contact.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="p-6 rounded-xl border border-steel-200 bg-white hover:border-accent-500 transition-colors card-hover"
+              className="bg-white p-8 rounded-lg border border-steel-100"
               data-testid={`service-${index}`}
             >
-              <div className="w-12 h-12 bg-accent-500/10 rounded-lg flex items-center justify-center mb-4">
-                <service.icon className="text-accent-600" size={24} />
-              </div>
-              <h3 className="text-lg font-semibold text-steel-800 mb-2">{service.title}</h3>
-              <p className="text-steel-500 text-sm">{service.desc}</p>
+              <service.icon className="text-primary-500 mb-4" size={28} strokeWidth={1.5} />
+              <h3 className="text-lg font-semibold text-steel-900 mb-2">{service.title}</h3>
+              <p className="text-steel-500 text-sm leading-relaxed">{service.desc}</p>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <button 
-            onClick={() => setCurrentPage('services')}
-            className="inline-flex items-center px-6 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-colors"
-            data-testid="view-services-btn"
-          >
-            View All Services <ChevronRight size={20} className="ml-1" />
-          </button>
         </div>
       </div>
     </section>
   );
 };
 
-// Why Jakota Section
-const WhyJakota = () => {
+// Why Section - Clean value props
+const WhySection = () => {
   const reasons = [
-    { title: 'Exact Delivery', desc: 'Date given = Date delivered. No excuses.', icon: Clock },
-    { title: 'Verified Weights', desc: 'Proper weighbridge slips. No short delivery.', icon: FileText },
-    { title: 'One Contact', desc: 'Single point of contact who picks up.', icon: Phone },
-    { title: 'Quality Equipment', desc: 'Inspected before every delivery.', icon: Shield },
-    { title: 'Fast Response', desc: '4-hour emergency supply in Gurgaon.', icon: Truck },
-    { title: 'Clear Pricing', desc: 'No hidden charges. GST separate.', icon: Calculator },
+    { title: 'Exact Delivery Dates', desc: 'Date committed is date delivered. No delays, no excuses.' },
+    { title: 'Verified Weights', desc: 'Weighbridge slips with every delivery. No short quantities.' },
+    { title: 'Single Point of Contact', desc: 'One accountable person who actually picks up calls.' },
+    { title: 'Quality Equipment', desc: 'Inspected and maintained before every deployment.' },
+    { title: 'Fast Emergency Response', desc: '4-hour turnaround for urgent Gurgaon requirements.' },
+    { title: 'Transparent Pricing', desc: 'Clear rates, no hidden charges. GST invoiced separately.' },
   ];
 
   return (
-    <section className="py-16 bg-white" data-testid="why-section">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary-500 mb-4">Why Builders Choose Jakota</h2>
-          <p className="text-steel-500">No marketing talk. Just facts.</p>
+    <section className="py-24 bg-white" data-testid="why-section">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Why Jakota</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+            Built for reliability at scale
+          </h2>
+          <p className="text-lg text-steel-500 leading-relaxed">
+            Systems-driven processes. No relationship-based shortcuts. Just consistent delivery.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
           {reasons.map((reason, index) => (
-            <div 
-              key={index}
-              className="flex items-start p-5 bg-steel-50 rounded-lg border border-steel-100"
-              data-testid={`why-${index}`}
-            >
-              <div className="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <reason.icon className="text-primary-900" size={20} />
-              </div>
-              <div className="ml-4">
-                <h3 className="font-semibold text-steel-800">{reason.title}</h3>
-                <p className="text-steel-500 text-sm">{reason.desc}</p>
-              </div>
+            <div key={index} data-testid={`why-${index}`}>
+              <h3 className="text-base font-semibold text-steel-900 mb-2">{reason.title}</h3>
+              <p className="text-sm text-steel-500 leading-relaxed">{reason.desc}</p>
             </div>
           ))}
         </div>
@@ -534,81 +551,65 @@ const WhyJakota = () => {
   );
 };
 
-// CTA Section
+// CTA Section - Elegant, not shouty
 const CTASection = () => (
-  <section className="py-16 bg-accent-500" data-testid="cta-section">
-    <div className="max-w-4xl mx-auto px-4 text-center">
-      <h2 className="text-3xl font-bold text-primary-900 mb-4">
-        Ready to Get Started?
-      </h2>
-      <p className="text-primary-800 text-lg mb-8">
-        Get a quote in 5 minutes. No forms, no waiting. Just WhatsApp us your requirements.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <a 
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need scaffolding for my project. Please share quote.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg hover:bg-primary-600 transition-colors text-lg"
-          data-testid="cta-whatsapp"
-        >
-          <MessageCircle size={24} className="mr-2" />
-          WhatsApp Now
-        </a>
-        <a 
-          href={`tel:${PHONE_NUMBER}`}
-          className="flex items-center justify-center px-8 py-4 bg-white text-primary-500 font-semibold rounded-lg hover:bg-steel-50 transition-colors text-lg"
-          data-testid="cta-call"
-        >
-          <Phone size={24} className="mr-2" />
-          Call: +91 98765 43210
-        </a>
+  <section className="py-24 bg-primary-500" data-testid="cta-section">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+          Ready to discuss your project?
+        </h2>
+        <p className="text-lg text-primary-100 mb-10">
+          Get a detailed quote within 2 hours. No forms, just a conversation.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium bg-white text-primary-600 rounded-md hover:bg-steel-50 transition-colors"
+            data-testid="cta-whatsapp"
+          >
+            <MessageCircle size={16} className="mr-2" />
+            Message on WhatsApp
+          </a>
+          <a 
+            href={`tel:${PHONE_NUMBER}`}
+            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-white border border-white/30 rounded-md hover:bg-white/10 transition-colors"
+            data-testid="cta-call"
+          >
+            <Phone size={16} className="mr-2" />
+            +91 98765 43210
+          </a>
+        </div>
       </div>
     </div>
   </section>
 );
 
-// Footer
+// Footer - Clean, informative
 const Footer = ({ setCurrentPage }) => (
-  <footer className="bg-steel-900 text-white py-12" data-testid="footer">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <div className="bg-white rounded-lg p-2 inline-block mb-4">
-            <img 
-              src="/logo.png" 
-              alt="Jakota - Engineered Formwork & Scaffolds" 
-              className="h-10 w-auto"
-            />
-          </div>
-          <p className="text-steel-400 text-sm mb-4">
-            Premium scaffolding rental in Gurgaon & NCR. Reliable delivery, quality equipment, transparent pricing.
+  <footer className="bg-steel-900 text-white py-16" data-testid="footer">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="grid md:grid-cols-4 gap-10 mb-12">
+        <div className="md:col-span-1">
+          <img 
+            src="/logo.png" 
+            alt="Jakota" 
+            className="h-10 w-auto brightness-0 invert mb-4"
+          />
+          <p className="text-steel-400 text-sm leading-relaxed">
+            Engineered formwork and scaffolds for construction projects across Gurgaon and NCR.
           </p>
-          <div className="flex space-x-2">
-            <a 
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors"
-            >
-              <MessageCircle size={20} />
-            </a>
-            <a 
-              href={`tel:${PHONE_NUMBER}`}
-              className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
-            >
-              <Phone size={20} />
-            </a>
-          </div>
         </div>
         
         <div>
-          <h3 className="font-semibold mb-4 text-accent-500">Quick Links</h3>
-          <ul className="space-y-2 text-steel-400 text-sm">
-            {['Home', 'About Us', 'Inventory', 'Services'].map(item => (
+          <h3 className="text-sm font-semibold text-steel-200 uppercase tracking-wide mb-4">Company</h3>
+          <ul className="space-y-3 text-steel-400 text-sm">
+            {['About', 'Services', 'Projects', 'Process'].map(item => (
               <li key={item}>
                 <button 
-                  onClick={() => setCurrentPage(item.toLowerCase().replace(' ', ''))}
+                  onClick={() => setCurrentPage(item.toLowerCase())}
                   className="hover:text-white transition-colors"
                 >
                   {item}
@@ -619,52 +620,54 @@ const Footer = ({ setCurrentPage }) => (
         </div>
         
         <div>
-          <h3 className="font-semibold mb-4 text-accent-500">Equipment</h3>
-          <ul className="space-y-2 text-steel-400 text-sm">
+          <h3 className="text-sm font-semibold text-steel-200 uppercase tracking-wide mb-4">Equipment</h3>
+          <ul className="space-y-3 text-steel-400 text-sm">
             <li>Cuplock Scaffolding</li>
             <li>Ringlock Scaffolding</li>
-            <li>Adjustable Slab Props</li>
+            <li>Adjustable Props</li>
             <li>MS Ladders</li>
           </ul>
         </div>
         
         <div>
-          <h3 className="font-semibold mb-4 text-accent-500">Contact</h3>
+          <h3 className="text-sm font-semibold text-steel-200 uppercase tracking-wide mb-4">Contact</h3>
           <ul className="space-y-3 text-steel-400 text-sm">
             <li className="flex items-start">
-              <MapPin size={16} className="mr-2 mt-1 flex-shrink-0 text-accent-500" />
-              <span>Sector 37, Gurgaon, Haryana 122001</span>
+              <MapPin size={14} className="mr-2 mt-1 flex-shrink-0" />
+              <span>Sector 37, Gurgaon<br />Haryana 122001</span>
             </li>
             <li className="flex items-center">
-              <Phone size={16} className="mr-2 flex-shrink-0 text-accent-500" />
-              <a href={`tel:${PHONE_NUMBER}`} className="hover:text-white">+91 98765 43210</a>
+              <Phone size={14} className="mr-2 flex-shrink-0" />
+              <a href={`tel:${PHONE_NUMBER}`} className="hover:text-white transition-colors">+91 98765 43210</a>
             </li>
             <li className="flex items-center">
-              <MessageCircle size={16} className="mr-2 flex-shrink-0 text-accent-500" />
-              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp</a>
+              <MessageCircle size={14} className="mr-2 flex-shrink-0" />
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp</a>
             </li>
           </ul>
         </div>
       </div>
       
-      <div className="border-t border-steel-700 pt-8 text-center text-steel-500 text-sm">
-        <p>© 2024 Jakota Scaffolding Rentals. All rights reserved.</p>
-        <p className="mt-2">Serving Gurgaon, Noida, Faridabad, Greater Noida & NCR</p>
+      <div className="border-t border-steel-800 pt-8 text-steel-500 text-sm">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>© 2024 Jakota. All rights reserved.</p>
+          <p>Serving Gurgaon, Noida, Faridabad, Greater Noida & NCR</p>
+        </div>
       </div>
     </div>
   </footer>
 );
 
-// Floating WhatsApp Button
-const FloatingWhatsApp = () => (
+// Floating Contact - Subtle
+const FloatingContact = () => (
   <a 
-    href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need scaffolding for my project`}
+    href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements`}
     target="_blank"
     rel="noopener noreferrer"
-    className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg whatsapp-pulse hover:bg-green-600 transition-colors"
+    className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
     data-testid="floating-whatsapp"
   >
-    <MessageCircle size={28} className="text-white" />
+    <MessageCircle size={22} className="text-white" />
   </a>
 );
 
@@ -675,68 +678,60 @@ const HomePage = ({ setCurrentPage }) => (
   <>
     <HeroSection setCurrentPage={setCurrentPage} />
     <StatsSection />
-    <InventorySection setCurrentPage={setCurrentPage} />
+    <EquipmentSection setCurrentPage={setCurrentPage} />
     <CostCalculator />
     <ServicesSection setCurrentPage={setCurrentPage} />
-    <WhyJakota />
+    <WhySection />
     <CTASection />
   </>
 );
 
 // About Page
 const AboutPage = () => (
-  <div data-testid="about-page">
-    <section className="bg-primary-500 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">About Jakota</h1>
-        <p className="text-steel-300 text-lg">From a small yard to serving 50+ builders in NCR</p>
+  <div data-testid="about-page" className="pt-20">
+    <section className="py-16 bg-steel-50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">About Jakota</p>
+          <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+            From a small yard to serving NCR's largest builders
+          </h1>
+          <p className="text-lg text-steel-500 leading-relaxed">
+            Eight years of systematic growth, built on reliability rather than relationships.
+          </p>
+        </div>
       </div>
     </section>
     
-    <section className="py-16 bg-steel-50">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="space-y-12">
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <h2 className="text-2xl font-bold text-primary-500 mb-4">Our Journey</h2>
-            <p className="text-steel-500 leading-relaxed mb-4">
-              Started in 2016 with 50 tons of scaffolding and a simple promise: deliver on time, every time.
-              Today, we manage 500+ tons of inventory and have served some of the biggest names in NCR construction.
-            </p>
-            <p className="text-steel-500 leading-relaxed">
-              We've grown not by marketing, but by word of mouth. When your scaffolding arrives exactly when promised,
-              builders talk. That's been our growth strategy — reliability that speaks for itself.
-            </p>
-          </div>
-
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <h2 className="text-2xl font-bold text-primary-500 mb-6">How We're Different</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { title: 'Systems, Not Jugaad', desc: 'Proper inventory management. Tracking for every delivery. Nothing left to chance.' },
-                { title: 'One Point of Contact', desc: 'You talk to one person. They are accountable for everything - delivery, quality, service.' },
-                { title: 'Verified Weights', desc: 'Every delivery comes with weighbridge slip. No arguments about short delivery.' },
-                { title: 'Quality First', desc: 'Equipment inspected before every delivery. Damaged pieces replaced immediately.' },
-              ].map((item, idx) => (
-                <div key={idx} className="p-4 bg-steel-50 rounded-lg border border-steel-200">
-                  <h3 className="font-semibold text-steel-800 mb-2">{item.title}</h3>
-                  <p className="text-steel-500 text-sm">{item.desc}</p>
-                </div>
-              ))}
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-2xl font-semibold text-steel-900 mb-6">Our Journey</h2>
+            <div className="prose prose-steel text-steel-600 leading-relaxed space-y-4">
+              <p>
+                Started in 2016 with 50 tons of scaffolding and a simple promise: deliver on time, every time.
+                Today, we manage 500+ tons of inventory and serve some of the biggest names in NCR construction.
+              </p>
+              <p>
+                Our growth hasn't come from marketing or aggressive sales. It's come from word of mouth—when 
+                scaffolding arrives exactly when promised, builders talk. That's been our only strategy.
+              </p>
             </div>
           </div>
-
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <h2 className="text-2xl font-bold text-primary-500 mb-6">Our Scale</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          
+          <div>
+            <h2 className="text-2xl font-semibold text-steel-900 mb-6">How We're Different</h2>
+            <div className="space-y-6">
               {[
-                { value: '500+', label: 'Tons Inventory' },
-                { value: '50+', label: 'Projects Completed' },
-                { value: '8+', label: 'Years Experience' },
-                { value: '24/7', label: 'Emergency Support' },
-              ].map((stat, idx) => (
-                <div key={idx} className="text-center p-4 bg-primary-500 text-white rounded-lg">
-                  <div className="text-2xl font-bold text-accent-500">{stat.value}</div>
-                  <div className="text-sm text-steel-200">{stat.label}</div>
+                { title: 'Systems Over Jugaad', desc: 'Proper inventory management and tracking. Nothing left to chance or relationship.' },
+                { title: 'Single Accountability', desc: 'One person owns your project end-to-end—delivery, quality, and service.' },
+                { title: 'Verified Documentation', desc: 'Weighbridge slips with every delivery. No disputes about quantities.' },
+                { title: 'Quality Standards', desc: 'Equipment inspected before every deployment. Damaged pieces replaced immediately.' },
+              ].map((item, idx) => (
+                <div key={idx}>
+                  <h3 className="font-medium text-steel-800 mb-1">{item.title}</h3>
+                  <p className="text-sm text-steel-500">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -756,37 +751,37 @@ const InventoryPage = () => {
     cuplock: {
       name: 'Cuplock Scaffolding',
       rate: '₹45/ton/day',
-      minQty: '5 tons',
-      description: 'The industry standard for high-rise construction. Quick assembly, reliable load capacity.',
-      applications: ['High-rise buildings', 'Industrial projects', 'Commercial complexes', 'Infrastructure projects'],
+      minQty: '5 tons minimum',
+      description: 'The industry standard for high-rise construction. Quick assembly, reliable load capacity, and universal compatibility.',
+      applications: ['High-rise buildings', 'Industrial facilities', 'Commercial complexes', 'Infrastructure projects'],
       specs: [
         { label: 'Material', value: 'Hot-dip galvanized steel' },
         { label: 'Load Capacity', value: 'Up to 30 kN per leg' },
         { label: 'Standard Lengths', value: '0.5m to 3.0m' },
         { label: 'Cup Interval', value: '500mm' },
-        { label: 'Surface Treatment', value: 'Hot-dip galvanized' },
+        { label: 'Surface', value: 'Hot-dip galvanized' },
       ]
     },
     ringlock: {
       name: 'Ringlock Scaffolding',
       rate: '₹55/ton/day',
-      minQty: '5 tons',
-      description: 'Premium scaffolding for complex structures. 8-directional connections for maximum flexibility.',
-      applications: ['Curved structures', 'Stadiums & arenas', 'Complex facades', 'Heavy-duty applications'],
+      minQty: '5 tons minimum',
+      description: 'Premium scaffolding for complex structures. 8-directional connections provide maximum flexibility for challenging geometries.',
+      applications: ['Curved structures', 'Stadiums & arenas', 'Complex facades', 'Heavy-duty shoring'],
       specs: [
-        { label: 'Material', value: 'Q345 Steel, hot-dip galvanized' },
+        { label: 'Material', value: 'Q345 Steel, galvanized' },
         { label: 'Load Capacity', value: 'Up to 40 kN per leg' },
         { label: 'Rosette Spacing', value: '500mm intervals' },
-        { label: 'Connection Points', value: '8 directions' },
-        { label: 'Surface Treatment', value: 'Hot-dip galvanized' },
+        { label: 'Connections', value: '8 directions' },
+        { label: 'Surface', value: 'Hot-dip galvanized' },
       ]
     },
     slab_props: {
-      name: 'Adjustable Slab Props',
+      name: 'Adjustable Props',
       rate: '₹30/ton/day',
-      minQty: '50 pieces',
-      description: 'Heavy-duty props for slab support. Adjustable height for versatile applications.',
-      applications: ['Slab formwork support', 'Beam support', 'Temporary shoring', 'Bridge construction'],
+      minQty: '50 pieces minimum',
+      description: 'Heavy-duty props for slab support and formwork. Fine-thread adjustment enables precise height settings.',
+      applications: ['Slab formwork', 'Beam support', 'Temporary shoring', 'Bridge construction'],
       specs: [
         { label: 'Material', value: 'Heavy-duty steel' },
         { label: 'Height Range', value: '1.8m to 4.0m' },
@@ -798,15 +793,15 @@ const InventoryPage = () => {
     ms_ladder: {
       name: 'MS Ladders',
       rate: '₹35/ton/day',
-      minQty: '2 tons',
-      description: 'Safe access solutions for scaffolding systems. Anti-slip rungs for worker safety.',
+      minQty: '2 tons minimum',
+      description: 'Safe access ladders for scaffolding systems. Anti-slip rungs and proper spacing ensure worker safety.',
       applications: ['Scaffold access', 'Maintenance work', 'Industrial access', 'Construction sites'],
       specs: [
         { label: 'Material', value: 'Mild Steel' },
         { label: 'Rung Spacing', value: '300mm' },
         { label: 'Width', value: '450mm standard' },
-        { label: 'Lengths Available', value: '2m to 6m' },
-        { label: 'Surface Treatment', value: 'Powder coated / galvanized' },
+        { label: 'Lengths', value: '2m to 6m' },
+        { label: 'Surface', value: 'Powder coated' },
       ]
     },
   };
@@ -814,26 +809,33 @@ const InventoryPage = () => {
   const current = inventory[selectedType];
 
   return (
-    <div data-testid="inventory-page">
-      <section className="bg-primary-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Inventory</h1>
-          <p className="text-steel-300 text-lg">Quality equipment. Clear specifications. Transparent pricing.</p>
+    <div data-testid="inventory-page" className="pt-20">
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Equipment Catalog</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+              Quality equipment, clear specifications
+            </h1>
+            <p className="text-lg text-steel-500 leading-relaxed">
+              Every piece inspected before delivery. Transparent pricing with no hidden charges.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 bg-steel-50">
-        <div className="max-w-7xl mx-auto px-4">
-          {/* Equipment Selector */}
-          <div className="flex flex-wrap gap-2 mb-8">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          {/* Equipment Tabs */}
+          <div className="flex flex-wrap gap-2 mb-12 border-b border-steel-100 pb-4">
             {Object.keys(inventory).map((key) => (
               <button
                 key={key}
                 onClick={() => setSelectedType(key)}
-                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                   selectedType === key
-                    ? 'bg-accent-500 text-primary-900'
-                    : 'bg-white text-steel-600 hover:bg-steel-100 border border-steel-200'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-steel-600 hover:text-primary-500 hover:bg-steel-50'
                 }`}
                 data-testid={`inv-tab-${key}`}
               >
@@ -843,20 +845,20 @@ const InventoryPage = () => {
           </div>
 
           {/* Equipment Details */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <h2 className="text-2xl font-bold text-primary-500 mb-2">{current.name}</h2>
-              <div className="flex items-center gap-4 mb-4">
-                <span className="text-2xl font-bold text-accent-600">{current.rate}</span>
-                <span className="text-steel-500">Min: {current.minQty}</span>
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl font-semibold text-steel-900 mb-2">{current.name}</h2>
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="text-xl font-semibold text-primary-500">{current.rate}</span>
+                <span className="text-sm text-steel-400">{current.minQty}</span>
               </div>
-              <p className="text-steel-500 mb-6">{current.description}</p>
+              <p className="text-steel-500 mb-8 leading-relaxed">{current.description}</p>
 
-              <h3 className="font-semibold text-steel-800 mb-3">Applications</h3>
-              <ul className="space-y-2 mb-6">
+              <h3 className="text-sm font-semibold text-steel-800 uppercase tracking-wide mb-4">Applications</h3>
+              <ul className="space-y-2 mb-8">
                 {current.applications.map((app, idx) => (
-                  <li key={idx} className="flex items-center text-steel-500">
-                    <CheckCircle size={16} className="text-accent-500 mr-2" />
+                  <li key={idx} className="flex items-center text-sm text-steel-600">
+                    <CheckCircle size={14} className="text-steel-400 mr-2" />
                     {app}
                   </li>
                 ))}
@@ -866,21 +868,21 @@ const InventoryPage = () => {
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need ${current.name}. Please share availability and quote.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 transition-colors"
+                className="inline-flex items-center px-5 py-2.5 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
                 data-testid="inv-whatsapp"
               >
-                <MessageCircle size={20} className="mr-2" />
-                Enquire on WhatsApp
+                Request Quote
+                <ArrowRight size={14} className="ml-2" />
               </a>
             </div>
 
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-semibold text-steel-800 mb-4">Technical Specifications</h3>
-              <div className="space-y-3">
+            <div className="bg-steel-50 rounded-lg p-8">
+              <h3 className="text-sm font-semibold text-steel-800 uppercase tracking-wide mb-6">Technical Specifications</h3>
+              <div className="space-y-4">
                 {current.specs.map((spec, idx) => (
-                  <div key={idx} className="flex justify-between py-3 border-b border-steel-100">
-                    <span className="text-steel-500">{spec.label}</span>
-                    <span className="font-medium text-steel-800">{spec.value}</span>
+                  <div key={idx} className="flex justify-between py-3 border-b border-steel-200 last:border-0">
+                    <span className="text-sm text-steel-500">{spec.label}</span>
+                    <span className="text-sm font-medium text-steel-800">{spec.value}</span>
                   </div>
                 ))}
               </div>
@@ -899,14 +901,14 @@ const InventoryPage = () => {
 const ServicesPage = () => {
   const services = [
     {
-      title: 'Scaffolding Rental',
-      desc: 'Flexible rental options for all project sizes',
+      title: 'Equipment Rental',
+      desc: 'Flexible rental options for projects of all sizes',
       details: [
-        'Daily, weekly, and monthly rental rates',
+        'Daily, weekly, and monthly rental terms',
         'Cuplock, Ringlock, Props, and Ladders',
-        'Bulk discounts for large orders',
-        'Transparent pricing with no hidden charges',
-        'GST invoice for all transactions',
+        'Volume discounts for large orders',
+        'Transparent pricing, no hidden charges',
+        'GST-compliant invoicing',
       ],
       icon: Building2
     },
@@ -914,17 +916,17 @@ const ServicesPage = () => {
       title: 'Erection & Dismantling',
       desc: 'Professional installation by trained crews',
       details: [
-        'Safety-compliant installation',
-        'Trained and certified workers',
+        'Safety-compliant installation processes',
+        'Trained and experienced workers',
         'Proper anchoring and bracing',
         'Base plate and sole board installation',
-        'Dismantling with proper handling',
+        'Careful dismantling and handling',
       ],
       icon: Wrench
     },
     {
       title: 'Safety Audits',
-      desc: 'Regular inspection and compliance',
+      desc: 'Regular inspection and compliance verification',
       details: [
         'Periodic scaffolding inspection',
         'Load testing and verification',
@@ -939,7 +941,7 @@ const ServicesPage = () => {
       desc: '24/7 availability for urgent requirements',
       details: [
         '4-hour response in Gurgaon',
-        '24/7 emergency helpline',
+        'Round-the-clock emergency helpline',
         'Immediate dispatch from yard',
         'Priority handling for urgent projects',
         'Dedicated emergency coordinator',
@@ -949,38 +951,41 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div data-testid="services-page">
-      <section className="bg-primary-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h1>
-          <p className="text-steel-300 text-lg">Complete scaffolding solutions from rental to installation</p>
+    <div data-testid="services-page" className="pt-20">
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Services</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+              Complete scaffolding solutions
+            </h1>
+            <p className="text-lg text-steel-500 leading-relaxed">
+              From equipment rental to full project execution—one partner for everything.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 bg-steel-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="space-y-12">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="space-y-16">
             {services.map((service, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm overflow-hidden" data-testid={`svc-${idx}`}>
-                <div className="grid md:grid-cols-2">
-                  <div className="p-8">
-                    <div className="w-14 h-14 bg-accent-500 rounded-xl flex items-center justify-center mb-4">
-                      <service.icon className="text-primary-900" size={28} />
-                    </div>
-                    <h2 className="text-2xl font-bold text-primary-500 mb-2">{service.title}</h2>
-                    <p className="text-steel-500 mb-4">{service.desc}</p>
-                    <ul className="space-y-2">
-                      {service.details.map((detail, i) => (
-                        <li key={i} className="flex items-center text-steel-500">
-                          <CheckCircle size={16} className="text-accent-500 mr-2 flex-shrink-0" />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="bg-steel-100 h-64 md:h-auto flex items-center justify-center">
-                    <service.icon className="text-steel-300" size={80} />
-                  </div>
+              <div key={idx} className="grid lg:grid-cols-2 gap-12 items-start" data-testid={`svc-${idx}`}>
+                <div className={idx % 2 === 1 ? 'lg:order-2' : ''}>
+                  <service.icon className="text-primary-500 mb-4" size={32} strokeWidth={1.5} />
+                  <h2 className="text-2xl font-semibold text-steel-900 mb-2">{service.title}</h2>
+                  <p className="text-steel-500 mb-6">{service.desc}</p>
+                  <ul className="space-y-3">
+                    {service.details.map((detail, i) => (
+                      <li key={i} className="flex items-start text-sm text-steel-600">
+                        <CheckCircle size={14} className="text-steel-400 mr-2 mt-0.5 flex-shrink-0" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={`bg-steel-100 rounded-lg h-64 flex items-center justify-center ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <service.icon className="text-steel-300" size={64} strokeWidth={1} />
                 </div>
               </div>
             ))}
@@ -1007,58 +1012,65 @@ const ProjectsPage = () => {
   }, []);
 
   return (
-    <div data-testid="projects-page">
-      <section className="bg-primary-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Projects</h1>
-          <p className="text-steel-300 text-lg">Metrics-driven case studies. Real numbers, real results.</p>
+    <div data-testid="projects-page" className="pt-20">
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Projects</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+              Proven track record across NCR
+            </h1>
+            <p className="text-lg text-steel-500 leading-relaxed">
+              Real projects, real metrics. No marketing fluff—just verified performance data.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 bg-steel-50">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="bg-white rounded-xl overflow-hidden card-hover shadow-sm" data-testid={`project-${project.id}`}>
-                <div className="bg-primary-500 text-white p-6">
-                  <h3 className="text-xl font-bold mb-1">{project.title}</h3>
-                  <p className="text-steel-200 flex items-center">
-                    <MapPin size={14} className="mr-1" />
+              <div key={project.id} className="border border-steel-100 rounded-lg overflow-hidden hover:border-steel-200 transition-colors" data-testid={`project-${project.id}`}>
+                <div className="bg-steel-50 p-6">
+                  <h3 className="text-lg font-semibold text-steel-900 mb-1">{project.title}</h3>
+                  <p className="text-sm text-steel-500 flex items-center">
+                    <MapPin size={12} className="mr-1" />
                     {project.location}
                   </p>
                 </div>
                 <div className="p-6">
-                  <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     <div>
-                      <span className="text-steel-500 text-sm">Client</span>
-                      <p className="font-medium text-steel-800">{project.client}</p>
+                      <span className="text-xs text-steel-400 uppercase tracking-wide">Client</span>
+                      <p className="text-sm font-medium text-steel-800">{project.client}</p>
                     </div>
                     <div>
-                      <span className="text-steel-500 text-sm">Equipment</span>
-                      <p className="font-medium text-steel-800">{project.equipment}</p>
+                      <span className="text-xs text-steel-400 uppercase tracking-wide">Equipment</span>
+                      <p className="text-sm font-medium text-steel-800">{project.equipment}</p>
                     </div>
                     <div>
-                      <span className="text-steel-500 text-sm">Tonnage</span>
-                      <p className="font-medium text-steel-800">{project.tonnage} tons</p>
+                      <span className="text-xs text-steel-400 uppercase tracking-wide">Tonnage</span>
+                      <p className="text-sm font-medium text-steel-800">{project.tonnage} tons</p>
                     </div>
                     <div>
-                      <span className="text-steel-500 text-sm">Duration</span>
-                      <p className="font-medium text-steel-800">{project.duration}</p>
+                      <span className="text-xs text-steel-400 uppercase tracking-wide">Duration</span>
+                      <p className="text-sm font-medium text-steel-800">{project.duration}</p>
                     </div>
                   </div>
-                  <div className="border-t border-steel-100 pt-4">
-                    <h4 className="font-medium text-steel-800 mb-2">Key Metrics</h4>
+                  <div className="pt-4 border-t border-steel-100">
+                    <span className="text-xs text-steel-400 uppercase tracking-wide mb-2 block">Key Metrics</span>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">
-                        {project.metrics.delivery_accuracy} Delivery
+                      <span className="px-2 py-1 bg-steel-50 text-steel-600 text-xs rounded">
+                        {project.metrics.delivery_accuracy} delivery
                       </span>
                       {project.metrics.zero_safety_incidents && (
-                        <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">
-                          Zero Safety Incidents
+                        <span className="px-2 py-1 bg-steel-50 text-steel-600 text-xs rounded">
+                          Zero incidents
                         </span>
                       )}
-                      <span className="px-3 py-1 bg-accent-100 text-accent-700 text-sm rounded-full">
-                        {project.metrics.emergency_response_time} Emergency Response
+                      <span className="px-2 py-1 bg-steel-50 text-steel-600 text-xs rounded">
+                        {project.metrics.emergency_response_time} response
                       </span>
                     </div>
                   </div>
@@ -1077,61 +1089,65 @@ const ProjectsPage = () => {
 // Process Page
 const ProcessPage = () => {
   const steps = [
-    { step: 1, title: 'Enquiry', desc: 'WhatsApp us your requirement. Equipment type, quantity, duration, site location.', time: '5 mins' },
-    { step: 2, title: 'Site Survey', desc: 'For large orders, we visit site to assess requirements and access.', time: 'Same day' },
-    { step: 3, title: 'Quote', desc: 'Detailed quote with rates, terms, and delivery schedule. Clear GST breakup.', time: '2 hours' },
-    { step: 4, title: 'Confirmation', desc: 'Advance payment. PO or email confirmation. Delivery date locked.', time: '1 day' },
-    { step: 5, title: 'Delivery', desc: 'Material reaches site with weighbridge slip. Quantity verified on-site.', time: 'As scheduled' },
-    { step: 6, title: 'Support', desc: 'Single point of contact throughout rental. Emergency support 24/7.', time: 'Ongoing' },
+    { step: 1, title: 'Enquiry', desc: 'Share your requirements via WhatsApp or call. Equipment type, quantity, duration, and site location.', time: '5 minutes' },
+    { step: 2, title: 'Site Assessment', desc: 'For large orders, we visit the site to assess requirements, access routes, and delivery logistics.', time: 'Same day' },
+    { step: 3, title: 'Quotation', desc: 'Detailed quote with rates, terms, and delivery schedule. Clear GST breakup with no hidden charges.', time: '2 hours' },
+    { step: 4, title: 'Confirmation', desc: 'Advance payment and PO or email confirmation. Delivery date is locked and committed.', time: '1 day' },
+    { step: 5, title: 'Delivery', desc: 'Material reaches site with weighbridge slip. Quantity verified and documented on-site.', time: 'As scheduled' },
+    { step: 6, title: 'Ongoing Support', desc: 'Single point of contact throughout the rental period. 24/7 emergency support available.', time: 'Continuous' },
   ];
 
   return (
-    <div data-testid="process-page">
-      <section className="bg-primary-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h1>
-          <p className="text-steel-300 text-lg">Clear steps. No surprises. Systems-driven execution.</p>
+    <div data-testid="process-page" className="pt-20">
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Process</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+              Systematic. Predictable. Reliable.
+            </h1>
+            <p className="text-lg text-steel-500 leading-relaxed">
+              No surprises. Clear steps from enquiry to delivery, with committed timelines.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 bg-steel-50">
-        <div className="max-w-4xl mx-auto px-4">
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <div className="space-y-0">
             {steps.map((step, idx) => (
-              <div key={idx} className="relative pl-12 pb-8" data-testid={`step-${idx}`}>
-                {/* Timeline line */}
+              <div key={idx} className="relative pl-12 pb-12 last:pb-0" data-testid={`step-${idx}`}>
                 {idx < steps.length - 1 && (
-                  <div className="absolute left-5 top-10 w-0.5 h-full bg-steel-300"></div>
+                  <div className="absolute left-[18px] top-8 w-px h-full bg-steel-200"></div>
                 )}
-                {/* Step number */}
-                <div className="absolute left-0 w-10 h-10 bg-accent-500 text-primary-900 rounded-full flex items-center justify-center font-bold">
+                <div className="absolute left-0 w-9 h-9 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm font-medium">
                   {step.step}
                 </div>
-                {/* Content */}
-                <div className="bg-white rounded-lg p-6 ml-4 shadow-sm">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-bold text-primary-500">{step.title}</h3>
-                    <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded font-medium">{step.time}</span>
+                <div className="pt-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-semibold text-steel-900">{step.title}</h3>
+                    <span className="text-xs text-steel-400 font-medium">{step.time}</span>
                   </div>
-                  <p className="text-steel-500">{step.desc}</p>
+                  <p className="text-steel-500 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 p-6 bg-primary-500 text-white rounded-xl text-center">
-            <h3 className="text-xl font-bold mb-2">Our Guarantee</h3>
-            <p className="text-steel-200 mb-4">
-              If we miss the committed delivery date by more than 24 hours, you get 10% discount on that order. No questions asked.
+          <div className="mt-16 p-8 bg-steel-50 rounded-lg border border-steel-100">
+            <h3 className="text-lg font-semibold text-steel-900 mb-2">Our Delivery Guarantee</h3>
+            <p className="text-steel-500 text-sm leading-relaxed mb-4">
+              If we miss the committed delivery date by more than 24 hours, you receive a 10% discount on that order. No questions asked, no exceptions.
             </p>
             <a 
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I want to start a scaffolding enquiry`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to start a scaffolding enquiry`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-colors"
+              className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
             >
-              <MessageCircle size={20} className="mr-2" />
-              Start Your Enquiry
+              Start your enquiry
+              <ArrowRight size={14} className="ml-1.5" />
             </a>
           </div>
         </div>
@@ -1161,44 +1177,48 @@ const TestimonialsPage = () => {
   ];
 
   return (
-    <div data-testid="testimonials-page">
-      <section className="bg-primary-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Clients</h1>
-          <p className="text-steel-300 text-lg">Trusted by leading builders and contractors in NCR</p>
+    <div data-testid="testimonials-page" className="pt-20">
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Clients</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+              Trusted by NCR's leading builders
+            </h1>
+            <p className="text-lg text-steel-500 leading-relaxed">
+              From large developers to infrastructure contractors—partnerships built on consistent delivery.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Client Logos */}
-      <section className="py-12 bg-white border-b border-steel-200">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-center text-steel-500 mb-8">Companies We've Worked With</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+      <section className="py-12 bg-white border-b border-steel-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <p className="text-xs text-steel-400 uppercase tracking-wide mb-6 text-center">Companies we've worked with</p>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
             {clients.map((client, idx) => (
-              <div key={idx} className="px-6 py-3 bg-steel-50 rounded-lg text-steel-600 font-medium border border-steel-200">
+              <span key={idx} className="text-sm text-steel-500 font-medium">
                 {client}
-              </div>
+              </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-12 bg-steel-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-primary-500 text-center mb-8">What They Say</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((item) => (
-              <div key={item.id} className="bg-white p-6 rounded-xl shadow-sm" data-testid={`testimonial-${item.id}`}>
+              <div key={item.id} className="bg-white p-8 rounded-lg border border-steel-100" data-testid={`testimonial-${item.id}`}>
                 <div className="flex mb-4">
                   {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="text-accent-500 fill-current" />
+                    <Star key={i} size={14} className="text-accent-500 fill-current" />
                   ))}
                 </div>
-                <p className="text-steel-500 mb-4 italic">"{item.quote}"</p>
+                <p className="text-steel-600 text-sm leading-relaxed mb-6">"{item.quote}"</p>
                 <div>
-                  <p className="font-semibold text-steel-800">{item.name}</p>
-                  <p className="text-steel-500 text-sm">{item.designation}, {item.company}</p>
+                  <p className="font-medium text-steel-800 text-sm">{item.name}</p>
+                  <p className="text-steel-400 text-xs">{item.designation}, {item.company}</p>
                 </div>
               </div>
             ))}
@@ -1246,202 +1266,211 @@ const ContactPage = () => {
   };
 
   return (
-    <div data-testid="contact-page">
-      <section className="bg-primary-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Quote</h1>
-          <p className="text-steel-300 text-lg">WhatsApp is fastest. Or fill the form below.</p>
+    <div data-testid="contact-page" className="pt-20">
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Contact</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+              Let's discuss your project
+            </h1>
+            <p className="text-lg text-steel-500 leading-relaxed">
+              WhatsApp is fastest for quotes. Or use the form below for detailed requirements.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 bg-steel-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Quick Contact */}
-            <div>
-              <h2 className="text-2xl font-bold text-primary-500 mb-6">Fastest Way to Reach Us</h2>
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-5 gap-16">
+            {/* Contact Info */}
+            <div className="lg:col-span-2">
+              <h2 className="text-lg font-semibold text-steel-900 mb-6">Get in touch</h2>
               
-              <a 
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need scaffolding for my project. Please share quote.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center p-6 bg-green-500 text-white rounded-xl mb-4 hover:bg-green-600 transition-colors"
-                data-testid="contact-whatsapp"
-              >
-                <MessageCircle size={32} className="mr-4" />
-                <div>
-                  <div className="font-bold text-lg">WhatsApp Now</div>
-                  <div className="text-green-100">Response within 15 minutes</div>
-                </div>
-              </a>
-
-              <a 
-                href={`tel:${PHONE_NUMBER}`}
-                className="flex items-center p-6 bg-primary-500 text-white rounded-xl mb-8 hover:bg-primary-600 transition-colors"
-                data-testid="contact-call"
-              >
-                <Phone size={32} className="mr-4" />
-                <div>
-                  <div className="font-bold text-lg">+91 98765 43210</div>
-                  <div className="text-steel-200">Mon-Sat, 8 AM - 8 PM</div>
-                </div>
-              </a>
-
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="font-semibold text-steel-800 mb-4">Office Address</h3>
-                <div className="flex items-start text-steel-500 mb-4">
-                  <MapPin size={20} className="mr-3 mt-1 text-accent-500 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium text-steel-700">Jakota Scaffolding Rentals</p>
-                    <p>Plot No. 45, Industrial Area</p>
-                    <p>Sector 37, Gurgaon, Haryana 122001</p>
+              <div className="space-y-6 mb-10">
+                <a 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center p-4 border border-steel-200 rounded-lg hover:border-primary-500 transition-colors"
+                  data-testid="contact-whatsapp"
+                >
+                  <div className="w-10 h-10 bg-[#25D366] rounded-lg flex items-center justify-center mr-4">
+                    <MessageCircle size={18} className="text-white" />
                   </div>
-                </div>
-                <div className="flex items-center text-steel-500">
-                  <Clock size={20} className="mr-3 text-accent-500" />
-                  <p>Yard Hours: 7 AM - 9 PM (All days)</p>
+                  <div>
+                    <p className="font-medium text-steel-800 text-sm">WhatsApp</p>
+                    <p className="text-steel-500 text-xs">Response within 15 minutes</p>
+                  </div>
+                </a>
+
+                <a 
+                  href={`tel:${PHONE_NUMBER}`}
+                  className="flex items-center p-4 border border-steel-200 rounded-lg hover:border-primary-500 transition-colors"
+                  data-testid="contact-call"
+                >
+                  <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center mr-4">
+                    <Phone size={18} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-steel-800 text-sm">+91 98765 43210</p>
+                    <p className="text-steel-500 text-xs">Mon–Sat, 8 AM – 8 PM</p>
+                  </div>
+                </a>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold text-steel-800 uppercase tracking-wide mb-4">Office</h3>
+                <div className="text-sm text-steel-500 space-y-2">
+                  <p className="font-medium text-steel-700">Jakota Scaffolding</p>
+                  <p>Plot No. 45, Industrial Area</p>
+                  <p>Sector 37, Gurgaon, Haryana 122001</p>
+                  <p className="pt-2">Yard Hours: 7 AM – 9 PM (All days)</p>
                 </div>
               </div>
             </div>
 
             {/* Quote Form */}
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h2 className="text-2xl font-bold text-primary-500 mb-6">Request Quote</h2>
-              
-              {success ? (
-                <div className="text-center py-8" data-testid="form-success">
-                  <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-steel-800 mb-2">Quote Request Submitted!</h3>
-                  <p className="text-steel-500 mb-4">We'll contact you within 2 hours.</p>
-                  <button 
-                    onClick={() => setSuccess(false)}
-                    className="text-primary-500 font-medium hover:underline"
-                  >
-                    Submit another request
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-steel-700 mb-1">Name *</label>
-                      <input 
-                        type="text"
-                        required
-                        value={form.name}
-                        onChange={(e) => setForm({...form, name: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                        data-testid="form-name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-steel-700 mb-1">Company *</label>
-                      <input 
-                        type="text"
-                        required
-                        value={form.company}
-                        onChange={(e) => setForm({...form, company: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                        data-testid="form-company"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-steel-700 mb-1">Phone *</label>
-                      <input 
-                        type="tel"
-                        required
-                        value={form.phone}
-                        onChange={(e) => setForm({...form, phone: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                        data-testid="form-phone"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-steel-700 mb-1">Email</label>
-                      <input 
-                        type="email"
-                        value={form.email}
-                        onChange={(e) => setForm({...form, email: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                        data-testid="form-email"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-steel-700 mb-1">Equipment Type *</label>
-                    <select 
-                      value={form.equipment_type}
-                      onChange={(e) => setForm({...form, equipment_type: e.target.value})}
-                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                      data-testid="form-equipment"
+            <div className="lg:col-span-3">
+              <div className="bg-steel-50 p-8 rounded-lg border border-steel-100">
+                <h2 className="text-lg font-semibold text-steel-900 mb-6">Request a quote</h2>
+                
+                {success ? (
+                  <div className="text-center py-12" data-testid="form-success">
+                    <CheckCircle size={40} className="text-green-500 mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-steel-800 mb-2">Request submitted</h3>
+                    <p className="text-steel-500 text-sm mb-4">We'll contact you within 2 hours.</p>
+                    <button 
+                      onClick={() => setSuccess(false)}
+                      className="text-sm text-primary-500 hover:text-primary-600 transition-colors"
                     >
-                      <option value="cuplock">Cuplock Scaffolding</option>
-                      <option value="ringlock">Ringlock Scaffolding</option>
-                      <option value="slab_props">Slab Props</option>
-                      <option value="ms_ladder">MS Ladders</option>
-                    </select>
+                      Submit another request
+                    </button>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-4">
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-medium text-steel-700 mb-1.5">Name *</label>
+                        <input 
+                          type="text"
+                          required
+                          value={form.name}
+                          onChange={(e) => setForm({...form, name: e.target.value})}
+                          className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                          data-testid="form-name"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-steel-700 mb-1.5">Company *</label>
+                        <input 
+                          type="text"
+                          required
+                          value={form.company}
+                          onChange={(e) => setForm({...form, company: e.target.value})}
+                          className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                          data-testid="form-company"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-medium text-steel-700 mb-1.5">Phone *</label>
+                        <input 
+                          type="tel"
+                          required
+                          value={form.phone}
+                          onChange={(e) => setForm({...form, phone: e.target.value})}
+                          className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                          data-testid="form-phone"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-steel-700 mb-1.5">Email</label>
+                        <input 
+                          type="email"
+                          value={form.email}
+                          onChange={(e) => setForm({...form, email: e.target.value})}
+                          className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                          data-testid="form-email"
+                        />
+                      </div>
+                    </div>
                     <div>
-                      <label className="block text-sm font-medium text-steel-700 mb-1">Quantity (Tons) *</label>
+                      <label className="block text-sm font-medium text-steel-700 mb-1.5">Equipment Type *</label>
+                      <select 
+                        value={form.equipment_type}
+                        onChange={(e) => setForm({...form, equipment_type: e.target.value})}
+                        className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                        data-testid="form-equipment"
+                      >
+                        <option value="cuplock">Cuplock Scaffolding</option>
+                        <option value="ringlock">Ringlock Scaffolding</option>
+                        <option value="slab_props">Adjustable Props</option>
+                        <option value="ms_ladder">MS Ladders</option>
+                      </select>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-medium text-steel-700 mb-1.5">Quantity (Tons) *</label>
+                        <input 
+                          type="number"
+                          required
+                          min="1"
+                          value={form.quantity_tons}
+                          onChange={(e) => setForm({...form, quantity_tons: Number(e.target.value)})}
+                          className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                          data-testid="form-quantity"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-steel-700 mb-1.5">Duration (Days) *</label>
+                        <input 
+                          type="number"
+                          required
+                          min="1"
+                          value={form.duration_days}
+                          onChange={(e) => setForm({...form, duration_days: Number(e.target.value)})}
+                          className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                          data-testid="form-duration"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-steel-700 mb-1.5">Project Location *</label>
                       <input 
-                        type="number"
+                        type="text"
                         required
-                        min="1"
-                        value={form.quantity_tons}
-                        onChange={(e) => setForm({...form, quantity_tons: Number(e.target.value)})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                        data-testid="form-quantity"
+                        placeholder="Site address in Gurgaon / NCR"
+                        value={form.project_location}
+                        onChange={(e) => setForm({...form, project_location: e.target.value})}
+                        className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                        data-testid="form-location"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-steel-700 mb-1">Duration (Days) *</label>
-                      <input 
-                        type="number"
-                        required
-                        min="1"
-                        value={form.duration_days}
-                        onChange={(e) => setForm({...form, duration_days: Number(e.target.value)})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                        data-testid="form-duration"
+                      <label className="block text-sm font-medium text-steel-700 mb-1.5">Additional Notes</label>
+                      <textarea 
+                        rows="3"
+                        value={form.message}
+                        onChange={(e) => setForm({...form, message: e.target.value})}
+                        className="w-full px-4 py-2.5 bg-white border border-steel-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                        placeholder="Any specific requirements or questions?"
+                        data-testid="form-message"
                       />
                     </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-steel-700 mb-1">Project Location *</label>
-                    <input 
-                      type="text"
-                      required
-                      placeholder="Site address in Gurgaon/NCR"
-                      value={form.project_location}
-                      onChange={(e) => setForm({...form, project_location: e.target.value})}
-                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                      data-testid="form-location"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-steel-700 mb-1">Additional Requirements</label>
-                    <textarea 
-                      rows="3"
-                      value={form.message}
-                      onChange={(e) => setForm({...form, message: e.target.value})}
-                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
-                      placeholder="Erection/dismantling needed? Specific delivery date? Any other requirements?"
-                      data-testid="form-message"
-                    />
-                  </div>
-                  <button 
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-3 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-colors disabled:opacity-50"
-                    data-testid="form-submit"
-                  >
-                    {loading ? 'Submitting...' : 'Submit Quote Request'}
-                  </button>
-                </form>
-              )}
+                    <button 
+                      type="submit"
+                      disabled={loading}
+                      className="w-full py-3 bg-primary-500 text-white text-sm font-medium rounded-md hover:bg-primary-600 transition-colors disabled:opacity-50"
+                      data-testid="form-submit"
+                    >
+                      {loading ? 'Submitting...' : 'Submit Request'}
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -1454,11 +1483,14 @@ const ContactPage = () => {
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home': return <HomePage setCurrentPage={setCurrentPage} />;
       case 'about': return <AboutPage />;
-      case 'aboutus': return <AboutPage />;
       case 'inventory': return <InventoryPage />;
       case 'services': return <ServicesPage />;
       case 'projects': return <ProjectsPage />;
@@ -1471,13 +1503,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-steel-50">
+    <div className="min-h-screen bg-white font-sans antialiased">
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <main>
         {renderPage()}
       </main>
       <Footer setCurrentPage={setCurrentPage} />
-      <FloatingWhatsApp />
+      <FloatingContact />
     </div>
   );
 }
