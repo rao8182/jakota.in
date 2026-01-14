@@ -702,7 +702,7 @@ const AboutPage = () => (
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 { title: 'Systems, Not Jugaad', desc: 'Proper inventory management. Tracking for every delivery. Nothing left to chance.' },
-                { title: 'One Point of Contact', desc: 'You talk to one person. They're accountable for everything — delivery, quality, service.' },
+                { title: 'One Point of Contact', desc: 'You talk to one person. They are accountable for everything - delivery, quality, service.' },
                 { title: 'Verified Weights', desc: 'Every delivery comes with weighbridge slip. No arguments about short delivery.' },
                 { title: 'Quality First', desc: 'Equipment inspected before every delivery. Damaged pieces replaced immediately.' },
               ].map((item, idx) => (
