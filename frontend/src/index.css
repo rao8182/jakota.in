@@ -2,50 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #5F6C7B;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    color: #0F172A;
+  }
+}
+
+@layer components {
+  .prose {
+    max-width: 65ch;
+  }
+
+  .prose p {
+    margin-bottom: 1.25em;
+  }
+}
+
+/* Subtle transitions */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Remove transitions from elements that shouldn't have them */
+input, textarea, select, button {
+  transition-property: border-color, box-shadow, opacity;
 }
 
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.hero-gradient {
-  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
-}
-
-.accent-gradient {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-}
-
+/* Card hover effect - subtle */
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
 }
 
-.whatsapp-pulse {
-  animation: pulse 2s infinite;
+/* Focus states */
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(245, 178, 26, 0.7);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(245, 178, 26, 0);
-  }
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f9fc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Selection styling */
+::selection {
+  background: #1F3A5F;
+  color: white;
 }
