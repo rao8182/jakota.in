@@ -42,7 +42,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 onClick={() => setCurrentPage(item.id)}
                 className={`px-3 py-2 rounded text-sm font-medium transition-colors ${
                   currentPage === item.id 
-                    ? 'bg-accent-500 text-white' 
+                    ? 'bg-accent-500 text-primary-900' 
                     : 'text-steel-200 hover:text-white hover:bg-primary-600'
                 }`}
               >
@@ -93,7 +93,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 onClick={() => { setCurrentPage(item.id); setIsOpen(false); }}
                 className={`block w-full text-left px-4 py-3 text-sm font-medium ${
                   currentPage === item.id 
-                    ? 'bg-accent-500 text-white' 
+                    ? 'bg-accent-500 text-primary-900' 
                     : 'text-steel-200 hover:bg-primary-600'
                 }`}
               >
@@ -125,10 +125,10 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
 // Hero Section
 const HeroSection = ({ setCurrentPage }) => (
-  <section className="hero-gradient text-white py-16 md:py-24" data-testid="hero-section">
+  <section className="bg-primary-500 text-white py-16 md:py-24" data-testid="hero-section">
     <div className="max-w-7xl mx-auto px-4">
       <div className="max-w-3xl">
-        <div className="inline-block px-3 py-1 bg-accent-500/20 text-accent-400 text-sm font-medium rounded-full mb-4">
+        <div className="inline-block px-3 py-1 bg-accent-500/20 text-accent-500 text-sm font-semibold rounded-full mb-4 border border-accent-500/30">
           Trusted by 50+ Builders in NCR
         </div>
         <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
@@ -146,7 +146,7 @@ const HeroSection = ({ setCurrentPage }) => (
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need a quote for scaffolding rental`}
             target="_blank"
             rel="noopener noreferrer"
-            className="whatsapp-pulse flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all text-lg"
+            className="whatsapp-pulse flex items-center justify-center px-8 py-4 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-all text-lg shadow-lg"
             data-testid="hero-whatsapp-btn"
           >
             <MessageCircle size={24} className="mr-2" />
@@ -164,15 +164,15 @@ const HeroSection = ({ setCurrentPage }) => (
 
         <div className="flex flex-wrap gap-6 text-sm text-steel-300">
           <div className="flex items-center">
-            <CheckCircle size={18} className="text-green-400 mr-2" />
+            <CheckCircle size={18} className="text-accent-500 mr-2" />
             Same Day Delivery
           </div>
           <div className="flex items-center">
-            <CheckCircle size={18} className="text-green-400 mr-2" />
+            <CheckCircle size={18} className="text-accent-500 mr-2" />
             500+ Tons Ready Stock
           </div>
           <div className="flex items-center">
-            <CheckCircle size={18} className="text-green-400 mr-2" />
+            <CheckCircle size={18} className="text-accent-500 mr-2" />
             Free Site Survey
           </div>
         </div>
@@ -183,7 +183,7 @@ const HeroSection = ({ setCurrentPage }) => (
 
 // Stats Section
 const StatsSection = () => (
-  <section className="bg-white py-12 border-b" data-testid="stats-section">
+  <section className="bg-steel-50 py-12 border-b border-steel-200" data-testid="stats-section">
     <div className="max-w-7xl mx-auto px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {[
@@ -193,7 +193,7 @@ const StatsSection = () => (
           { value: '8+', label: 'Years Experience' },
         ].map((stat, index) => (
           <div key={index} data-testid={`stat-${index}`}>
-            <div className="text-3xl md:text-4xl font-bold text-primary-500">{stat.value}</div>
+            <div className="text-3xl md:text-4xl font-bold text-accent-500">{stat.value}</div>
             <div className="text-steel-500 text-sm mt-1">{stat.label}</div>
           </div>
         ))}
@@ -240,11 +240,11 @@ const InventorySection = ({ setCurrentPage }) => {
   ];
 
   return (
-    <section className="py-16 bg-steel-50" data-testid="inventory-section">
+    <section className="py-16 bg-white" data-testid="inventory-section">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-primary-500 mb-4">Our Equipment</h2>
-          <p className="text-steel-600 max-w-2xl mx-auto">
+          <p className="text-steel-500 max-w-2xl mx-auto">
             Premium quality scaffolding equipment. Inspected before every delivery. Clear weight documentation.
           </p>
         </div>
@@ -253,19 +253,19 @@ const InventorySection = ({ setCurrentPage }) => {
           {inventory.map((item) => (
             <div 
               key={item.id}
-              className="bg-white rounded-xl p-6 shadow-sm card-hover border border-steel-100"
+              className="bg-steel-50 rounded-xl p-6 shadow-sm card-hover border border-steel-100 hover:border-accent-500 transition-colors"
               data-testid={`inventory-${item.id}`}
             >
-              <div className="w-12 h-12 bg-primary-500/10 rounded-lg flex items-center justify-center mb-4">
-                <item.icon className="text-primary-500" size={24} />
+              <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center mb-4">
+                <item.icon className="text-accent-500" size={24} />
               </div>
-              <h3 className="text-lg font-semibold text-steel-800 mb-1">{item.name}</h3>
-              <div className="text-accent-500 font-bold mb-2">{item.rate}</div>
+              <h3 className="text-lg font-semibold text-steel-900 mb-1">{item.name}</h3>
+              <div className="text-accent-600 font-bold mb-2">{item.rate}</div>
               <p className="text-steel-500 text-sm mb-4">{item.desc}</p>
               <ul className="space-y-2">
                 {item.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-steel-600">
-                    <CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" />
+                  <li key={idx} className="flex items-center text-sm text-steel-500">
+                    <CheckCircle size={14} className="text-accent-500 mr-2 flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
@@ -323,7 +323,7 @@ const CostCalculator = () => {
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white mb-4">
-            <Calculator className="inline mr-2 mb-1" size={32} />
+            <Calculator className="inline mr-2 mb-1 text-accent-500" size={32} />
             Instant Cost Calculator
           </h2>
           <p className="text-steel-300">Get an estimate in seconds. Final quote on WhatsApp.</p>
@@ -336,7 +336,7 @@ const CostCalculator = () => {
               <select 
                 value={equipment}
                 onChange={(e) => setEquipment(e.target.value)}
-                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent bg-steel-50"
                 data-testid="calc-equipment"
               >
                 <option value="cuplock">Cuplock Scaffolding</option>
@@ -352,7 +352,7 @@ const CostCalculator = () => {
                 value={tonnage}
                 onChange={(e) => setTonnage(Number(e.target.value))}
                 min="1"
-                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent bg-steel-50"
                 data-testid="calc-tonnage"
               />
             </div>
@@ -363,7 +363,7 @@ const CostCalculator = () => {
                 value={days}
                 onChange={(e) => setDays(Number(e.target.value))}
                 min="1"
-                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent bg-steel-50"
                 data-testid="calc-days"
               />
             </div>
@@ -372,36 +372,36 @@ const CostCalculator = () => {
           <button 
             onClick={calculate}
             disabled={loading}
-            className="w-full py-4 bg-accent-500 text-white font-semibold rounded-lg hover:bg-accent-600 transition-colors disabled:opacity-50"
+            className="w-full py-4 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-colors disabled:opacity-50 text-lg"
             data-testid="calc-submit"
           >
             {loading ? 'Calculating...' : 'Calculate Estimate'}
           </button>
 
           {result && (
-            <div className="mt-6 p-6 bg-steel-50 rounded-xl" data-testid="calc-result">
+            <div className="mt-6 p-6 bg-steel-50 rounded-xl border border-steel-200" data-testid="calc-result">
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
                   <span className="text-steel-500 text-sm">Equipment</span>
-                  <p className="font-medium">{result.equipment}</p>
+                  <p className="font-medium text-steel-800">{result.equipment}</p>
                 </div>
                 <div>
                   <span className="text-steel-500 text-sm">Rate</span>
-                  <p className="font-medium">₹{result.rate_per_ton_per_day}/ton/day</p>
+                  <p className="font-medium text-steel-800">₹{result.rate_per_ton_per_day}/ton/day</p>
                 </div>
                 <div>
                   <span className="text-steel-500 text-sm">Base Cost</span>
-                  <p className="font-medium">₹{result.base_cost.toLocaleString()}</p>
+                  <p className="font-medium text-steel-800">₹{result.base_cost.toLocaleString()}</p>
                 </div>
                 <div>
                   <span className="text-steel-500 text-sm">Bulk Discount ({result.discount_percent}%)</span>
                   <p className="font-medium text-green-600">-₹{result.discount_amount.toLocaleString()}</p>
                 </div>
               </div>
-              <div className="border-t pt-4">
+              <div className="border-t border-steel-200 pt-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-medium">Estimated Total</span>
-                  <span className="text-2xl font-bold text-primary-500">₹{result.final_cost.toLocaleString()}</span>
+                  <span className="text-lg font-medium text-steel-700">Estimated Total</span>
+                  <span className="text-2xl font-bold text-accent-600">₹{result.final_cost.toLocaleString()}</span>
                 </div>
                 <p className="text-sm text-steel-500 mt-2">{result.note}</p>
               </div>
@@ -449,11 +449,11 @@ const ServicesSection = ({ setCurrentPage }) => {
   ];
 
   return (
-    <section className="py-16 bg-white" data-testid="services-section">
+    <section className="py-16 bg-steel-50" data-testid="services-section">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-primary-500 mb-4">What We Do</h2>
-          <p className="text-steel-600 max-w-2xl mx-auto">
+          <p className="text-steel-500 max-w-2xl mx-auto">
             End-to-end scaffolding solutions. From equipment rental to complete project execution.
           </p>
         </div>
@@ -462,11 +462,11 @@ const ServicesSection = ({ setCurrentPage }) => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="p-6 rounded-xl border border-steel-100 hover:border-primary-500 transition-colors card-hover"
+              className="p-6 rounded-xl border border-steel-200 bg-white hover:border-accent-500 transition-colors card-hover"
               data-testid={`service-${index}`}
             >
               <div className="w-12 h-12 bg-accent-500/10 rounded-lg flex items-center justify-center mb-4">
-                <service.icon className="text-accent-500" size={24} />
+                <service.icon className="text-accent-600" size={24} />
               </div>
               <h3 className="text-lg font-semibold text-steel-800 mb-2">{service.title}</h3>
               <p className="text-steel-500 text-sm">{service.desc}</p>
@@ -500,22 +500,22 @@ const WhyJakota = () => {
   ];
 
   return (
-    <section className="py-16 bg-steel-50" data-testid="why-section">
+    <section className="py-16 bg-white" data-testid="why-section">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-primary-500 mb-4">Why Builders Choose Jakota</h2>
-          <p className="text-steel-600">No marketing talk. Just facts.</p>
+          <p className="text-steel-500">No marketing talk. Just facts.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((reason, index) => (
             <div 
               key={index}
-              className="flex items-start p-4 bg-white rounded-lg"
+              className="flex items-start p-5 bg-steel-50 rounded-lg border border-steel-100"
               data-testid={`why-${index}`}
             >
-              <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <reason.icon className="text-white" size={20} />
+              <div className="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <reason.icon className="text-primary-900" size={20} />
               </div>
               <div className="ml-4">
                 <h3 className="font-semibold text-steel-800">{reason.title}</h3>
@@ -533,10 +533,10 @@ const WhyJakota = () => {
 const CTASection = () => (
   <section className="py-16 bg-accent-500" data-testid="cta-section">
     <div className="max-w-4xl mx-auto px-4 text-center">
-      <h2 className="text-3xl font-bold text-white mb-4">
+      <h2 className="text-3xl font-bold text-primary-900 mb-4">
         Ready to Get Started?
       </h2>
-      <p className="text-white/90 text-lg mb-8">
+      <p className="text-primary-800 text-lg mb-8">
         Get a quote in 5 minutes. No forms, no waiting. Just WhatsApp us your requirements.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -544,7 +544,7 @@ const CTASection = () => (
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need scaffolding for my project. Please share quote.`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center px-8 py-4 bg-white text-accent-600 font-semibold rounded-lg hover:bg-steel-100 transition-colors text-lg"
+          className="flex items-center justify-center px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg hover:bg-primary-600 transition-colors text-lg"
           data-testid="cta-whatsapp"
         >
           <MessageCircle size={24} className="mr-2" />
@@ -552,7 +552,7 @@ const CTASection = () => (
         </a>
         <a 
           href={`tel:${PHONE_NUMBER}`}
-          className="flex items-center justify-center px-8 py-4 bg-accent-600 text-white font-semibold rounded-lg hover:bg-accent-700 transition-colors text-lg border-2 border-white/20"
+          className="flex items-center justify-center px-8 py-4 bg-white text-primary-500 font-semibold rounded-lg hover:bg-steel-50 transition-colors text-lg"
           data-testid="cta-call"
         >
           <Phone size={24} className="mr-2" />
@@ -592,7 +592,7 @@ const Footer = ({ setCurrentPage }) => (
         </div>
         
         <div>
-          <h3 className="font-semibold mb-4">Quick Links</h3>
+          <h3 className="font-semibold mb-4 text-accent-500">Quick Links</h3>
           <ul className="space-y-2 text-steel-400 text-sm">
             {['Home', 'About Us', 'Inventory', 'Services'].map(item => (
               <li key={item}>
@@ -608,7 +608,7 @@ const Footer = ({ setCurrentPage }) => (
         </div>
         
         <div>
-          <h3 className="font-semibold mb-4">Equipment</h3>
+          <h3 className="font-semibold mb-4 text-accent-500">Equipment</h3>
           <ul className="space-y-2 text-steel-400 text-sm">
             <li>Cuplock Scaffolding</li>
             <li>Ringlock Scaffolding</li>
@@ -618,7 +618,7 @@ const Footer = ({ setCurrentPage }) => (
         </div>
         
         <div>
-          <h3 className="font-semibold mb-4">Contact</h3>
+          <h3 className="font-semibold mb-4 text-accent-500">Contact</h3>
           <ul className="space-y-3 text-steel-400 text-sm">
             <li className="flex items-start">
               <MapPin size={16} className="mr-2 mt-1 flex-shrink-0 text-accent-500" />
@@ -675,30 +675,30 @@ const HomePage = ({ setCurrentPage }) => (
 // About Page
 const AboutPage = () => (
   <div data-testid="about-page">
-    <section className="hero-gradient text-white py-16">
+    <section className="bg-primary-500 text-white py-16">
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold mb-4">About Jakota</h1>
         <p className="text-steel-300 text-lg">From a small yard to serving 50+ builders in NCR</p>
       </div>
     </section>
     
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-steel-50">
       <div className="max-w-4xl mx-auto px-4">
         <div className="space-y-12">
-          <div>
+          <div className="bg-white p-8 rounded-xl shadow-sm">
             <h2 className="text-2xl font-bold text-primary-500 mb-4">Our Journey</h2>
-            <p className="text-steel-600 leading-relaxed mb-4">
+            <p className="text-steel-500 leading-relaxed mb-4">
               Started in 2016 with 50 tons of scaffolding and a simple promise: deliver on time, every time.
               Today, we manage 500+ tons of inventory and have served some of the biggest names in NCR construction.
             </p>
-            <p className="text-steel-600 leading-relaxed">
+            <p className="text-steel-500 leading-relaxed">
               We've grown not by marketing, but by word of mouth. When your scaffolding arrives exactly when promised,
               builders talk. That's been our growth strategy — reliability that speaks for itself.
             </p>
           </div>
 
-          <div>
-            <h2 className="text-2xl font-bold text-primary-500 mb-4">How We're Different</h2>
+          <div className="bg-white p-8 rounded-xl shadow-sm">
+            <h2 className="text-2xl font-bold text-primary-500 mb-6">How We're Different</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 { title: 'Systems, Not Jugaad', desc: 'Proper inventory management. Tracking for every delivery. Nothing left to chance.' },
@@ -706,16 +706,16 @@ const AboutPage = () => (
                 { title: 'Verified Weights', desc: 'Every delivery comes with weighbridge slip. No arguments about short delivery.' },
                 { title: 'Quality First', desc: 'Equipment inspected before every delivery. Damaged pieces replaced immediately.' },
               ].map((item, idx) => (
-                <div key={idx} className="p-4 bg-steel-50 rounded-lg">
+                <div key={idx} className="p-4 bg-steel-50 rounded-lg border border-steel-200">
                   <h3 className="font-semibold text-steel-800 mb-2">{item.title}</h3>
-                  <p className="text-steel-600 text-sm">{item.desc}</p>
+                  <p className="text-steel-500 text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div>
-            <h2 className="text-2xl font-bold text-primary-500 mb-4">Our Scale</h2>
+          <div className="bg-white p-8 rounded-xl shadow-sm">
+            <h2 className="text-2xl font-bold text-primary-500 mb-6">Our Scale</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { value: '500+', label: 'Tons Inventory' },
@@ -724,7 +724,7 @@ const AboutPage = () => (
                 { value: '24/7', label: 'Emergency Support' },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center p-4 bg-primary-500 text-white rounded-lg">
-                  <div className="text-2xl font-bold">{stat.value}</div>
+                  <div className="text-2xl font-bold text-accent-500">{stat.value}</div>
                   <div className="text-sm text-steel-200">{stat.label}</div>
                 </div>
               ))}
@@ -804,14 +804,14 @@ const InventoryPage = () => {
 
   return (
     <div data-testid="inventory-page">
-      <section className="hero-gradient text-white py-16">
+      <section className="bg-primary-500 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Inventory</h1>
           <p className="text-steel-300 text-lg">Quality equipment. Clear specifications. Transparent pricing.</p>
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-steel-50">
         <div className="max-w-7xl mx-auto px-4">
           {/* Equipment Selector */}
           <div className="flex flex-wrap gap-2 mb-8">
@@ -821,8 +821,8 @@ const InventoryPage = () => {
                 onClick={() => setSelectedType(key)}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedType === key
-                    ? 'bg-primary-500 text-white'
-                    : 'bg-steel-100 text-steel-600 hover:bg-steel-200'
+                    ? 'bg-accent-500 text-primary-900'
+                    : 'bg-white text-steel-600 hover:bg-steel-100 border border-steel-200'
                 }`}
                 data-testid={`inv-tab-${key}`}
               >
@@ -833,19 +833,19 @@ const InventoryPage = () => {
 
           {/* Equipment Details */}
           <div className="grid lg:grid-cols-2 gap-8">
-            <div>
+            <div className="bg-white p-8 rounded-xl shadow-sm">
               <h2 className="text-2xl font-bold text-primary-500 mb-2">{current.name}</h2>
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-2xl font-bold text-accent-500">{current.rate}</span>
+                <span className="text-2xl font-bold text-accent-600">{current.rate}</span>
                 <span className="text-steel-500">Min: {current.minQty}</span>
               </div>
-              <p className="text-steel-600 mb-6">{current.description}</p>
+              <p className="text-steel-500 mb-6">{current.description}</p>
 
               <h3 className="font-semibold text-steel-800 mb-3">Applications</h3>
               <ul className="space-y-2 mb-6">
                 {current.applications.map((app, idx) => (
-                  <li key={idx} className="flex items-center text-steel-600">
-                    <CheckCircle size={16} className="text-green-500 mr-2" />
+                  <li key={idx} className="flex items-center text-steel-500">
+                    <CheckCircle size={16} className="text-accent-500 mr-2" />
                     {app}
                   </li>
                 ))}
@@ -863,11 +863,11 @@ const InventoryPage = () => {
               </a>
             </div>
 
-            <div className="bg-steel-50 rounded-xl p-6">
+            <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-semibold text-steel-800 mb-4">Technical Specifications</h3>
               <div className="space-y-3">
                 {current.specs.map((spec, idx) => (
-                  <div key={idx} className="flex justify-between py-2 border-b border-steel-200">
+                  <div key={idx} className="flex justify-between py-3 border-b border-steel-100">
                     <span className="text-steel-500">{spec.label}</span>
                     <span className="font-medium text-steel-800">{spec.value}</span>
                   </div>
@@ -939,35 +939,37 @@ const ServicesPage = () => {
 
   return (
     <div data-testid="services-page">
-      <section className="hero-gradient text-white py-16">
+      <section className="bg-primary-500 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h1>
           <p className="text-steel-300 text-lg">Complete scaffolding solutions from rental to installation</p>
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-steel-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="space-y-12">
             {services.map((service, idx) => (
-              <div key={idx} className="grid md:grid-cols-2 gap-8 items-center" data-testid={`svc-${idx}`}>
-                <div className={idx % 2 === 1 ? 'md:order-2' : ''}>
-                  <div className="w-14 h-14 bg-primary-500 rounded-xl flex items-center justify-center mb-4">
-                    <service.icon className="text-white" size={28} />
+              <div key={idx} className="bg-white rounded-xl shadow-sm overflow-hidden" data-testid={`svc-${idx}`}>
+                <div className="grid md:grid-cols-2">
+                  <div className="p-8">
+                    <div className="w-14 h-14 bg-accent-500 rounded-xl flex items-center justify-center mb-4">
+                      <service.icon className="text-primary-900" size={28} />
+                    </div>
+                    <h2 className="text-2xl font-bold text-primary-500 mb-2">{service.title}</h2>
+                    <p className="text-steel-500 mb-4">{service.desc}</p>
+                    <ul className="space-y-2">
+                      {service.details.map((detail, i) => (
+                        <li key={i} className="flex items-center text-steel-500">
+                          <CheckCircle size={16} className="text-accent-500 mr-2 flex-shrink-0" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h2 className="text-2xl font-bold text-primary-500 mb-2">{service.title}</h2>
-                  <p className="text-steel-600 mb-4">{service.desc}</p>
-                  <ul className="space-y-2">
-                    {service.details.map((detail, i) => (
-                      <li key={i} className="flex items-center text-steel-600">
-                        <CheckCircle size={16} className="text-green-500 mr-2 flex-shrink-0" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className={`bg-steel-100 rounded-xl h-64 flex items-center justify-center ${idx % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <service.icon className="text-steel-300" size={80} />
+                  <div className="bg-steel-100 h-64 md:h-auto flex items-center justify-center">
+                    <service.icon className="text-steel-300" size={80} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -995,18 +997,18 @@ const ProjectsPage = () => {
 
   return (
     <div data-testid="projects-page">
-      <section className="hero-gradient text-white py-16">
+      <section className="bg-primary-500 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Projects</h1>
           <p className="text-steel-300 text-lg">Metrics-driven case studies. Real numbers, real results.</p>
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-steel-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="bg-steel-50 rounded-xl overflow-hidden card-hover" data-testid={`project-${project.id}`}>
+              <div key={project.id} className="bg-white rounded-xl overflow-hidden card-hover shadow-sm" data-testid={`project-${project.id}`}>
                 <div className="bg-primary-500 text-white p-6">
                   <h3 className="text-xl font-bold mb-1">{project.title}</h3>
                   <p className="text-steel-200 flex items-center">
@@ -1018,22 +1020,22 @@ const ProjectsPage = () => {
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div>
                       <span className="text-steel-500 text-sm">Client</span>
-                      <p className="font-medium">{project.client}</p>
+                      <p className="font-medium text-steel-800">{project.client}</p>
                     </div>
                     <div>
                       <span className="text-steel-500 text-sm">Equipment</span>
-                      <p className="font-medium">{project.equipment}</p>
+                      <p className="font-medium text-steel-800">{project.equipment}</p>
                     </div>
                     <div>
                       <span className="text-steel-500 text-sm">Tonnage</span>
-                      <p className="font-medium">{project.tonnage} tons</p>
+                      <p className="font-medium text-steel-800">{project.tonnage} tons</p>
                     </div>
                     <div>
                       <span className="text-steel-500 text-sm">Duration</span>
-                      <p className="font-medium">{project.duration}</p>
+                      <p className="font-medium text-steel-800">{project.duration}</p>
                     </div>
                   </div>
-                  <div className="border-t pt-4">
+                  <div className="border-t border-steel-100 pt-4">
                     <h4 className="font-medium text-steel-800 mb-2">Key Metrics</h4>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">
@@ -1044,7 +1046,7 @@ const ProjectsPage = () => {
                           Zero Safety Incidents
                         </span>
                       )}
-                      <span className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded-full">
+                      <span className="px-3 py-1 bg-accent-100 text-accent-700 text-sm rounded-full">
                         {project.metrics.emergency_response_time} Emergency Response
                       </span>
                     </div>
@@ -1074,33 +1076,33 @@ const ProcessPage = () => {
 
   return (
     <div data-testid="process-page">
-      <section className="hero-gradient text-white py-16">
+      <section className="bg-primary-500 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h1>
           <p className="text-steel-300 text-lg">Clear steps. No surprises. Systems-driven execution.</p>
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-steel-50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="space-y-0">
             {steps.map((step, idx) => (
               <div key={idx} className="relative pl-12 pb-8" data-testid={`step-${idx}`}>
                 {/* Timeline line */}
                 {idx < steps.length - 1 && (
-                  <div className="absolute left-5 top-10 w-0.5 h-full bg-steel-200"></div>
+                  <div className="absolute left-5 top-10 w-0.5 h-full bg-steel-300"></div>
                 )}
                 {/* Step number */}
-                <div className="absolute left-0 w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold">
+                <div className="absolute left-0 w-10 h-10 bg-accent-500 text-primary-900 rounded-full flex items-center justify-center font-bold">
                   {step.step}
                 </div>
                 {/* Content */}
-                <div className="bg-steel-50 rounded-lg p-6 ml-4">
+                <div className="bg-white rounded-lg p-6 ml-4 shadow-sm">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-lg font-bold text-primary-500">{step.title}</h3>
-                    <span className="px-2 py-1 bg-accent-100 text-accent-600 text-xs rounded font-medium">{step.time}</span>
+                    <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded font-medium">{step.time}</span>
                   </div>
-                  <p className="text-steel-600">{step.desc}</p>
+                  <p className="text-steel-500">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -1115,7 +1117,7 @@ const ProcessPage = () => {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I want to start a scaffolding enquiry`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-white text-primary-500 font-medium rounded-lg hover:bg-steel-100 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-colors"
             >
               <MessageCircle size={20} className="mr-2" />
               Start Your Enquiry
@@ -1149,7 +1151,7 @@ const TestimonialsPage = () => {
 
   return (
     <div data-testid="testimonials-page">
-      <section className="hero-gradient text-white py-16">
+      <section className="bg-primary-500 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Clients</h1>
           <p className="text-steel-300 text-lg">Trusted by leading builders and contractors in NCR</p>
@@ -1157,12 +1159,12 @@ const TestimonialsPage = () => {
       </section>
 
       {/* Client Logos */}
-      <section className="py-12 bg-white border-b">
+      <section className="py-12 bg-white border-b border-steel-200">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-center text-steel-500 mb-8">Companies We've Worked With</h2>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-4">
             {clients.map((client, idx) => (
-              <div key={idx} className="px-6 py-3 bg-steel-50 rounded-lg text-steel-600 font-medium">
+              <div key={idx} className="px-6 py-3 bg-steel-50 rounded-lg text-steel-600 font-medium border border-steel-200">
                 {client}
               </div>
             ))}
@@ -1179,10 +1181,10 @@ const TestimonialsPage = () => {
               <div key={item.id} className="bg-white p-6 rounded-xl shadow-sm" data-testid={`testimonial-${item.id}`}>
                 <div className="flex mb-4">
                   {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="text-yellow-400 fill-current" />
+                    <Star key={i} size={16} className="text-accent-500 fill-current" />
                   ))}
                 </div>
-                <p className="text-steel-600 mb-4 italic">"{item.quote}"</p>
+                <p className="text-steel-500 mb-4 italic">"{item.quote}"</p>
                 <div>
                   <p className="font-semibold text-steel-800">{item.name}</p>
                   <p className="text-steel-500 text-sm">{item.designation}, {item.company}</p>
@@ -1234,14 +1236,14 @@ const ContactPage = () => {
 
   return (
     <div data-testid="contact-page">
-      <section className="hero-gradient text-white py-16">
+      <section className="bg-primary-500 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Quote</h1>
           <p className="text-steel-300 text-lg">WhatsApp is fastest. Or fill the form below.</p>
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-steel-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Quick Contact */}
@@ -1274,17 +1276,17 @@ const ContactPage = () => {
                 </div>
               </a>
 
-              <div className="space-y-4">
-                <h3 className="font-semibold text-steel-800">Office Address</h3>
-                <div className="flex items-start text-steel-600">
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="font-semibold text-steel-800 mb-4">Office Address</h3>
+                <div className="flex items-start text-steel-500 mb-4">
                   <MapPin size={20} className="mr-3 mt-1 text-accent-500 flex-shrink-0" />
                   <div>
-                    <p>Jakota Scaffolding Rentals</p>
+                    <p className="font-medium text-steel-700">Jakota Scaffolding Rentals</p>
                     <p>Plot No. 45, Industrial Area</p>
                     <p>Sector 37, Gurgaon, Haryana 122001</p>
                   </div>
                 </div>
-                <div className="flex items-center text-steel-600">
+                <div className="flex items-center text-steel-500">
                   <Clock size={20} className="mr-3 text-accent-500" />
                   <p>Yard Hours: 7 AM - 9 PM (All days)</p>
                 </div>
@@ -1292,14 +1294,14 @@ const ContactPage = () => {
             </div>
 
             {/* Quote Form */}
-            <div className="bg-steel-50 p-6 rounded-xl">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
               <h2 className="text-2xl font-bold text-primary-500 mb-6">Request Quote</h2>
               
               {success ? (
                 <div className="text-center py-8" data-testid="form-success">
                   <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-steel-800 mb-2">Quote Request Submitted!</h3>
-                  <p className="text-steel-600 mb-4">We'll contact you within 2 hours.</p>
+                  <p className="text-steel-500 mb-4">We'll contact you within 2 hours.</p>
                   <button 
                     onClick={() => setSuccess(false)}
                     className="text-primary-500 font-medium hover:underline"
@@ -1317,7 +1319,7 @@ const ContactPage = () => {
                         required
                         value={form.name}
                         onChange={(e) => setForm({...form, name: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                         data-testid="form-name"
                       />
                     </div>
@@ -1328,7 +1330,7 @@ const ContactPage = () => {
                         required
                         value={form.company}
                         onChange={(e) => setForm({...form, company: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                         data-testid="form-company"
                       />
                     </div>
@@ -1341,7 +1343,7 @@ const ContactPage = () => {
                         required
                         value={form.phone}
                         onChange={(e) => setForm({...form, phone: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                         data-testid="form-phone"
                       />
                     </div>
@@ -1351,7 +1353,7 @@ const ContactPage = () => {
                         type="email"
                         value={form.email}
                         onChange={(e) => setForm({...form, email: e.target.value})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                         data-testid="form-email"
                       />
                     </div>
@@ -1361,7 +1363,7 @@ const ContactPage = () => {
                     <select 
                       value={form.equipment_type}
                       onChange={(e) => setForm({...form, equipment_type: e.target.value})}
-                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                       data-testid="form-equipment"
                     >
                       <option value="cuplock">Cuplock Scaffolding</option>
@@ -1379,7 +1381,7 @@ const ContactPage = () => {
                         min="1"
                         value={form.quantity_tons}
                         onChange={(e) => setForm({...form, quantity_tons: Number(e.target.value)})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                         data-testid="form-quantity"
                       />
                     </div>
@@ -1391,7 +1393,7 @@ const ContactPage = () => {
                         min="1"
                         value={form.duration_days}
                         onChange={(e) => setForm({...form, duration_days: Number(e.target.value)})}
-                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                         data-testid="form-duration"
                       />
                     </div>
@@ -1404,7 +1406,7 @@ const ContactPage = () => {
                       placeholder="Site address in Gurgaon/NCR"
                       value={form.project_location}
                       onChange={(e) => setForm({...form, project_location: e.target.value})}
-                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                       data-testid="form-location"
                     />
                   </div>
@@ -1414,7 +1416,7 @@ const ContactPage = () => {
                       rows="3"
                       value={form.message}
                       onChange={(e) => setForm({...form, message: e.target.value})}
-                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      className="w-full px-4 py-2 border border-steel-200 rounded-lg focus:ring-2 focus:ring-accent-500 bg-steel-50"
                       placeholder="Erection/dismantling needed? Specific delivery date? Any other requirements?"
                       data-testid="form-message"
                     />
@@ -1422,7 +1424,7 @@ const ContactPage = () => {
                   <button 
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 bg-accent-500 text-white font-semibold rounded-lg hover:bg-accent-600 transition-colors disabled:opacity-50"
+                    className="w-full py-3 bg-accent-500 text-primary-900 font-bold rounded-lg hover:bg-accent-400 transition-colors disabled:opacity-50"
                     data-testid="form-submit"
                   >
                     {loading ? 'Submitting...' : 'Submit Quote Request'}
@@ -1458,7 +1460,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-steel-50">
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <main>
         {renderPage()}
