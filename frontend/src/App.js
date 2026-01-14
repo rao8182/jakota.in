@@ -574,11 +574,13 @@ const Footer = ({ setCurrentPage }) => (
     <div className="max-w-7xl mx-auto px-4">
       <div className="grid md:grid-cols-4 gap-8 mb-8">
         <div>
-          <img 
-            src="/logo.png" 
-            alt="Jakota - Engineered Formwork & Scaffolds" 
-            className="h-12 w-auto mb-4 brightness-0 invert"
-          />
+          <div className="bg-white rounded-lg p-2 inline-block mb-4">
+            <img 
+              src="/logo.png" 
+              alt="Jakota - Engineered Formwork & Scaffolds" 
+              className="h-10 w-auto"
+            />
+          </div>
           <p className="text-steel-400 text-sm mb-4">
             Premium scaffolding rental in Gurgaon & NCR. Reliable delivery, quality equipment, transparent pricing.
           </p>
