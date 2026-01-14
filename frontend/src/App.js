@@ -29,8 +29,11 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             onClick={() => setCurrentPage('home')}
             data-testid="logo"
           >
-            <div className="text-2xl font-bold text-accent-500">JAKOTA</div>
-            <span className="ml-2 text-sm text-steel-300 hidden sm:block">Scaffolding Rentals</span>
+            <img 
+              src="/logo.png" 
+              alt="Jakota - Engineered Formwork & Scaffolds" 
+              className="h-10 md:h-12 w-auto"
+            />
           </div>
           
           {/* Desktop Navigation */}
