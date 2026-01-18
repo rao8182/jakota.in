@@ -24,7 +24,9 @@ app.add_middleware(
 # MongoDB Connection
 MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://localhost:27017/jakota')
 client = MongoClient(MONGO_URL)
-db = client.jakota
+# Extract database name from MONGO_URL or use default
+db_name = MONGO_URL.split('/')[-1].split('?')[0] if '/' in MONGO_URL else 'jakota'
+db = client[db_name]
 
 # Models
 class QuoteRequest(BaseModel):
