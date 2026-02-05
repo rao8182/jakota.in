@@ -459,7 +459,7 @@ const ServicesSection = ({ setCurrentPage }) => {
   const services = [
     {
       title: 'Equipment Rental',
-      desc: 'Cuplock, Ringlock, Props, and Ladders available on flexible rental terms. Daily, weekly, or monthly rates with volume discounts.',
+      desc: 'Cuplock, Ringlock, Props, and Ladders available on flexible rental terms. Daily, weekly, or monthly options with volume discounts.',
       icon: Building2
     },
     {
