@@ -411,13 +411,21 @@ const CostCalculator = () => {
               <div className="mt-6 pt-6 border-t border-steel-200" data-testid="calc-result">
                 <div className="space-y-3 mb-4">
                   <div className="flex justify-between text-sm">
-                    <span className="text-steel-500">Base cost ({result.quantity_tons}t × {result.duration_days}d × ₹{result.rate_per_ton_per_day})</span>
-                    <span className="text-steel-700">₹{result.base_cost.toLocaleString()}</span>
+                    <span className="text-steel-500">Equipment</span>
+                    <span className="text-steel-700">{result.equipment}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-steel-500">Quantity</span>
+                    <span className="text-steel-700">{result.quantity_tons} tons</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-steel-500">Duration</span>
+                    <span className="text-steel-700">{result.duration_days} days</span>
                   </div>
                   {result.discount_percent > 0 && (
                     <div className="flex justify-between text-sm">
-                      <span className="text-steel-500">Volume discount ({result.discount_percent}%)</span>
-                      <span className="text-green-600">-₹{result.discount_amount.toLocaleString()}</span>
+                      <span className="text-steel-500">Volume discount</span>
+                      <span className="text-green-600">{result.discount_percent}% applied</span>
                     </div>
                   )}
                 </div>
@@ -428,7 +436,7 @@ const CostCalculator = () => {
                 <p className="text-xs text-steel-400 mt-3">{result.note}</p>
                 
                 <a 
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need a quote for ${result.equipment}. Quantity: ${result.quantity_tons} tons, Duration: ${result.duration_days} days. Estimated: ₹${result.final_cost.toLocaleString()}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need a quote for ${result.equipment}. Quantity: ${result.quantity_tons} tons, Duration: ${result.duration_days} days.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 w-full inline-flex items-center justify-center py-3 text-sm font-medium text-primary-500 border border-primary-500 rounded-md hover:bg-primary-50 transition-colors"
