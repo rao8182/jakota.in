@@ -1115,7 +1115,7 @@ const ProcessPage = () => {
   const steps = [
     { step: 1, title: 'Enquiry', desc: 'Share your requirements via WhatsApp or call. Equipment type, quantity, duration, and site location.', time: '5 minutes' },
     { step: 2, title: 'Site Assessment', desc: 'For large orders, we visit the site to assess requirements, access routes, and delivery logistics.', time: 'Same day' },
-    { step: 3, title: 'Quotation', desc: 'Detailed quote with rates, terms, and delivery schedule. Clear GST breakup with no hidden charges.', time: '2 hours' },
+    { step: 3, title: 'Quotation', desc: 'Detailed quote with terms and delivery schedule. Clear GST breakup with no hidden charges.', time: '2 hours' },
     { step: 4, title: 'Confirmation', desc: 'Advance payment and PO or email confirmation. Delivery date is locked and committed.', time: '1 day' },
     { step: 5, title: 'Delivery', desc: 'Material reaches site with weighbridge slip. Quantity verified and documented on-site.', time: 'As scheduled' },
     { step: 6, title: 'Ongoing Support', desc: 'Single point of contact throughout the rental period. 24/7 emergency support available.', time: 'Continuous' },
