@@ -266,10 +266,6 @@ const EquipmentSection = ({ setCurrentPage }) => {
                   <h3 className="text-lg font-semibold text-steel-900 mb-1">{item.name}</h3>
                   <p className="text-sm text-steel-500">{item.desc}</p>
                 </div>
-                <div className="text-right">
-                  <span className="text-2xl font-semibold text-primary-500">{item.rate}</span>
-                  <span className="text-sm text-steel-400">{item.unit}</span>
-                </div>
               </div>
               <div className="space-y-2">
                 {item.specs.map((spec, idx) => (
