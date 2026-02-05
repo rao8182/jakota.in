@@ -331,17 +331,17 @@ const CostCalculator = () => {
           <div>
             <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Pricing</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
-              Transparent rental estimates
+              Get a quick estimate
             </h2>
             <p className="text-lg text-steel-500 leading-relaxed mb-8">
-              Get an instant estimate for your project. Final pricing includes bulk discounts, 
-              and is confirmed via WhatsApp within 2 hours.
+              Use our calculator for a rough estimate. Final pricing is customized based on 
+              project requirements and confirmed via WhatsApp within 2 hours.
             </p>
             
             <div className="space-y-4 text-sm text-steel-600">
               <div className="flex items-start">
                 <CheckCircle size={16} className="text-primary-500 mr-3 mt-0.5 flex-shrink-0" />
-                <span>Volume discounts: 5% (10+ tons), 10% (20+ tons), 15% (50+ tons)</span>
+                <span>Volume discounts available for large orders</span>
               </div>
               <div className="flex items-start">
                 <CheckCircle size={16} className="text-primary-500 mr-3 mt-0.5 flex-shrink-0" />
