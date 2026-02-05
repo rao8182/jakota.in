@@ -773,7 +773,6 @@ const InventoryPage = () => {
   const inventory = {
     cuplock: {
       name: 'Cuplock Scaffolding',
-      rate: '₹45/ton/day',
       minQty: '5 tons minimum',
       description: 'The industry standard for high-rise construction. Quick assembly, reliable load capacity, and universal compatibility.',
       applications: ['High-rise buildings', 'Industrial facilities', 'Commercial complexes', 'Infrastructure projects'],
@@ -787,7 +786,6 @@ const InventoryPage = () => {
     },
     ringlock: {
       name: 'Ringlock Scaffolding',
-      rate: '₹55/ton/day',
       minQty: '5 tons minimum',
       description: 'Premium scaffolding for complex structures. 8-directional connections provide maximum flexibility for challenging geometries.',
       applications: ['Curved structures', 'Stadiums & arenas', 'Complex facades', 'Heavy-duty shoring'],
@@ -801,7 +799,6 @@ const InventoryPage = () => {
     },
     slab_props: {
       name: 'Adjustable Props',
-      rate: '₹30/ton/day',
       minQty: '50 pieces minimum',
       description: 'Heavy-duty props for slab support and formwork. Fine-thread adjustment enables precise height settings.',
       applications: ['Slab formwork', 'Beam support', 'Temporary shoring', 'Bridge construction'],
@@ -815,7 +812,6 @@ const InventoryPage = () => {
     },
     ms_ladder: {
       name: 'MS Ladders',
-      rate: '₹35/ton/day',
       minQty: '2 tons minimum',
       description: 'Safe access ladders for scaffolding systems. Anti-slip rungs and proper spacing ensure worker safety.',
       applications: ['Scaffold access', 'Maintenance work', 'Industrial access', 'Construction sites'],
