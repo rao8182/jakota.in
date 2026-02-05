@@ -518,7 +518,7 @@ const WhySection = () => {
     { title: 'Single Point of Contact', desc: 'One accountable person who actually picks up calls.' },
     { title: 'Quality Equipment', desc: 'Inspected and maintained before every deployment.' },
     { title: 'Fast Emergency Response', desc: '4-hour turnaround for urgent Gurgaon requirements.' },
-    { title: 'Transparent Pricing', desc: 'Clear rates, no hidden charges. GST invoiced separately.' },
+    { title: 'Transparent Pricing', desc: 'Clear quotes, no hidden charges. GST invoiced separately.' },
   ];
 
   return (
