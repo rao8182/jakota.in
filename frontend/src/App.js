@@ -694,10 +694,10 @@ const AboutPage = () => (
         <div className="max-w-3xl">
           <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">About Jakota</p>
           <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
-            From a small yard to serving NCR's largest builders
+            40+ Years of Building Better Construction
           </h1>
           <p className="text-lg text-steel-500 leading-relaxed">
-            Eight years of systematic growth, built on reliability rather than relationships.
+            From wooden shuttering to industry-leading MS formwork and scaffolding systems.
           </p>
         </div>
       </div>
@@ -710,31 +710,66 @@ const AboutPage = () => (
             <h2 className="text-2xl font-semibold text-steel-900 mb-6">Our Journey</h2>
             <div className="prose prose-steel text-steel-600 leading-relaxed space-y-4">
               <p>
-                Started in 2016 with 50 tons of scaffolding and a simple promise: deliver on time, every time.
-                Today, we manage 500+ tons of inventory and serve some of the biggest names in NCR construction.
+                Our journey began over 40 years ago with a simple vision — to enable better, faster, and safer construction. Starting with wooden shuttering and small-scale factory-level projects, we laid the foundation for a company driven by innovation, trust, and hands-on expertise.
               </p>
               <p>
-                Our growth hasn't come from marketing or aggressive sales. It's come from word of mouth—when 
-                scaffolding arrives exactly when promised, builders talk. That's been our only strategy.
+                As the construction landscape evolved, so did we. Nearly 25 years ago, recognizing the industry's shift toward strength and durability, we transitioned into manufacturing and supplying Mild Steel (MS) Formwork and Scaffolding Systems — a move that defined our growth trajectory and set new benchmarks for quality and reliability.
+              </p>
+              <p>
+                Today, we stand as one of the trusted names in the formwork and scaffolding industry, combining decades of experience with a forward-looking approach to technology, safety, and sustainability.
               </p>
             </div>
           </div>
           
           <div>
-            <h2 className="text-2xl font-semibold text-steel-900 mb-6">How We're Different</h2>
-            <div className="space-y-6">
-              {[
-                { title: 'Systems Over Jugaad', desc: 'Proper inventory management and tracking. Nothing left to chance or relationship.' },
-                { title: 'Single Accountability', desc: 'One person owns your project end-to-end—delivery, quality, and service.' },
-                { title: 'Verified Documentation', desc: 'Weighbridge slips with every delivery. No disputes about quantities.' },
-                { title: 'Quality Standards', desc: 'Equipment inspected before every deployment. Damaged pieces replaced immediately.' },
-              ].map((item, idx) => (
-                <div key={idx}>
-                  <h3 className="font-medium text-steel-800 mb-1">{item.title}</h3>
-                  <p className="text-sm text-steel-500">{item.desc}</p>
-                </div>
-              ))}
+            <h2 className="text-2xl font-semibold text-steel-900 mb-6">Our Vision</h2>
+            <div className="prose prose-steel text-steel-600 leading-relaxed space-y-4">
+              <p>
+                Our systems are designed to meet the most challenging project requirements — from residential high-rises to industrial infrastructure — ensuring precision, consistency, and performance every single time.
+              </p>
+              <p>
+                As we look to the future, our vision is to lead the modernization of construction support systems in India and beyond, through continuous innovation, digital transformation, and a commitment to eco-friendly engineering.
+              </p>
+              <p>
+                With deep-rooted values, cutting-edge design capabilities, and a passionate team, we continue to build not just structures, but strong, lasting relationships in the industry.
+              </p>
             </div>
+          </div>
+        </div>
+
+        {/* Timeline */}
+        <div className="mt-20 pt-16 border-t border-steel-100">
+          <h2 className="text-2xl font-semibold text-steel-900 mb-10 text-center">Our Milestones</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { year: '1985', title: 'The Beginning', desc: 'Started with wooden shuttering and factory-level projects' },
+              { year: '2000', title: 'MS Transition', desc: 'Shifted to manufacturing MS Formwork and Scaffolding Systems' },
+              { year: '2015', title: 'Scale & Growth', desc: 'Expanded operations across NCR with 500+ tons inventory' },
+              { year: 'Today', title: 'Industry Leader', desc: 'Trusted partner for high-rises and industrial infrastructure' },
+            ].map((milestone, idx) => (
+              <div key={idx} className="text-center">
+                <div className="text-3xl font-semibold text-primary-500 mb-2">{milestone.year}</div>
+                <h3 className="font-medium text-steel-800 mb-1">{milestone.title}</h3>
+                <p className="text-sm text-steel-500">{milestone.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Values */}
+        <div className="mt-20 pt-16 border-t border-steel-100">
+          <h2 className="text-2xl font-semibold text-steel-900 mb-10 text-center">What Drives Us</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: 'Innovation', desc: 'Continuously evolving our systems and processes to meet modern construction demands.' },
+              { title: 'Safety', desc: 'Uncompromising commitment to worker safety and structural integrity in every project.' },
+              { title: 'Sustainability', desc: 'Eco-friendly engineering practices and durable, reusable systems for minimal environmental impact.' },
+            ].map((value, idx) => (
+              <div key={idx} className="bg-steel-50 p-8 rounded-lg">
+                <h3 className="font-semibold text-steel-800 mb-2">{value.title}</h3>
+                <p className="text-sm text-steel-500 leading-relaxed">{value.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
