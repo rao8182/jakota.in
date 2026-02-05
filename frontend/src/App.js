@@ -867,10 +867,7 @@ const InventoryPage = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-semibold text-steel-900 mb-2">{current.name}</h2>
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="text-xl font-semibold text-primary-500">{current.rate}</span>
-                <span className="text-sm text-steel-400">{current.minQty}</span>
-              </div>
+              <p className="text-sm text-steel-400 mb-4">{current.minQty}</p>
               <p className="text-steel-500 mb-8 leading-relaxed">{current.description}</p>
 
               <h3 className="text-sm font-semibold text-steel-800 uppercase tracking-wide mb-4">Applications</h3>
