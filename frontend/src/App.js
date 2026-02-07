@@ -1295,6 +1295,42 @@ const ProjectsPage = () => {
       description: 'Prestigious government building construction',
       equipment: 'Cuplock Scaffolding',
     },
+    {
+      id: '6',
+      title: 'Action Cancer Hospital',
+      location: 'New Delhi',
+      category: 'Healthcare',
+      image: 'https://customer-assets.emergentagent.com/job_5381ff68-3b6f-45cb-913e-40cb214fef92/artifacts/i05ah4qu_Action%20cancer%20hospital.jpeg',
+      description: 'Multi-specialty healthcare facility construction',
+      equipment: 'Cuplock Scaffolding',
+    },
+    {
+      id: '7',
+      title: 'Oil India Limited',
+      location: 'Assam',
+      category: 'Industrial',
+      image: 'https://customer-assets.emergentagent.com/job_5381ff68-3b6f-45cb-913e-40cb214fef92/artifacts/li4ws6aa_Oil%20hospital%20assam.jpeg',
+      description: 'Corporate headquarters and facility development',
+      equipment: 'Ringlock Scaffolding',
+    },
+    {
+      id: '8',
+      title: 'Omax Hotel',
+      location: 'North India',
+      category: 'Commercial',
+      image: 'https://customer-assets.emergentagent.com/job_5381ff68-3b6f-45cb-913e-40cb214fef92/artifacts/ti1p1e70_Omax%20hotel.jpeg',
+      description: 'Luxury hotel and commercial complex construction',
+      equipment: 'Cuplock Scaffolding',
+    },
+    {
+      id: '9',
+      title: 'Shillong Airport',
+      location: 'Meghalaya',
+      category: 'Infrastructure',
+      image: 'https://customer-assets.emergentagent.com/job_5381ff68-3b6f-45cb-913e-40cb214fef92/artifacts/mniubrzq_Shilong%20airport.jpeg',
+      description: 'Airport terminal expansion and development project',
+      equipment: 'Ringlock Scaffolding',
+    },
   ];
 
   return (
