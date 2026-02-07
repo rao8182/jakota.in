@@ -1024,16 +1024,53 @@ const ServicesPage = () => {
 
 // Projects Page
 const ProjectsPage = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    fetch(`${BACKEND_URL}/api/projects`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) setProjects(data.data);
-      })
-      .catch(console.error);
-  }, []);
+  const projects = [
+    {
+      id: '1',
+      title: 'Adani Samsara',
+      location: 'Gurgaon',
+      category: 'Residential',
+      image: '/projects/adani-samsara.jpg',
+      description: 'Premium residential complex with modern amenities',
+      equipment: 'Cuplock Scaffolding',
+    },
+    {
+      id: '2',
+      title: 'Adani Wilmar',
+      location: 'Gohana',
+      category: 'Industrial',
+      image: '/projects/adani-wilmar.jpg',
+      description: 'Large-scale industrial grain storage facility',
+      equipment: 'Ringlock Scaffolding',
+    },
+    {
+      id: '3',
+      title: 'Bank of Baroda',
+      location: 'Connaught Place, New Delhi',
+      category: 'Commercial',
+      image: '/projects/bank-of-baroda.webp',
+      description: 'Heritage commercial building renovation',
+      equipment: 'Cuplock Scaffolding',
+    },
+    {
+      id: '4',
+      title: 'Barauni Refinery',
+      location: 'Bihar',
+      category: 'Industrial',
+      image: '/projects/barauni-refinery.jpg',
+      description: 'Major refinery maintenance and expansion project',
+      equipment: 'Ringlock Scaffolding',
+    },
+    {
+      id: '5',
+      title: 'Rajasthan House',
+      location: 'Prithviraj Road, New Delhi',
+      category: 'Government',
+      image: '/projects/rajasthan-house.jpg',
+      description: 'Prestigious government building construction',
+      equipment: 'Cuplock Scaffolding',
+    },
+  ];
 
   return (
     <div data-testid="projects-page" className="pt-20">
@@ -1042,10 +1079,10 @@ const ProjectsPage = () => {
           <div className="max-w-3xl">
             <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Projects</p>
             <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
-              Proven track record across NCR
+              Proven track record across India
             </h1>
             <p className="text-lg text-steel-500 leading-relaxed">
-              Real projects, real metrics. No marketing fluff—just verified performance data.
+              From residential complexes to industrial facilities — delivering quality scaffolding solutions across sectors.
             </p>
           </div>
         </div>
@@ -1053,50 +1090,29 @@ const ProjectsPage = () => {
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="border border-steel-100 rounded-lg overflow-hidden hover:border-steel-200 transition-colors" data-testid={`project-${project.id}`}>
-                <div className="bg-steel-50 p-6">
+              <div key={project.id} className="group border border-steel-100 rounded-lg overflow-hidden hover:border-steel-200 hover:shadow-sm transition-all" data-testid={`project-${project.id}`}>
+                <div className="aspect-[4/3] overflow-hidden bg-steel-100">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-medium text-primary-500 uppercase tracking-wide">{project.category}</span>
+                  </div>
                   <h3 className="text-lg font-semibold text-steel-900 mb-1">{project.title}</h3>
-                  <p className="text-sm text-steel-500 flex items-center">
+                  <p className="text-sm text-steel-500 flex items-center mb-3">
                     <MapPin size={12} className="mr-1" />
                     {project.location}
                   </p>
-                </div>
-                <div className="p-6">
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div>
-                      <span className="text-xs text-steel-400 uppercase tracking-wide">Client</span>
-                      <p className="text-sm font-medium text-steel-800">{project.client}</p>
-                    </div>
-                    <div>
-                      <span className="text-xs text-steel-400 uppercase tracking-wide">Equipment</span>
-                      <p className="text-sm font-medium text-steel-800">{project.equipment}</p>
-                    </div>
-                    <div>
-                      <span className="text-xs text-steel-400 uppercase tracking-wide">Tonnage</span>
-                      <p className="text-sm font-medium text-steel-800">{project.tonnage} tons</p>
-                    </div>
-                    <div>
-                      <span className="text-xs text-steel-400 uppercase tracking-wide">Duration</span>
-                      <p className="text-sm font-medium text-steel-800">{project.duration}</p>
-                    </div>
-                  </div>
+                  <p className="text-sm text-steel-500 mb-4">{project.description}</p>
                   <div className="pt-4 border-t border-steel-100">
-                    <span className="text-xs text-steel-400 uppercase tracking-wide mb-2 block">Key Metrics</span>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-1 bg-steel-50 text-steel-600 text-xs rounded">
-                        {project.metrics.delivery_accuracy} delivery
-                      </span>
-                      {project.metrics.zero_safety_incidents && (
-                        <span className="px-2 py-1 bg-steel-50 text-steel-600 text-xs rounded">
-                          Zero incidents
-                        </span>
-                      )}
-                      <span className="px-2 py-1 bg-steel-50 text-steel-600 text-xs rounded">
-                        {project.metrics.emergency_response_time} response
-                      </span>
-                    </div>
+                    <span className="text-xs text-steel-400">Equipment Used</span>
+                    <p className="text-sm font-medium text-steel-700">{project.equipment}</p>
                   </div>
                 </div>
               </div>
