@@ -134,7 +134,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
 // Hero Section - Elegant, confident with background image
 const HeroSection = ({ setCurrentPage }) => (
-  <section className="hero-bg relative pt-32 pb-24 md:pt-40 md:pb-32" data-testid="hero-section">
+  <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-steel-50 overflow-hidden" data-testid="hero-section">
     {/* Background Image */}
     <div 
       className="absolute inset-0 z-0"
@@ -142,22 +142,22 @@ const HeroSection = ({ setCurrentPage }) => (
         backgroundImage: 'url(/hero-bg.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        opacity: 0.2
+        opacity: 0.08
       }}
     ></div>
-    {/* Gradient Overlay */}
-    <div className="hero-overlay"></div>
+    {/* Light gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-steel-50/95 via-white/90 to-steel-100/95 z-1"></div>
     
-    <div className="hero-content max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
       <div className="max-w-3xl">
-        <p className="text-sm font-medium text-accent-500 tracking-wide uppercase mb-4 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
+        <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-4 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
           Scaffolding Solutions for India
         </p>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.1] tracking-tight mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-steel-900 leading-[1.1] tracking-tight mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
           Infrastructure you can
-          <span className="block text-accent-500">rely on</span>
+          <span className="block text-primary-500">rely on</span>
         </h1>
-        <p className="text-lg md:text-xl text-steel-300 leading-relaxed mb-10 max-w-2xl animate-fade-in-up opacity-0" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
+        <p className="text-lg md:text-xl text-steel-500 leading-relaxed mb-10 max-w-2xl animate-fade-in-up opacity-0" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
           Engineered formwork and scaffolding for large-scale construction projects. 
           Systems-led delivery. Verified weights. One point of accountability.
         </p>
@@ -167,7 +167,7 @@ const HeroSection = ({ setCurrentPage }) => (
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-hover inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium bg-accent-500 text-primary-900 rounded-md hover:bg-accent-400 transition-colors"
+            className="btn-hover inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
             data-testid="hero-whatsapp-btn"
           >
             Request a Quote
@@ -175,7 +175,7 @@ const HeroSection = ({ setCurrentPage }) => (
           </a>
           <button 
             onClick={() => setCurrentPage('inventory')}
-            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-white border border-white/30 rounded-md hover:bg-white/10 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-primary-500 border border-primary-200 rounded-md hover:bg-primary-50 transition-colors"
             data-testid="hero-inventory-btn"
           >
             View Equipment
@@ -183,13 +183,13 @@ const HeroSection = ({ setCurrentPage }) => (
         </div>
 
         {/* Trust indicators - subtle */}
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-steel-300 animate-fade-in-up opacity-0" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-steel-500 animate-fade-in-up opacity-0" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
           <div className="flex items-center">
-            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
+            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
             500+ tons ready stock
           </div>
           <div className="flex items-center">
-            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
+            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
             Same-day delivery available
           </div>
           <div className="flex items-center">
