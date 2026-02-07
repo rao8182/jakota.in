@@ -135,6 +135,19 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 // Hero Section - Elegant, confident with background image
 const HeroSection = ({ setCurrentPage }) => (
   <section className="hero-bg relative pt-32 pb-24 md:pt-40 md:pb-32" data-testid="hero-section">
+    {/* Background Image */}
+    <div 
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: 'url(/hero-bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: 0.2
+      }}
+    ></div>
+    {/* Gradient Overlay */}
+    <div className="hero-overlay"></div>
+    
     <div className="hero-content max-w-7xl mx-auto px-6 lg:px-8">
       <div className="max-w-3xl">
         <p className="text-sm font-medium text-accent-500 tracking-wide uppercase mb-4 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
