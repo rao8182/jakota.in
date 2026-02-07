@@ -178,7 +178,9 @@ Equipment Rates:
 
 ### ✅ Content Pages Populated
 - About Us page with company history
-- Projects page with real project images
+- Projects page with real project images (9 projects total):
+  - Adani Samsara, Adani Wilmar, Bank of Baroda, Barauni Refinery, Rajasthan House
+  - **NEW (Dec 2025):** Action Cancer Hospital, Oil India Limited, Omax Hotel, Shillong Airport
 - Equipment page with detailed MS Formwork & Scaffolding content
 
 ### ✅ Deployment Setup
