@@ -856,149 +856,292 @@ const AboutPage = () => (
   </div>
 );
 
-// Inventory Page
+// Inventory Page - MS Formwork & Scaffolding Systems
 const InventoryPage = () => {
-  const [selectedType, setSelectedType] = useState('cuplock');
-  
-  const inventory = {
-    cuplock: {
-      name: 'Cuplock Scaffolding',
-      minQty: '5 tons minimum',
-      description: 'The industry standard for high-rise construction. Quick assembly, reliable load capacity, and universal compatibility.',
-      applications: ['High-rise buildings', 'Industrial facilities', 'Commercial complexes', 'Infrastructure projects'],
-      specs: [
-        { label: 'Material', value: 'Hot-dip galvanized steel' },
-        { label: 'Load Capacity', value: 'Up to 30 kN per leg' },
-        { label: 'Standard Lengths', value: '0.5m to 3.0m' },
-        { label: 'Cup Interval', value: '500mm' },
-        { label: 'Surface', value: 'Hot-dip galvanized' },
-      ]
-    },
-    ringlock: {
-      name: 'Ringlock Scaffolding',
-      minQty: '5 tons minimum',
-      description: 'Premium scaffolding for complex structures. 8-directional connections provide maximum flexibility for challenging geometries.',
-      applications: ['Curved structures', 'Stadiums & arenas', 'Complex facades', 'Heavy-duty shoring'],
-      specs: [
-        { label: 'Material', value: 'Q345 Steel, galvanized' },
-        { label: 'Load Capacity', value: 'Up to 40 kN per leg' },
-        { label: 'Rosette Spacing', value: '500mm intervals' },
-        { label: 'Connections', value: '8 directions' },
-        { label: 'Surface', value: 'Hot-dip galvanized' },
-      ]
-    },
-    slab_props: {
-      name: 'Adjustable Props',
-      minQty: '50 pieces minimum',
-      description: 'Heavy-duty props for slab support and formwork. Fine-thread adjustment enables precise height settings.',
-      applications: ['Slab formwork', 'Beam support', 'Temporary shoring', 'Bridge construction'],
-      specs: [
-        { label: 'Material', value: 'Heavy-duty steel' },
-        { label: 'Height Range', value: '1.8m to 4.0m' },
-        { label: 'Load Capacity', value: 'Up to 25 kN' },
-        { label: 'Inner Tube', value: '48.3mm diameter' },
-        { label: 'Outer Tube', value: '60.3mm diameter' },
-      ]
-    },
-    ms_ladder: {
-      name: 'MS Ladders',
-      minQty: '2 tons minimum',
-      description: 'Safe access ladders for scaffolding systems. Anti-slip rungs and proper spacing ensure worker safety.',
-      applications: ['Scaffold access', 'Maintenance work', 'Industrial access', 'Construction sites'],
-      specs: [
-        { label: 'Material', value: 'Mild Steel' },
-        { label: 'Rung Spacing', value: '300mm' },
-        { label: 'Width', value: '450mm standard' },
-        { label: 'Lengths', value: '2m to 6m' },
-        { label: 'Surface', value: 'Powder coated' },
-      ]
-    },
-  };
-
-  const current = inventory[selectedType];
+  const [activeTab, setActiveTab] = useState('formwork');
 
   return (
     <div data-testid="inventory-page" className="pt-20">
+      {/* Hero Section */}
       <section className="py-16 bg-steel-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Equipment Catalog</p>
             <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
-              Quality equipment, clear specifications
+              MS Formwork & Scaffolding Systems
             </h1>
             <p className="text-lg text-steel-500 leading-relaxed">
-              Every piece inspected before delivery. Transparent pricing with no hidden charges.
+              Robust systems engineered using high-quality materials to ensure strength, safety, and long service life across construction projects.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* Tab Navigation */}
+      <section className="bg-white border-b border-steel-100 sticky top-20 z-40">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* Equipment Tabs */}
-          <div className="flex flex-wrap gap-2 mb-12 border-b border-steel-100 pb-4">
-            {Object.keys(inventory).map((key) => (
-              <button
-                key={key}
-                onClick={() => setSelectedType(key)}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                  selectedType === key
-                    ? 'bg-primary-500 text-white'
-                    : 'text-steel-600 hover:text-primary-500 hover:bg-steel-50'
-                }`}
-                data-testid={`inv-tab-${key}`}
-              >
-                {inventory[key].name}
-              </button>
-            ))}
+          <div className="flex gap-8">
+            <button
+              onClick={() => setActiveTab('formwork')}
+              className={`py-4 text-sm font-medium border-b-2 transition-colors ${
+                activeTab === 'formwork'
+                  ? 'border-primary-500 text-primary-500'
+                  : 'border-transparent text-steel-500 hover:text-steel-700'
+              }`}
+            >
+              MS Formwork
+            </button>
+            <button
+              onClick={() => setActiveTab('scaffolding')}
+              className={`py-4 text-sm font-medium border-b-2 transition-colors ${
+                activeTab === 'scaffolding'
+                  ? 'border-primary-500 text-primary-500'
+                  : 'border-transparent text-steel-500 hover:text-steel-700'
+              }`}
+            >
+              Scaffolding Systems
+            </button>
           </div>
+        </div>
+      </section>
 
-          {/* Equipment Details */}
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-semibold text-steel-900 mb-2">{current.name}</h2>
-              <p className="text-sm text-steel-400 mb-4">{current.minQty}</p>
-              <p className="text-steel-500 mb-8 leading-relaxed">{current.description}</p>
-
-              <h3 className="text-sm font-semibold text-steel-800 uppercase tracking-wide mb-4">Applications</h3>
-              <ul className="space-y-2 mb-8">
-                {current.applications.map((app, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-steel-600">
-                    <CheckCircle size={14} className="text-steel-400 mr-2" />
-                    {app}
-                  </li>
-                ))}
-              </ul>
-
-              <a 
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need ${current.name}. Please share availability and quote.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-2.5 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
-                data-testid="inv-whatsapp"
-              >
-                Request Quote
-                <ArrowRight size={14} className="ml-2" />
-              </a>
+      {/* Formwork Content */}
+      {activeTab === 'formwork' && (
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-3xl mb-12">
+              <h2 className="text-2xl font-semibold text-steel-900 mb-4">Materials Used in MS Formwork</h2>
+              <p className="text-steel-500 leading-relaxed">
+                MS (Mild Steel) Formwork systems are designed to support concrete casting for structural elements such as slabs, beams, columns, and walls. The system comprises carefully selected components designed to perform reliably under demanding site conditions.
+              </p>
             </div>
 
-            <div className="bg-steel-50 rounded-lg p-8">
-              <h3 className="text-sm font-semibold text-steel-800 uppercase tracking-wide mb-6">Technical Specifications</h3>
-              <div className="space-y-4">
-                {current.specs.map((spec, idx) => (
-                  <div key={idx} className="flex justify-between py-3 border-b border-steel-200 last:border-0">
-                    <span className="text-sm text-steel-500">{spec.label}</span>
-                    <span className="text-sm font-medium text-steel-800">{spec.value}</span>
+            {/* Primary Materials */}
+            <div className="mb-16">
+              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
+                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
+                Primary Materials
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'MS Plates / MS Sheets',
+                    desc: 'Used as the concrete contact surface, providing a smooth finish and high durability for repeated use.'
+                  },
+                  {
+                    title: 'MS Frames (Angle, Channel, or Square Pipe)',
+                    desc: 'Fabricated frames that support MS plates and maintain dimensional accuracy during concreting.'
+                  },
+                  {
+                    title: 'MS Beams / Soldiers',
+                    desc: 'Structural members used to strengthen wall and slab formwork and handle heavy loads.'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-steel-50 p-6 rounded-lg">
+                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
+                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Support & Stability Components */}
+            <div className="mb-16">
+              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
+                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
+                Support & Stability Components
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  {
+                    title: 'Adjustable MS Props',
+                    desc: 'Height-adjustable steel props used for slab and beam support.'
+                  },
+                  {
+                    title: 'Base Plates / Sole Plates',
+                    desc: 'Installed beneath props to distribute load evenly on the ground.'
+                  },
+                  {
+                    title: 'Tie Rods, Wing Nuts & Washers',
+                    desc: 'Used in wall shuttering to hold formwork panels firmly in position during concrete pouring.'
+                  },
+                  {
+                    title: 'Bracing Pipes / Cross Bracing',
+                    desc: 'Provide lateral stability and prevent movement under load.'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="border border-steel-100 p-5 rounded-lg">
+                    <h4 className="font-medium text-steel-800 mb-2 text-sm">{item.title}</h4>
+                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Formwork Applications */}
+            <div className="bg-primary-500 text-white p-8 rounded-lg">
+              <h3 className="font-semibold mb-4">Applications</h3>
+              <div className="flex flex-wrap gap-3">
+                {['Slabs', 'Beams', 'Columns', 'Shear Walls', 'Foundations', 'Staircases', 'Retaining Structures'].map((app, idx) => (
+                  <span key={idx} className="px-3 py-1 bg-white/20 rounded-full text-sm">{app}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Scaffolding Content */}
+      {activeTab === 'scaffolding' && (
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-3xl mb-12">
+              <h2 className="text-2xl font-semibold text-steel-900 mb-4">Materials Used in Scaffolding Systems</h2>
+              <p className="text-steel-500 leading-relaxed">
+                Scaffolding systems provide safe access and working platforms for personnel and materials at height. Our scaffolding equipment is manufactured using high-strength steel components for maximum safety and flexibility.
+              </p>
+            </div>
+
+            {/* Structural Components */}
+            <div className="mb-16">
+              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
+                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
+                Structural Components
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'MS Scaffolding Pipes',
+                    desc: 'Heavy-duty steel pipes used as vertical and horizontal members to form the scaffolding structure.'
+                  },
+                  {
+                    title: 'Cuplock Verticals (Standards)',
+                    desc: 'Steel pipes with welded top and bottom cups for quick and secure ledger connections.'
+                  },
+                  {
+                    title: 'Cuplock Horizontals (Ledgers)',
+                    desc: 'Pipes with forged blades that lock into vertical cups to create a rigid framework.'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-steel-50 p-6 rounded-lg">
+                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
+                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Connection & Support Elements */}
+            <div className="mb-16">
+              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
+                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
+                Connection & Support Elements
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'Clamps / Couplers',
+                    desc: 'Right Angle, Swivel, and Sleeve couplers used to connect scaffolding pipes securely in conventional systems.'
+                  },
+                  {
+                    title: 'Base Jacks & U Jacks',
+                    desc: 'Adjustable jacks used for leveling scaffolding on uneven surfaces and transferring loads safely.'
+                  },
+                  {
+                    title: 'Spigots / Joint Pins',
+                    desc: 'Used to extend vertical members for additional height.'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="border border-steel-100 p-5 rounded-lg">
+                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
+                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Working Platforms & Safety */}
+            <div className="mb-16">
+              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
+                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">3</span>
+                Working Platforms & Safety
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'Walkway Planks / GI Planks / MS Challis',
+                    desc: 'Non-slip platforms that provide safe working surfaces for labor and material movement.'
+                  },
+                  {
+                    title: 'Bracing Members',
+                    desc: 'Diagonal bracing elements that enhance structural rigidity and stability.'
+                  },
+                  {
+                    title: 'Guard Rails & Toe Boards',
+                    desc: 'Safety components used to prevent falls and material slippage.'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="border border-steel-100 p-5 rounded-lg">
+                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
+                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Scaffolding Applications */}
+            <div className="bg-primary-500 text-white p-8 rounded-lg">
+              <h3 className="font-semibold mb-4">Applications</h3>
+              <div className="flex flex-wrap gap-3">
+                {['External Construction', 'Internal Work', 'Plastering', 'Painting', 'Brickwork', 'Façade Work', 'Maintenance', 'High-rise Construction'].map((app, idx) => (
+                  <span key={idx} className="px-3 py-1 bg-white/20 rounded-full text-sm">{app}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Quality & Compliance Section */}
+      <section className="py-16 bg-steel-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-semibold text-steel-900 mb-4">Quality & Compliance</h2>
+            <p className="text-steel-500 leading-relaxed mb-8">
+              All MS Formwork and Scaffolding materials supplied by Jakota are manufactured in accordance with industry standards and site safety requirements. The systems are designed for repeated use, high load capacity, and reliable performance, ensuring efficiency and safety throughout the project lifecycle.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                { icon: Shield, label: 'Industry Standards Compliant' },
+                { icon: CheckCircle, label: 'High Load Capacity' },
+                { icon: Award, label: 'Designed for Repeated Use' },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center text-steel-600">
+                  <item.icon size={20} className="text-primary-500 mr-2" />
+                  <span className="text-sm font-medium">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <CostCalculator />
-      <CTASection />
+      {/* CTA */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-semibold text-steel-900 mb-4">Need Equipment for Your Project?</h2>
+          <p className="text-steel-500 mb-8">Get in touch for availability, specifications, and custom requirements.</p>
+          <a 
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need information about MS Formwork and Scaffolding systems.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-6 py-3 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
+          >
+            <MessageCircle size={18} className="mr-2" />
+            Request Quote on WhatsApp
+          </a>
+        </div>
+      </section>
     </div>
   );
 };
