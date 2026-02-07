@@ -260,11 +260,12 @@ const EquipmentSection = ({ setCurrentPage }) => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {equipment.map((item) => (
+          {equipment.map((item, index) => (
             <div 
               key={item.id}
-              className="bg-white rounded-lg p-8 border border-steel-100 hover:border-steel-200 hover:shadow-sm transition-all"
+              className="card-hover bg-white rounded-lg p-8 border border-steel-100 hover:border-primary-200 transition-all animate-fade-in-up opacity-0"
               data-testid={`inventory-${item.id}`}
+              style={{animationDelay: `${0.1 + index * 0.1}s`, animationFillMode: 'forwards'}}
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
@@ -275,7 +276,7 @@ const EquipmentSection = ({ setCurrentPage }) => {
               <div className="space-y-2">
                 {item.specs.map((spec, idx) => (
                   <div key={idx} className="flex items-center text-sm text-steel-600">
-                    <CheckCircle size={14} className="text-steel-400 mr-2 flex-shrink-0" />
+                    <CheckCircle size={14} className="text-primary-500 mr-2 flex-shrink-0" />
                     {spec}
                   </div>
                 ))}
