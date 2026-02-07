@@ -675,7 +675,7 @@ const Footer = ({ setCurrentPage }) => (
           <img 
             src="/logo.svg" 
             alt="Jakota" 
-            className="h-10 w-auto mb-4 brightness-0 invert"
+            className="h-14 w-auto mb-4 brightness-0 invert"
           />
           <p className="text-steel-400 text-sm leading-relaxed">
             Engineered formwork and scaffolds for construction projects across Gurgaon and NCR.
