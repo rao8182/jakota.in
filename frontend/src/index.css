@@ -148,29 +148,16 @@
   opacity: 0;
 }
 
-/* Hero Background */
+/* Hero Background - Applied via inline styles in React */
 .hero-bg {
   position: relative;
   overflow: hidden;
 }
 
-.hero-bg::before {
-  content: '';
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background-image: url('/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.15;
-  z-index: 0;
-}
-
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(31, 58, 95, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(31, 58, 95, 0.92) 0%, rgba(15, 23, 42, 0.88) 100%);
   z-index: 1;
 }
 
