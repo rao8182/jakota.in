@@ -39,7 +39,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             <img 
               src="/logo.svg" 
               alt="Jakota" 
-              className="h-10 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
           </div>
           
