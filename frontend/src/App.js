@@ -195,12 +195,17 @@ const StatsSection = () => (
     <div className="max-w-7xl mx-auto px-6 lg:px-8">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {[
+          { value: '40+', label: 'Years', sublabel: 'Industry experience' },
           { value: '500+', label: 'Tons Inventory', sublabel: 'Ready stock' },
-          { value: '50+', label: 'Projects', sublabel: 'Successfully delivered' },
+          { value: '100+', label: 'Projects', sublabel: 'Successfully delivered' },
           { value: '100%', label: 'On-Time Rate', sublabel: 'Delivery commitment' },
-          { value: '8+', label: 'Years', sublabel: 'Industry experience' },
         ].map((stat, index) => (
-          <div key={index} data-testid={`stat-${index}`} className="text-center md:text-left">
+          <div 
+            key={index} 
+            data-testid={`stat-${index}`} 
+            className="text-center md:text-left animate-fade-in-up opacity-0"
+            style={{animationDelay: `${0.1 + index * 0.1}s`, animationFillMode: 'forwards'}}
+          >
             <div className="text-3xl md:text-4xl font-semibold text-primary-500 mb-1">{stat.value}</div>
             <div className="text-sm font-medium text-steel-800">{stat.label}</div>
             <div className="text-xs text-steel-400 mt-0.5">{stat.sublabel}</div>
