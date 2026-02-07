@@ -193,8 +193,8 @@ const HeroSection = ({ setCurrentPage }) => (
             Same-day delivery available
           </div>
           <div className="flex items-center">
-            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
-            Serving 50+ builders in NCR
+            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
+            Serving 100+ builders across India
           </div>
         </div>
       </div>
