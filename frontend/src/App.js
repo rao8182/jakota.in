@@ -142,11 +142,11 @@ const HeroSection = ({ setCurrentPage }) => (
         backgroundImage: 'url(/hero-bg.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        opacity: 0.08
+        opacity: 0.25
       }}
     ></div>
     {/* Light gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-steel-50/95 via-white/90 to-steel-100/95 z-1"></div>
+    <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-steel-50/70 to-white/80 z-1"></div>
     
     <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
       <div className="max-w-3xl">
