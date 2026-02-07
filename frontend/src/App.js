@@ -37,7 +37,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             data-testid="logo"
           >
             <img 
-              src="/logo.png" 
+              src="/logo.svg" 
               alt="Jakota" 
               className="h-10 w-auto"
             />
