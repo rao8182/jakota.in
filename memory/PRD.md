@@ -33,11 +33,19 @@ A conversion-focused B2B website for Jakota, a scaffolding rental company based 
 - Scale metrics
 - Team values
 
-### 3. Inventory
-- Equipment tabs (Cuplock, Ringlock, Slab Props, MS Ladders)
-- Technical specifications
-- Applications list
-- Pricing with minimum quantities
+### 3. Equipment (Inventory)
+**COMPLETED - Updated December 2025**
+- Tabbed interface: MS Formwork / Scaffolding Systems
+- **MS Formwork section:**
+  - Primary Materials (MS Plates/Sheets, MS Frames, MS Beams/Soldiers)
+  - Support & Stability Components (Adjustable Props, Base Plates, Tie Rods, Bracing)
+  - Applications: Slabs, Beams, Columns, Shear Walls, Foundations, Staircases, Retaining Structures
+- **Scaffolding Systems section:**
+  - Structural Components (MS Scaffolding Pipes, Cuplock Verticals, Cuplock Horizontals)
+  - Connection & Support Elements (Clamps/Couplers, Base Jacks, Spigots)
+  - Working Platforms & Safety (Walkway Planks, Bracing Members, Guard Rails)
+  - Applications: External/Internal Work, Plastering, Painting, Brickwork, Façade, High-rise
+- Quality & Compliance section with industry standards badges
 - WhatsApp inquiry CTA
 
 ### 4. Services
