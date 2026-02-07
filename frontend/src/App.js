@@ -547,6 +547,69 @@ const WhySection = () => {
   );
 };
 
+// Project Showcase Section for Homepage
+const ProjectShowcase = ({ setCurrentPage }) => {
+  const showcaseProjects = [
+    { image: '/showcase/industrial-silo.jpg', title: 'Industrial Facility', category: 'Industrial' },
+    { image: '/showcase/residential-complex.jpg', title: 'Residential Complex', category: 'Residential' },
+    { image: '/showcase/pragati-maidan.jpg', title: 'Pragati Maidan', category: 'Exhibition' },
+    { image: '/showcase/nestle-facility.jpg', title: 'Nestle Plant', category: 'Industrial' },
+  ];
+
+  return (
+    <section className="py-24 bg-white" data-testid="showcase-section">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Our Work</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-steel-900">
+              Projects across sectors
+            </h2>
+          </div>
+          <button 
+            onClick={() => setCurrentPage('projects')}
+            className="hidden md:inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
+          >
+            View all projects
+            <ArrowRight size={16} className="ml-1.5" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {showcaseProjects.map((project, idx) => (
+            <div 
+              key={idx}
+              className="group relative aspect-[4/5] overflow-hidden rounded-lg cursor-pointer"
+              onClick={() => setCurrentPage('projects')}
+            >
+              <img 
+                src={project.image} 
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span className="text-xs font-medium text-white/70 uppercase tracking-wide">{project.category}</span>
+                <h3 className="text-white font-medium mt-1">{project.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center md:hidden">
+          <button 
+            onClick={() => setCurrentPage('projects')}
+            className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
+          >
+            View all projects
+            <ArrowRight size={16} className="ml-1.5" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // CTA Section - Elegant, not shouty
 const CTASection = () => (
   <section className="py-24 bg-primary-500" data-testid="cta-section">
