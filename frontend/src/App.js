@@ -1109,11 +1109,7 @@ const ProjectsPage = () => {
                     <MapPin size={12} className="mr-1" />
                     {project.location}
                   </p>
-                  <p className="text-sm text-steel-500 mb-4">{project.description}</p>
-                  <div className="pt-4 border-t border-steel-100">
-                    <span className="text-xs text-steel-400">Equipment Used</span>
-                    <p className="text-sm font-medium text-steel-700">{project.equipment}</p>
-                  </div>
+                  <p className="text-sm text-steel-500">{project.description}</p>
                 </div>
               </div>
             ))}
