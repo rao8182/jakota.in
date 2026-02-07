@@ -673,9 +673,9 @@ const Footer = ({ setCurrentPage }) => (
       <div className="grid md:grid-cols-4 gap-10 mb-12">
         <div className="md:col-span-1">
           <img 
-            src="/logo.png" 
+            src="/logo.svg" 
             alt="Jakota" 
-            className="h-10 w-auto brightness-0 invert mb-4"
+            className="h-10 w-auto mb-4"
           />
           <p className="text-steel-400 text-sm leading-relaxed">
             Engineered formwork and scaffolds for construction projects across Gurgaon and NCR.
