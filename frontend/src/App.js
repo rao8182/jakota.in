@@ -574,7 +574,7 @@ const ProjectShowcase = ({ setCurrentPage }) => {
           </div>
           <button 
             onClick={() => setCurrentPage('projects')}
-            className="hidden md:inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
+            className="hidden md:inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors line-reveal"
           >
             View all projects
             <ArrowRight size={16} className="ml-1.5" />
@@ -585,16 +585,17 @@ const ProjectShowcase = ({ setCurrentPage }) => {
           {showcaseProjects.map((project, idx) => (
             <div 
               key={idx}
-              className="group relative aspect-[4/5] overflow-hidden rounded-lg cursor-pointer"
+              className="group relative aspect-[4/5] overflow-hidden rounded-lg cursor-pointer animate-scale-in opacity-0"
               onClick={() => setCurrentPage('projects')}
+              style={{animationDelay: `${0.1 + idx * 0.15}s`, animationFillMode: 'forwards'}}
             >
               <img 
                 src={project.image} 
                 alt={project.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-primary-900/90 transition-all duration-300"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 transform group-hover:translate-y-0 transition-transform duration-300">
                 <span className="text-xs font-medium text-white/70 uppercase tracking-wide">{project.category}</span>
                 <h3 className="text-white font-medium mt-1">{project.title}</h3>
               </div>
