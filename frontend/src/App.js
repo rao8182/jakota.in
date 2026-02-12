@@ -866,12 +866,13 @@ const InventoryPage = () => {
       <section className="py-16 bg-steel-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-3">Equipment Catalog</p>
-            <h1 className="text-3xl md:text-4xl font-semibold text-steel-900 mb-4">
+            <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">JAKOTA SOLUTIONS</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">
               MS Formwork & Scaffolding Systems
             </h1>
+            <div className="w-24 h-1 bg-[#1e3a5f] mb-6"></div>
             <p className="text-lg text-steel-500 leading-relaxed">
-              Robust systems engineered using high-quality materials to ensure strength, safety, and long service life across construction projects.
+              Engineered systems built for precision, durability, and operational efficiency across large-scale construction projects.
             </p>
           </div>
         </div>
@@ -885,8 +886,8 @@ const InventoryPage = () => {
               onClick={() => setActiveTab('formwork')}
               className={`py-4 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === 'formwork'
-                  ? 'border-primary-500 text-primary-500'
-                  : 'border-transparent text-steel-500 hover:text-steel-700'
+                  ? 'border-[#1e3a5f] text-[#1e3a5f]'
+                  : 'border-transparent text-steel-500 hover:text-[#1e3a5f]'
               }`}
             >
               MS Formwork
@@ -895,8 +896,8 @@ const InventoryPage = () => {
               onClick={() => setActiveTab('scaffolding')}
               className={`py-4 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === 'scaffolding'
-                  ? 'border-primary-500 text-primary-500'
-                  : 'border-transparent text-steel-500 hover:text-steel-700'
+                  ? 'border-[#1e3a5f] text-[#1e3a5f]'
+                  : 'border-transparent text-steel-500 hover:text-[#1e3a5f]'
               }`}
             >
               Scaffolding Systems
@@ -909,81 +910,129 @@ const InventoryPage = () => {
       {activeTab === 'formwork' && (
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <h2 className="text-2xl font-semibold text-steel-900 mb-4">Materials Used in MS Formwork</h2>
-              <p className="text-steel-500 leading-relaxed">
-                MS (Mild Steel) Formwork systems are designed to support concrete casting for structural elements such as slabs, beams, columns, and walls. The system comprises carefully selected components designed to perform reliably under demanding site conditions.
-              </p>
+            {/* Brand-Forward Introduction */}
+            <div className="max-w-4xl mb-16">
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">MS FORMWORK SOLUTIONS</p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#1e3a5f] mb-6 tracking-wide">Precision-Engineered Concrete Shaping Systems</h2>
+              <div className="space-y-4 text-steel-600 leading-relaxed">
+                <p>
+                  At <span className="font-semibold text-[#1e3a5f]">JAKOTA</span>, MS Formwork is engineered as a concrete shaping and execution system, designed to control dimensions, cycle time, and surface quality across repetitive structural pours.
+                </p>
+                <p>
+                  MS Formwork directly defines the final concrete structure — making its precision and reliability critical to project outcomes.
+                </p>
+                <p>
+                  <span className="font-semibold text-[#1e3a5f]">JAKOTA</span> MS Formwork systems are manufactured using high-strength mild steel panels with tight tolerances, enabling accurate slab thickness, straight edges, and consistent profiles across beams, columns, and slabs.
+                </p>
+                <p>
+                  The system is engineered for repeated reuse, ensuring dimensional stability and uniform concrete finish across multiple cycles and large project footprints.
+                </p>
+              </div>
             </div>
 
-            {/* Primary Materials */}
+            {/* Engineered for Structural Control */}
             <div className="mb-16">
-              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
-                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
-                Primary Materials
-              </h3>
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">WHY JAKOTA</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-8 tracking-wide">Engineered for Structural Control</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
                   {
-                    title: 'MS Plates / MS Sheets',
-                    desc: 'Used as the concrete contact surface, providing a smooth finish and high durability for repeated use.'
+                    title: 'Dimensional Accuracy & Tolerance Control',
+                    desc: 'Precision-fabricated panels ensure exact concrete dimensions, minimizing rework and maintaining structural integrity across all pours.'
                   },
                   {
-                    title: 'MS Frames (Angle, Channel, or Square Pipe)',
-                    desc: 'Fabricated frames that support MS plates and maintain dimensional accuracy during concreting.'
+                    title: 'High Reusability & Structural Durability',
+                    desc: 'Heavy-gauge mild steel construction enables 100+ reuse cycles without compromising panel flatness or edge quality.'
                   },
                   {
-                    title: 'MS Beams / Soldiers',
-                    desc: 'Structural members used to strengthen wall and slab formwork and handle heavy loads.'
+                    title: 'Optimized Cycle Time for Faster Execution',
+                    desc: 'Modular design and quick-release mechanisms reduce setup and stripping time, accelerating project timelines.'
                   }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-steel-50 p-6 rounded-lg">
-                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
-                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
+                  <div key={idx} className="bg-[#1e3a5f] p-6 rounded-lg text-white">
+                    <h4 className="font-semibold mb-3 tracking-wide">{item.title}</h4>
+                    <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Support & Stability Components */}
+            {/* System Architecture & Structural Components */}
             <div className="mb-16">
-              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
-                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
-                Support & Stability Components
-              </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  {
-                    title: 'Adjustable MS Props',
-                    desc: 'Height-adjustable steel props used for slab and beam support.'
-                  },
-                  {
-                    title: 'Base Plates / Sole Plates',
-                    desc: 'Installed beneath props to distribute load evenly on the ground.'
-                  },
-                  {
-                    title: 'Tie Rods, Wing Nuts & Washers',
-                    desc: 'Used in wall shuttering to hold formwork panels firmly in position during concrete pouring.'
-                  },
-                  {
-                    title: 'Bracing Pipes / Cross Bracing',
-                    desc: 'Provide lateral stability and prevent movement under load.'
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="border border-steel-100 p-5 rounded-lg">
-                    <h4 className="font-medium text-steel-800 mb-2 text-sm">{item.title}</h4>
-                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">TECHNICAL SPECIFICATIONS</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">System Architecture & Structural Components</h3>
+              <div className="w-16 h-0.5 bg-[#1e3a5f] mb-8"></div>
+              
+              {/* Primary Structural Elements */}
+              <div className="mb-10">
+                <h4 className="text-base font-semibold text-[#1e3a5f] mb-6 flex items-center">
+                  <span className="w-8 h-8 bg-[#1e3a5f] text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
+                  PRIMARY STRUCTURAL ELEMENTS
+                </h4>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[
+                    {
+                      title: 'MS Plates / MS Sheets',
+                      desc: 'High-grade steel contact surfaces engineered for superior concrete finish quality and extended service life across multiple pour cycles.'
+                    },
+                    {
+                      title: 'MS Frames (Angle, Channel, Square Pipe)',
+                      desc: 'Precision-welded structural frames providing rigid support and maintaining dimensional accuracy under concrete pressure loads.'
+                    },
+                    {
+                      title: 'MS Beams / Soldiers',
+                      desc: 'Load-bearing structural members designed to distribute forces evenly and resist deflection in wall and slab applications.'
+                    }
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
+                      <h4 className="font-semibold text-[#1e3a5f] mb-2">{item.title}</h4>
+                      <p className="text-sm text-steel-600 leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Support & Stability Systems */}
+              <div className="mb-10">
+                <h4 className="text-base font-semibold text-[#1e3a5f] mb-6 flex items-center">
+                  <span className="w-8 h-8 bg-[#1e3a5f] text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
+                  SUPPORT & STABILITY SYSTEMS
+                </h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[
+                    {
+                      title: 'Adjustable MS Props',
+                      desc: 'Precision-threaded vertical supports with fine height adjustment for accurate slab soffit leveling.'
+                    },
+                    {
+                      title: 'Base Plates / Sole Plates',
+                      desc: 'Load distribution elements engineered to transfer vertical forces safely to the supporting surface.'
+                    },
+                    {
+                      title: 'Tie Rods & Fasteners',
+                      desc: 'High-tensile connection systems maintaining panel alignment under hydrostatic concrete pressure.'
+                    },
+                    {
+                      title: 'Bracing Systems',
+                      desc: 'Lateral stability components preventing formwork movement and ensuring plumb accuracy.'
+                    }
+                  ].map((item, idx) => (
+                    <div key={idx} className="border border-[#1e3a5f]/20 p-5 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                      <h4 className="font-semibold text-[#1e3a5f] mb-2 text-sm">{item.title}</h4>
+                      <p className="text-sm text-steel-600 leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Formwork Applications */}
-            <div className="bg-primary-500 text-white p-8 rounded-lg">
-              <h3 className="font-semibold mb-4">Applications</h3>
+            <div className="bg-[#1e3a5f] text-white p-8 rounded-lg">
+              <p className="text-xs font-semibold tracking-widest uppercase mb-2 text-white/70">APPLICATION SCOPE</p>
+              <h3 className="font-semibold mb-4 tracking-wide">Structural Applications</h3>
               <div className="flex flex-wrap gap-3">
                 {['Slabs', 'Beams', 'Columns', 'Shear Walls', 'Foundations', 'Staircases', 'Retaining Structures'].map((app, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-white/20 rounded-full text-sm">{app}</span>
+                  <span key={idx} className="px-4 py-1.5 bg-white/10 rounded-full text-sm border border-white/20">{app}</span>
                 ))}
               </div>
             </div>
