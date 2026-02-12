@@ -141,7 +141,7 @@ const HeroSection = ({ setCurrentPage }) => (
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
-              <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-[#f5a623] tracking-wide">JAKOTA</span>
+              <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wide">JAKOTA</span>
               <span className="block text-xl md:text-2xl lg:text-3xl font-semibold text-white mt-3 tracking-wide">Engineered Formwork & Scaffolds</span>
             </h1>
             
