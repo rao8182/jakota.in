@@ -1014,7 +1014,7 @@ const InventoryPage = () => {
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="bg-[#1e3a5f] p-6 rounded-lg text-white">
-                    <h4 className="font-semibold mb-3 tracking-wide">{item.title}</h4>
+                    <h4 className="font-semibold mb-3 tracking-wide text-white">{item.title}</h4>
                     <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
