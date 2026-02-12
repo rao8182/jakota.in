@@ -1097,106 +1097,220 @@ const InventoryPage = () => {
       {activeTab === 'scaffolding' && (
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <h2 className="text-2xl font-semibold text-steel-900 mb-4">Materials Used in Scaffolding Systems</h2>
-              <p className="text-steel-500 leading-relaxed">
-                Scaffolding systems provide safe access and working platforms for personnel and materials at height. Our scaffolding equipment is manufactured using high-strength steel components for maximum safety and flexibility.
-              </p>
+            {/* Introduction */}
+            <div className="max-w-4xl mb-16">
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">SCAFFOLDING SOLUTIONS</p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#1e3a5f] mb-6 tracking-wide">Engineered Safety & Productivity Systems</h2>
+              <div className="space-y-4 text-steel-600 leading-relaxed">
+                <p>
+                  At <span className="font-semibold text-[#1e3a5f]">JAKOTA</span>, scaffolding is engineered as a critical safety and productivity system — not a temporary structure. Our scaffolding solutions provide secure access, dependable support, and stable working platforms, forming the foundation for disciplined and efficient construction environments.
+                </p>
+                <p>
+                  Manufactured using high-grade steel and precision-engineered components, <span className="font-semibold text-[#1e3a5f]">JAKOTA</span> scaffolding systems deliver exceptional load capacity, structural stability, and repeatable performance across residential, commercial, industrial, and infrastructure projects. The modular design enables rapid erection and dismantling, ensuring faster site cycles without compromising safety.
+                </p>
+              </div>
             </div>
 
             {/* Structural Components */}
             <div className="mb-16">
-              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
-                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
-                Structural Components
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  {
-                    title: 'MS Scaffolding Pipes',
-                    desc: 'Heavy-duty steel pipes used as vertical and horizontal members to form the scaffolding structure.'
-                  },
-                  {
-                    title: 'Cuplock Verticals (Standards)',
-                    desc: 'Steel pipes with welded top and bottom cups for quick and secure ledger connections.'
-                  },
-                  {
-                    title: 'Cuplock Horizontals (Ledgers)',
-                    desc: 'Pipes with forged blades that lock into vertical cups to create a rigid framework.'
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="bg-steel-50 p-6 rounded-lg">
-                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
-                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">STRUCTURAL COMPONENTS</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Primary Load-Bearing Elements</h3>
+              <div className="w-16 h-0.5 bg-[#1e3a5f] mb-8"></div>
+              
+              <div className="space-y-6">
+                {/* Verticals */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">Vertical Standards</h4>
+                  <ReadMoreSection
+                    id="verticals"
+                    shortText="Vertical Standards are the primary load-bearing elements of a scaffolding system, responsible for transferring working loads safely from elevated platforms to the ground. At JAKOTA, vertical standards are engineered as precision structural components, designed to deliver strength, stability, and consistent alignment across all working levels."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from high-strength steel under stringent quality controls, JAKOTA Vertical Standards provide excellent axial load capacity, resistance to deformation, and long-term durability. The standardized connection points ensure accurate ledger and brace integration, maintaining uniform geometry and structural integrity throughout the scaffold structure.</p>
+                        <p>To support varied height requirements and site conditions, JAKOTA Vertical Standards are available in six standardized lengths ranging from 0.5 metres to 3.0 metres. This dimensional flexibility allows contractors to achieve precise elevations while minimizing adjustments, material wastage, and erection time.</p>
+                        <p>Designed for rapid assembly, high reuse cycles, and demanding construction environments, JAKOTA Vertical Standards integrate seamlessly with base jacks, ledgers, braces, and accessories — forming a reliable and scalable scaffolding framework.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* Horizontal Ledgers */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">Horizontal Ledgers</h4>
+                  <ReadMoreSection
+                    id="ledgers"
+                    shortText="Ledgers are the primary horizontal members of a scaffolding system, connecting vertical standards and forming the framework that supports working platforms and distributes loads evenly across the structure. At JAKOTA, ledgers are engineered as precision structural components, designed to deliver rigidity, alignment, and dependable load transfer at every working level."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from high-strength steel under strict quality controls, JAKOTA Ledgers provide excellent bending strength and resistance to deflection, ensuring consistent system geometry even under heavy working loads. The accurately positioned connection ends allow quick and secure engagement with vertical standards, maintaining structural continuity throughout the scaffold.</p>
+                        <p>Designed for rapid installation, high reuse cycles, and demanding site conditions, JAKOTA Ledgers integrate seamlessly with standards, braces, platforms, and safety components — creating a rigid and stable working framework.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* MS Pipes */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">MS Pipes</h4>
+                  <ReadMoreSection
+                    id="pipes"
+                    shortText="MS Pipes serve as versatile structural members within scaffolding and formwork applications, used for load support, bracing, and customized site configurations. At JAKOTA, MS Pipes are manufactured as high-integrity steel components, engineered to deliver strength, reliability, and consistent performance across demanding construction environments."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Produced from quality-controlled mild steel and formed to precise dimensional tolerances, JAKOTA MS Pipes offer excellent load-bearing capacity, resistance to bending, and long service life. Their uniform circular profile ensures predictable structural behavior, making them suitable for both standard and customized scaffold arrangements.</p>
+                        <p>Designed for high reuse cycles and rugged site conditions, JAKOTA MS Pipes integrate seamlessly with couplers, clamps, braces, and other scaffolding accessories — enabling flexible configurations without compromising structural integrity.</p>
+                      </div>
+                    }
+                  />
+                </div>
               </div>
             </div>
 
             {/* Connection & Support Elements */}
             <div className="mb-16">
-              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
-                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
-                Connection & Support Elements
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  {
-                    title: 'Clamps / Couplers',
-                    desc: 'Right Angle, Swivel, and Sleeve couplers used to connect scaffolding pipes securely in conventional systems.'
-                  },
-                  {
-                    title: 'Base Jacks & U Jacks',
-                    desc: 'Adjustable jacks used for leveling scaffolding on uneven surfaces and transferring loads safely.'
-                  },
-                  {
-                    title: 'Spigots / Joint Pins',
-                    desc: 'Used to extend vertical members for additional height.'
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="border border-steel-100 p-5 rounded-lg">
-                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
-                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">CONNECTION SYSTEMS</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Load Transfer & Positioning Elements</h3>
+              <div className="w-16 h-0.5 bg-[#1e3a5f] mb-8"></div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Base Jacks */}
+                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">Base Jacks</h4>
+                  <ReadMoreSection
+                    id="basejacks"
+                    shortText="Base Jacks establish the first point of control in a scaffolding system. They are responsible for correcting ground irregularities, stabilizing vertical alignment, and ensuring that loads enter the structure in a controlled and predictable manner."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Fabricated from heavy-duty steel and designed to perform under continuous compressive stress, JAKOTA Base Jacks maintain thread integrity and structural stiffness even under demanding site loads. The precision-machined spindle allows fine height adjustment, enabling accurate leveling and reducing stress concentration at the base of the scaffold.</p>
+                        <p>By controlling load entry and alignment at ground level, JAKOTA Base Jacks improve overall system stability, erection accuracy, and long-term safety performance.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* U Jacks */}
+                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">U Jacks</h4>
+                  <ReadMoreSection
+                    id="ujacks"
+                    shortText="U Jacks function as the final load interface between the scaffolding system and supported structural elements such as beams and formwork panels. At JAKOTA, U Jacks are engineered as precision load-positioning components."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from high-strength steel with reinforced threaded spindles, JAKOTA U Jacks provide controlled height adjustment while maintaining rigidity under fresh concrete loads. The accurately formed U-head ensures proper seating of beams, minimizing displacement and maintaining consistent load transfer during pouring operations.</p>
+                        <p>By delivering controlled load positioning and alignment at the top of the system, JAKOTA U Jacks support faster execution, improved accuracy, and reduced on-site correction.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* Clamps/Couplers */}
+                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">Clamps / Couplers</h4>
+                  <ReadMoreSection
+                    id="clamps"
+                    shortText="Clamps are the decision points in a scaffolding system — they determine how forces are transferred, how geometry is maintained, and how reliably the structure behaves under load. At JAKOTA, clamps are engineered as structural connectors, not temporary fasteners."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from high-grade steel and formed to precise tolerances, JAKOTA Clamps are designed to deliver consistent grip, controlled torque response, and resistance to slippage under dynamic site conditions. Their geometry ensures secure pipe engagement while preserving the integrity of connected members.</p>
+                        <p>JAKOTA offers a complete range of clamps — including right-angle, swivel, and specialized couplers — enabling accurate alignment, load continuity, and adaptability across varied scaffold configurations. Each clamp is built to maintain connection reliability through repeated tightening cycles without loss of performance.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* Spigot / Joint Pins */}
+                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">Spigot / Joint Pins</h4>
+                  <ReadMoreSection
+                    id="spigots"
+                    shortText="Joint Pins act as vertical continuity elements within a scaffolding system, ensuring that stacked members behave as a single, uninterrupted structural line. At JAKOTA, Joint Pins are engineered as alignment-critical connectors."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from high-strength steel with controlled dimensional tolerances, JAKOTA Joint Pins ensure accurate engagement between vertical members, minimizing eccentric loading and unwanted movement at joints. Their geometry is designed to maintain coaxial alignment, allowing compressive loads to pass cleanly through connected standards without inducing stress concentrations.</p>
+                        <p>By safeguarding vertical alignment and load continuity, JAKOTA Joint Pins play a critical role in improving system stiffness, erection accuracy, and overall safety performance across multi-level scaffolding installations.</p>
+                      </div>
+                    }
+                  />
+                </div>
               </div>
             </div>
 
             {/* Working Platforms & Safety */}
             <div className="mb-16">
-              <h3 className="text-lg font-semibold text-steel-800 mb-6 flex items-center">
-                <span className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm mr-3">3</span>
-                Working Platforms & Safety
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  {
-                    title: 'Walkway Planks / GI Planks / MS Challis',
-                    desc: 'Non-slip platforms that provide safe working surfaces for labor and material movement.'
-                  },
-                  {
-                    title: 'Bracing Members',
-                    desc: 'Diagonal bracing elements that enhance structural rigidity and stability.'
-                  },
-                  {
-                    title: 'Guard Rails & Toe Boards',
-                    desc: 'Safety components used to prevent falls and material slippage.'
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="border border-steel-100 p-5 rounded-lg">
-                    <h4 className="font-medium text-steel-800 mb-2">{item.title}</h4>
-                    <p className="text-sm text-steel-500 leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">WORKING PLATFORMS</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Access & Load Distribution Elements</h3>
+              <div className="w-16 h-0.5 bg-[#1e3a5f] mb-8"></div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Walkway Planks */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">Walkway Planks / Steel Challi</h4>
+                  <ReadMoreSection
+                    id="planks"
+                    shortText="Walkway Planks, commonly known as Steel Challi, form the working surface of a scaffolding system, directly influencing site safety, movement efficiency, and load distribution. At JAKOTA, walkway planks are engineered as load-rated access elements."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from high-strength steel with controlled fabrication tolerances, JAKOTA Walkway Planks deliver consistent load performance, resistance to deflection, and long-term durability under continuous site use. The perforated or textured surface enhances grip and drainage, reducing slip risk in wet or debris-prone conditions.</p>
+                        <p>Designed to seat accurately within scaffold frames and ledgers, JAKOTA Steel Challi maintains positional stability during movement and material handling. Its standardized dimensions support quick placement, reliable load sharing, and efficient reuse across multiple projects.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* MS Plates */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Plates</h4>
+                  <ReadMoreSection
+                    id="plates-scaffold"
+                    shortText="MS Plates serve as load distribution and reinforcement elements within scaffolding and formwork systems, used wherever concentrated loads need to be spread, surfaces need protection, or structural interfaces require stability."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from quality-controlled mild steel with consistent thickness and flatness, JAKOTA MS Plates provide high compressive resistance and dimensional stability under sustained site loads. Their rigid profile helps prevent point loading, ground settlement, and surface damage when used beneath base jacks, props, or temporary supports.</p>
+                        <p>By controlling load spread and interface stability, JAKOTA MS Plates contribute directly to system safety, foundation reliability, and disciplined site execution.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* MS Channels */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Channels</h4>
+                  <ReadMoreSection
+                    id="channels-scaffold"
+                    shortText="MS Channels function as secondary structural members within scaffolding and formwork applications, used to support spans, distribute loads, and create rigid framing where additional stiffness is required."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from quality-controlled mild steel with uniform section profiles, JAKOTA MS Channels provide high bending strength and consistent load behavior across repeated use. Their open-section geometry allows efficient integration with props, jacks, clamps, and panels.</p>
+                        <p>By delivering controlled stiffness, load distribution, and system adaptability, JAKOTA MS Channels enhance structural reliability, execution accuracy, and overall site efficiency.</p>
+                      </div>
+                    }
+                  />
+                </div>
+
+                {/* Adjustable Props */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Adjustable Props</h4>
+                  <ReadMoreSection
+                    id="props-scaffold"
+                    shortText="MS Adjustable Props are precision load-support devices used in formwork systems to temporarily carry slab and beam loads while allowing accurate height control during construction."
+                    fullText={
+                      <div className="space-y-3">
+                        <p>Manufactured from high-grade mild steel with reinforced inner–outer tube construction, JAKOTA MS Adjustable Props deliver high axial load capacity and resistance to buckling under fresh concrete loads. The precision-threaded adjustment mechanism allows fine elevation control.</p>
+                        <p>By enabling accurate height setting, controlled load transfer, and stable temporary support, JAKOTA MS Adjustable Props help contractors achieve safer concreting operations, faster slab cycles, and predictable execution quality.</p>
+                      </div>
+                    }
+                  />
+                </div>
               </div>
             </div>
 
             {/* Scaffolding Applications */}
-            <div className="bg-primary-500 text-white p-8 rounded-lg">
-              <h3 className="font-semibold mb-4">Applications</h3>
+            <div className="bg-[#1e3a5f] text-white p-8 rounded-lg">
+              <p className="text-xs font-semibold tracking-widest uppercase mb-2 text-white/70">APPLICATION SCOPE</p>
+              <h3 className="font-semibold mb-4 tracking-wide">Project Applications</h3>
               <div className="flex flex-wrap gap-3">
-                {['External Construction', 'Internal Work', 'Plastering', 'Painting', 'Brickwork', 'Façade Work', 'Maintenance', 'High-rise Construction'].map((app, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-white/20 rounded-full text-sm">{app}</span>
+                {['Residential', 'Commercial', 'Industrial', 'Infrastructure', 'Façade Work', 'Plastering', 'Painting', 'Brickwork', 'Maintenance', 'High-rise Construction'].map((app, idx) => (
+                  <span key={idx} className="px-4 py-1.5 bg-white/10 rounded-full text-sm border border-white/20">{app}</span>
                 ))}
               </div>
             </div>
