@@ -186,7 +186,7 @@ const HeroSection = ({ setCurrentPage }) => (
         <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-steel-500 animate-fade-in-up opacity-0" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
           <div className="flex items-center">
             <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
-            500+ tons ready stock
+            5000+ tons ready stock
           </div>
           <div className="flex items-center">
             <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
@@ -209,8 +209,8 @@ const StatsSection = () => (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {[
           { value: '40+', label: 'Years', sublabel: 'Industry experience' },
-          { value: '500+', label: 'Tons Inventory', sublabel: 'Ready stock' },
-          { value: '100+', label: 'Projects', sublabel: 'Successfully delivered' },
+          { value: '5000+', label: 'Tons Inventory', sublabel: 'Ready stock' },
+          { value: '350+', label: 'Projects', sublabel: 'Successfully delivered' },
           { value: '100%', label: 'On-Time Rate', sublabel: 'Delivery commitment' },
         ].map((stat, index) => (
           <div 
