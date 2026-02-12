@@ -134,7 +134,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
 // Hero Section - Bold JAKOTA Branding
 const HeroSection = ({ setCurrentPage }) => (
-  <section className="relative pt-24 pb-0 md:pt-28 overflow-hidden" data-testid="hero-section">
+  <section className="relative pt-20 pb-0 overflow-hidden bg-[#1e3a5f]" data-testid="hero-section">
     {/* Navy branded top section */}
     <div className="bg-[#1e3a5f] text-white pt-8 pb-20 md:pb-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
