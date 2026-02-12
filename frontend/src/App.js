@@ -859,6 +859,35 @@ const AboutPage = () => (
 // Inventory Page - MS Formwork & Scaffolding Systems
 const InventoryPage = () => {
   const [activeTab, setActiveTab] = useState('formwork');
+  const [expandedSections, setExpandedSections] = useState({});
+
+  const toggleSection = (sectionId) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionId]: !prev[sectionId]
+    }));
+  };
+
+  const ReadMoreSection = ({ id, shortText, fullText }) => {
+    const isExpanded = expandedSections[id];
+    return (
+      <div className="text-steel-600 leading-relaxed">
+        <p>{shortText}</p>
+        {fullText && (
+          <>
+            {isExpanded && <div className="mt-3 text-steel-600 leading-relaxed">{fullText}</div>}
+            <button
+              onClick={() => toggleSection(id)}
+              className="mt-2 text-sm font-medium text-[#1e3a5f] hover:text-[#152d4a] transition-colors flex items-center"
+            >
+              {isExpanded ? 'Read Less' : 'Read More'}
+              <ChevronDown size={16} className={`ml-1 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+            </button>
+          </>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div data-testid="inventory-page" className="pt-20">
@@ -916,37 +945,39 @@ const InventoryPage = () => {
               <h2 className="text-2xl md:text-3xl font-semibold text-[#1e3a5f] mb-6 tracking-wide">Precision-Engineered Concrete Shaping Systems</h2>
               <div className="space-y-4 text-steel-600 leading-relaxed">
                 <p>
-                  At <span className="font-semibold text-[#1e3a5f]">JAKOTA</span>, MS Formwork is engineered as a concrete shaping and execution system, designed to control dimensions, cycle time, and surface quality across repetitive structural pours.
+                  At <span className="font-semibold text-[#1e3a5f]">JAKOTA</span>, MS Formwork is engineered as a concrete shaping and execution system, designed to control dimensions, cycle time, and surface quality across repetitive structural pours. MS Formwork directly defines the final concrete structure — making its precision and reliability critical to project outcomes.
                 </p>
                 <p>
-                  MS Formwork directly defines the final concrete structure — making its precision and reliability critical to project outcomes.
-                </p>
-                <p>
-                  <span className="font-semibold text-[#1e3a5f]">JAKOTA</span> MS Formwork systems are manufactured using high-strength mild steel panels with tight tolerances, enabling accurate slab thickness, straight edges, and consistent profiles across beams, columns, and slabs.
-                </p>
-                <p>
-                  The system is engineered for repeated reuse, ensuring dimensional stability and uniform concrete finish across multiple cycles and large project footprints.
+                  <span className="font-semibold text-[#1e3a5f]">JAKOTA</span> MS Formwork systems are manufactured using high-strength mild steel panels with tight tolerances, enabling accurate slab thickness, straight edges, and consistent profiles across beams, columns, and slabs. The system is designed for repeated reuse, delivering uniform results across multiple floors and large project footprints.
                 </p>
               </div>
             </div>
 
-            {/* Engineered for Structural Control */}
+            {/* How JAKOTA MS Formwork Helps Contractors */}
             <div className="mb-16">
-              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">WHY JAKOTA</p>
-              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-8 tracking-wide">Engineered for Structural Control</h3>
-              <div className="grid md:grid-cols-3 gap-6">
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">CONTRACTOR BENEFITS</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-8 tracking-wide">How JAKOTA MS Formwork Helps Contractors</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   {
-                    title: 'Dimensional Accuracy & Tolerance Control',
-                    desc: 'Precision-fabricated panels ensure exact concrete dimensions, minimizing rework and maintaining structural integrity across all pours.'
+                    title: 'Faster Slab Cycles',
+                    desc: 'Standardized panels and quick-lock connections reduce assembly and striking time, enabling predictable and faster floor-to-floor cycles.'
                   },
                   {
-                    title: 'High Reusability & Structural Durability',
-                    desc: 'Heavy-gauge mild steel construction enables 100+ reuse cycles without compromising panel flatness or edge quality.'
+                    title: 'Reduced Labour Dependency',
+                    desc: 'Modular, repeatable components minimize the need for highly skilled shuttering carpenters, lowering labour risk and cost volatility.'
                   },
                   {
-                    title: 'Optimized Cycle Time for Faster Execution',
-                    desc: 'Modular design and quick-release mechanisms reduce setup and stripping time, accelerating project timelines.'
+                    title: 'Consistent Concrete Finish',
+                    desc: 'Steel contact surfaces deliver uniform finishes, reducing plaster thickness, rework, and finishing costs.'
+                  },
+                  {
+                    title: 'Higher Structural Accuracy',
+                    desc: 'Controlled alignment and locking systems maintain dimensional accuracy, reducing deviations and downstream corrections.'
+                  },
+                  {
+                    title: 'Lower Cost Per Use',
+                    desc: 'High reuse capability spreads cost over multiple pours, improving overall project economics.'
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="bg-[#1e3a5f] p-6 rounded-lg text-white">
@@ -957,72 +988,94 @@ const InventoryPage = () => {
               </div>
             </div>
 
-            {/* System Architecture & Structural Components */}
+            {/* System Components */}
             <div className="mb-16">
-              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">TECHNICAL SPECIFICATIONS</p>
-              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">System Architecture & Structural Components</h3>
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">SYSTEM COMPONENTS</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Formwork System Architecture</h3>
               <div className="w-16 h-0.5 bg-[#1e3a5f] mb-8"></div>
               
-              {/* Primary Structural Elements */}
-              <div className="mb-10">
-                <h4 className="text-base font-semibold text-[#1e3a5f] mb-6 flex items-center">
-                  <span className="w-8 h-8 bg-[#1e3a5f] text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
-                  PRIMARY STRUCTURAL ELEMENTS
-                </h4>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {[
-                    {
-                      title: 'MS Plates / MS Sheets',
-                      desc: 'High-grade steel contact surfaces engineered for superior concrete finish quality and extended service life across multiple pour cycles.'
-                    },
-                    {
-                      title: 'MS Frames (Angle, Channel, Square Pipe)',
-                      desc: 'Precision-welded structural frames providing rigid support and maintaining dimensional accuracy under concrete pressure loads.'
-                    },
-                    {
-                      title: 'MS Beams / Soldiers',
-                      desc: 'Load-bearing structural members designed to distribute forces evenly and resist deflection in wall and slab applications.'
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Adjustable Props */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Adjustable Props</h4>
+                  <ReadMoreSection
+                    id="props"
+                    shortText="MS Adjustable Props are precision load-support devices used in formwork systems to temporarily carry slab and beam loads while allowing accurate height control during construction."
+                    fullText={
+                      <p>Manufactured from high-grade mild steel with reinforced inner–outer tube construction, JAKOTA MS Adjustable Props deliver high axial load capacity and resistance to buckling under fresh concrete loads. The precision-threaded adjustment mechanism allows fine elevation control, ensuring correct slab levels and consistent formwork alignment across pours. Designed for repetitive deployment and heavy site use, they retain smooth adjustability and structural integrity over extended service life.</p>
                     }
-                  ].map((item, idx) => (
-                    <div key={idx} className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
-                      <h4 className="font-semibold text-[#1e3a5f] mb-2">{item.title}</h4>
-                      <p className="text-sm text-steel-600 leading-relaxed">{item.desc}</p>
-                    </div>
-                  ))}
+                  />
+                </div>
+
+                {/* MS Plates */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Plates</h4>
+                  <ReadMoreSection
+                    id="plates"
+                    shortText="MS Plates serve as load distribution and reinforcement elements within scaffolding and formwork systems, used wherever concentrated loads need to be spread or surfaces need protection."
+                    fullText={
+                      <p>Manufactured from quality-controlled mild steel with consistent thickness and flatness, JAKOTA MS Plates provide high compressive resistance and dimensional stability under sustained site loads. Their rigid profile helps prevent point loading, ground settlement, and surface damage when used beneath base jacks, props, or temporary supports. Designed for rugged, repetitive site use, they maintain shape and performance across multiple deployment cycles.</p>
+                    }
+                  />
+                </div>
+
+                {/* MS Channels */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Channels</h4>
+                  <ReadMoreSection
+                    id="channels"
+                    shortText="MS Channels function as secondary structural members within scaffolding and formwork applications, used to support spans, distribute loads, and create rigid framing."
+                    fullText={
+                      <p>Manufactured from quality-controlled mild steel with uniform section profiles, JAKOTA MS Channels provide high bending strength and consistent load behavior across repeated use. Their open-section geometry allows efficient integration with props, jacks, clamps, and panels, making them ideal for slab edges, beam supports, and customized formwork arrangements. Designed for demanding site conditions and high reuse cycles, they retain dimensional integrity and performance over extended deployment.</p>
+                    }
+                  />
+                </div>
+
+                {/* MS Pipes */}
+                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
+                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Pipes</h4>
+                  <ReadMoreSection
+                    id="pipes-formwork"
+                    shortText="MS Pipes serve as versatile structural members within scaffolding and formwork applications, used for load support, bracing, and customized site configurations."
+                    fullText={
+                      <p>Produced from quality-controlled mild steel and formed to precise dimensional tolerances, JAKOTA MS Pipes offer excellent load-bearing capacity, resistance to bending, and long service life. Their uniform circular profile ensures predictable structural behavior, making them suitable for both standard and customized scaffold arrangements. Designed for high reuse cycles and rugged site conditions, they integrate seamlessly with couplers, clamps, braces, and other scaffolding accessories.</p>
+                    }
+                  />
                 </div>
               </div>
+            </div>
 
-              {/* Support & Stability Systems */}
-              <div className="mb-10">
-                <h4 className="text-base font-semibold text-[#1e3a5f] mb-6 flex items-center">
-                  <span className="w-8 h-8 bg-[#1e3a5f] text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
-                  SUPPORT & STABILITY SYSTEMS
-                </h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {[
-                    {
-                      title: 'Adjustable MS Props',
-                      desc: 'Precision-threaded vertical supports with fine height adjustment for accurate slab soffit leveling.'
-                    },
-                    {
-                      title: 'Base Plates / Sole Plates',
-                      desc: 'Load distribution elements engineered to transfer vertical forces safely to the supporting surface.'
-                    },
-                    {
-                      title: 'Tie Rods & Fasteners',
-                      desc: 'High-tensile connection systems maintaining panel alignment under hydrostatic concrete pressure.'
-                    },
-                    {
-                      title: 'Bracing Systems',
-                      desc: 'Lateral stability components preventing formwork movement and ensuring plumb accuracy.'
-                    }
-                  ].map((item, idx) => (
-                    <div key={idx} className="border border-[#1e3a5f]/20 p-5 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                      <h4 className="font-semibold text-[#1e3a5f] mb-2 text-sm">{item.title}</h4>
-                      <p className="text-sm text-steel-600 leading-relaxed">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
+            {/* Formwork Accessories */}
+            <div className="mb-16">
+              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">ACCESSORIES</p>
+              <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Formwork Accessories</h3>
+              <div className="w-16 h-0.5 bg-[#1e3a5f] mb-4"></div>
+              <p className="text-steel-600 mb-8">These accessories perform critical control functions within formwork and support systems — reinforcing alignment, regulating load transfer, and ensuring stability during execution.</p>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  {
+                    title: 'MS Angles',
+                    desc: 'Used as secondary framing and edge-support members, providing stiffness and shape control in slab edges, beam sides, and customized formwork arrangements.'
+                  },
+                  {
+                    title: 'Base Plates',
+                    desc: 'Distribute concentrated loads from props and supports over a wider surface area, reducing ground stress and improving foundation stability.'
+                  },
+                  {
+                    title: 'Prop Nuts',
+                    desc: 'Enable controlled height adjustment and secure locking of adjustable props with precision threading for smooth movement and accurate elevation setting.'
+                  },
+                  {
+                    title: 'Prop Sleeves',
+                    desc: 'Act as reinforcement and adjustment interfaces within adjustable prop systems, enhancing load capacity and maintaining concentric alignment.'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-steel-50 p-5 rounded-lg border-l-4 border-[#1e3a5f]">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-2 text-sm">{item.title}</h4>
+                    <p className="text-xs text-steel-600 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
