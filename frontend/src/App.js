@@ -1155,9 +1155,11 @@ const InventoryPage = () => {
       <section className="py-16 bg-steel-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-semibold text-steel-900 mb-4">Quality & Compliance</h2>
-            <p className="text-steel-500 leading-relaxed mb-8">
-              All MS Formwork and Scaffolding materials supplied by Jakota are manufactured in accordance with industry standards and site safety requirements. The systems are designed for repeated use, high load capacity, and reliable performance, ensuring efficiency and safety throughout the project lifecycle.
+            <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">JAKOTA STANDARDS</p>
+            <h2 className="text-2xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Quality & Compliance</h2>
+            <div className="w-16 h-0.5 bg-[#1e3a5f] mx-auto mb-6"></div>
+            <p className="text-steel-600 leading-relaxed mb-8">
+              All MS Formwork and Scaffolding systems supplied by <span className="font-semibold text-[#1e3a5f]">JAKOTA</span> are manufactured in accordance with industry standards and site safety requirements. Our systems are designed for repeated use, high load capacity, and reliable performance, ensuring efficiency and safety throughout the project lifecycle.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               {[
@@ -1165,8 +1167,8 @@ const InventoryPage = () => {
                 { icon: CheckCircle, label: 'High Load Capacity' },
                 { icon: Award, label: 'Designed for Repeated Use' },
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center text-steel-600">
-                  <item.icon size={20} className="text-primary-500 mr-2" />
+                <div key={idx} className="flex items-center text-[#1e3a5f]">
+                  <item.icon size={20} className="mr-2" />
                   <span className="text-sm font-medium">{item.label}</span>
                 </div>
               ))}
@@ -1178,13 +1180,15 @@ const InventoryPage = () => {
       {/* CTA */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-semibold text-steel-900 mb-4">Need Equipment for Your Project?</h2>
-          <p className="text-steel-500 mb-8">Get in touch for availability, specifications, and custom requirements.</p>
+          <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">GET STARTED</p>
+          <h2 className="text-2xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Need Solutions for Your Project?</h2>
+          <div className="w-16 h-0.5 bg-[#1e3a5f] mx-auto mb-6"></div>
+          <p className="text-steel-600 mb-8">Get in touch for availability, specifications, and custom requirements.</p>
           <a 
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need information about MS Formwork and Scaffolding systems.`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I need information about JAKOTA MS Formwork and Scaffolding solutions.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
+            className="inline-flex items-center px-6 py-3 text-sm font-medium bg-[#1e3a5f] text-white rounded-md hover:bg-[#152d4a] transition-colors"
           >
             <MessageCircle size={18} className="mr-2" />
             Request Quote on WhatsApp
