@@ -28,7 +28,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1e3a5f] shadow-lg' : 'bg-[#1e3a5f]'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-white shadow-sm'}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div 
@@ -53,7 +53,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 className={`text-sm font-medium transition-colors ${
                   currentPage === item.id 
                     ? 'text-[#f5a623]' 
-                    : 'text-white/90 hover:text-[#f5a623]'
+                    : 'text-[#1e3a5f] hover:text-[#f5a623]'
                 }`}
               >
                 {item.label}
@@ -65,7 +65,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
           <div className="hidden md:flex items-center space-x-4">
             <a 
               href={`tel:${PHONE_NUMBER}`}
-              className="text-sm text-white/80 hover:text-[#f5a623] transition-colors"
+              className="text-sm text-[#1e3a5f] hover:text-[#f5a623] transition-colors"
               data-testid="header-call-btn"
             >
               +91 98765 43210
