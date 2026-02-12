@@ -84,7 +84,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden p-2 text-steel-700"
+            className="lg:hidden p-2 text-white"
             onClick={() => setIsOpen(!isOpen)}
             data-testid="mobile-menu-btn"
           >
@@ -94,7 +94,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden py-6 border-t border-steel-100 bg-white">
+          <div className="lg:hidden py-6 border-t border-white/20 bg-[#1e3a5f]">
             {navItems.map(item => (
               <button
                 key={item.id}
@@ -102,17 +102,17 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 onClick={() => { setCurrentPage(item.id); setIsOpen(false); }}
                 className={`block w-full text-left px-2 py-3 text-sm font-medium ${
                   currentPage === item.id 
-                    ? 'text-primary-500' 
-                    : 'text-steel-600 hover:text-primary-500'
+                    ? 'text-[#f5a623]' 
+                    : 'text-white/90 hover:text-[#f5a623]'
                 }`}
               >
                 {item.label}
               </button>
             ))}
-            <div className="flex flex-col space-y-3 mt-6 pt-6 border-t border-steel-100">
+            <div className="flex flex-col space-y-3 mt-6 pt-6 border-t border-white/20">
               <a 
                 href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium border border-steel-200 text-steel-700 rounded-md"
+                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium border border-white/30 text-white rounded-md"
               >
                 <Phone size={16} className="mr-2" /> +91 98765 43210
               </a>
@@ -120,7 +120,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium bg-primary-500 text-white rounded-md"
+                className="inline-flex items-center justify-center px-5 py-3 text-sm font-semibold bg-[#f5a623] text-[#1e3a5f] rounded-md"
               >
                 Get Quote <ArrowUpRight size={14} className="ml-1.5" />
               </a>
