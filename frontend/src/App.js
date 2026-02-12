@@ -19,7 +19,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'inventory', label: 'Equipment' },
+    { id: 'inventory', label: 'Solutions' },
     { id: 'services', label: 'Services' },
     { id: 'projects', label: 'Projects' },
     { id: 'process', label: 'Process' },
