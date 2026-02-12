@@ -84,7 +84,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden p-2 text-white"
+            className="lg:hidden p-2 text-[#1e3a5f]"
             onClick={() => setIsOpen(!isOpen)}
             data-testid="mobile-menu-btn"
           >
@@ -94,7 +94,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden py-6 border-t border-white/20 bg-[#1e3a5f]">
+          <div className="lg:hidden py-6 border-t border-steel-100 bg-white">
             {navItems.map(item => (
               <button
                 key={item.id}
@@ -103,16 +103,16 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 className={`block w-full text-left px-2 py-3 text-sm font-medium ${
                   currentPage === item.id 
                     ? 'text-[#f5a623]' 
-                    : 'text-white/90 hover:text-[#f5a623]'
+                    : 'text-[#1e3a5f] hover:text-[#f5a623]'
                 }`}
               >
                 {item.label}
               </button>
             ))}
-            <div className="flex flex-col space-y-3 mt-6 pt-6 border-t border-white/20">
+            <div className="flex flex-col space-y-3 mt-6 pt-6 border-t border-steel-100">
               <a 
                 href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium border border-white/30 text-white rounded-md"
+                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium border border-[#1e3a5f] text-[#1e3a5f] rounded-md"
               >
                 <Phone size={16} className="mr-2" /> +91 98765 43210
               </a>
