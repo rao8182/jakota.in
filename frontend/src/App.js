@@ -140,11 +140,6 @@ const HeroSection = ({ setCurrentPage }) => (
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
-              <span className="w-2 h-2 bg-[#f5a623] rounded-full mr-2"></span>
-              <span className="text-white/90">India's Trusted Scaffolding Partner</span>
-            </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
               <span className="text-[#f5a623]">JAKOTA</span>
               <span className="block text-white mt-2">Formwork &</span>
