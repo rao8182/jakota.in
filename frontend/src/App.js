@@ -132,98 +132,131 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   );
 };
 
-// Hero Section - Elegant, confident with background image
+// Hero Section - Bold JAKOTA Branding
 const HeroSection = ({ setCurrentPage }) => (
-  <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-steel-50 overflow-hidden" data-testid="hero-section">
-    {/* Background Image */}
-    <div 
-      className="absolute inset-0 z-0"
-      style={{
-        backgroundImage: 'url(/hero-bg.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        opacity: 0.25
-      }}
-    ></div>
-    {/* Light gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-steel-50/70 to-white/80 z-1"></div>
-    
-    <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-      <div className="max-w-3xl">
-        <p className="text-sm font-medium text-primary-500 tracking-wide uppercase mb-4 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
-          Scaffolding Solutions for India
-        </p>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-steel-900 leading-[1.1] tracking-tight mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
-          Infrastructure you can
-          <span className="block text-primary-500">rely on</span>
-        </h1>
-        <p className="text-lg md:text-xl text-steel-500 leading-relaxed mb-10 max-w-2xl animate-fade-in-up opacity-0" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
-          Engineered formwork and scaffolding for large-scale construction projects. 
-          Systems-led delivery. Verified weights. One point of accountability.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in-up opacity-0" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
-          <a 
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-hover inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
-            data-testid="hero-whatsapp-btn"
-          >
-            Request a Quote
-            <ArrowRight size={16} className="ml-2" />
-          </a>
-          <button 
-            onClick={() => setCurrentPage('inventory')}
-            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-primary-500 border border-primary-200 rounded-md hover:bg-primary-50 transition-colors"
-            data-testid="hero-inventory-btn"
-          >
-            View Equipment
-          </button>
-        </div>
+  <section className="relative pt-24 pb-0 md:pt-28 overflow-hidden" data-testid="hero-section">
+    {/* Navy branded top section */}
+    <div className="bg-[#1e3a5f] text-white pt-8 pb-20 md:pb-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
+              <span className="w-2 h-2 bg-[#f5a623] rounded-full mr-2"></span>
+              <span className="text-white/90">India's Trusted Scaffolding Partner</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
+              <span className="text-[#f5a623]">JAKOTA</span>
+              <span className="block text-white mt-2">Formwork &</span>
+              <span className="block text-white">Scaffolding</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-xl animate-fade-in-up opacity-0" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
+              Precision-engineered systems for large-scale construction. 
+              40+ years of experience. Zero compromises on quality.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-10 animate-fade-in-up opacity-0" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
+              <a 
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-hover inline-flex items-center justify-center px-8 py-4 text-sm font-semibold bg-[#f5a623] text-[#1e3a5f] rounded-md hover:bg-[#e09000] transition-all shadow-lg"
+                data-testid="hero-whatsapp-btn"
+              >
+                Get a Quote
+                <ArrowRight size={18} className="ml-2" />
+              </a>
+              <button 
+                onClick={() => setCurrentPage('inventory')}
+                className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white border-2 border-white/30 rounded-md hover:bg-white/10 transition-all"
+                data-testid="hero-inventory-btn"
+              >
+                View Solutions
+              </button>
+            </div>
 
-        {/* Trust indicators - subtle */}
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-steel-500 animate-fade-in-up opacity-0" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
-          <div className="flex items-center">
-            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
-            5000+ tons ready stock
+            {/* Trust indicators */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20 animate-fade-in-up opacity-0" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
+              <div>
+                <div className="text-3xl font-bold text-[#f5a623]">5000+</div>
+                <div className="text-sm text-white/70">Tons Ready Stock</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#f5a623]">350+</div>
+                <div className="text-sm text-white/70">Projects Delivered</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#f5a623]">40+</div>
+                <div className="text-sm text-white/70">Years Experience</div>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center">
-            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
-            Same-day delivery available
-          </div>
-          <div className="flex items-center">
-            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></div>
-            Serving 100+ builders across India
+          
+          {/* Hero Image */}
+          <div className="hidden lg:block relative animate-fade-in-up opacity-0" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="/hero-bg.jpg" 
+                alt="JAKOTA Scaffolding in action"
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/60 to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-xs text-[#1e3a5f]/60 uppercase tracking-wide">Trusted By</div>
+                      <div className="text-sm font-semibold text-[#1e3a5f]">100+ Builders Across India</div>
+                    </div>
+                    <div className="flex -space-x-2">
+                      <div className="w-8 h-8 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white text-xs font-bold">A</div>
+                      <div className="w-8 h-8 rounded-full bg-[#f5a623] flex items-center justify-center text-[#1e3a5f] text-xs font-bold">B</div>
+                      <div className="w-8 h-8 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white text-xs font-bold">+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    
+    {/* Yellow accent strip */}
+    <div className="h-2 bg-[#f5a623]"></div>
   </section>
 );
 
-// Stats Section - Clean numbers
+// Stats Section - Navy branded
 const StatsSection = () => (
-  <section className="py-20 bg-white border-y border-steel-100" data-testid="stats-section">
+  <section className="py-16 bg-steel-50" data-testid="stats-section">
     <div className="max-w-7xl mx-auto px-6 lg:px-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-        {[
-          { value: '40+', label: 'Years', sublabel: 'Industry experience' },
-          { value: '5000+', label: 'Tons Inventory', sublabel: 'Ready stock' },
-          { value: '350+', label: 'Projects', sublabel: 'Successfully delivered' },
-          { value: '100%', label: 'On-Time Rate', sublabel: 'Delivery commitment' },
-        ].map((stat, index) => (
-          <div 
-            key={index} 
-            data-testid={`stat-${index}`} 
-            className="text-center md:text-left animate-fade-in-up opacity-0"
-            style={{animationDelay: `${0.1 + index * 0.1}s`, animationFillMode: 'forwards'}}
-          >
-            <div className="text-3xl md:text-4xl font-semibold text-primary-500 mb-1">{stat.value}</div>
-            <div className="text-sm font-medium text-steel-800">{stat.label}</div>
-            <div className="text-xs text-steel-400 mt-0.5">{stat.sublabel}</div>
-          </div>
-        ))}
+      <div className="bg-[#1e3a5f] rounded-2xl p-8 md:p-12 shadow-xl">
+        <div className="text-center mb-10">
+          <p className="text-[#f5a623] text-sm font-semibold tracking-widest uppercase mb-2">WHY CHOOSE JAKOTA</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Built on Trust. Driven by Precision.</h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {[
+            { value: '40+', label: 'Years', sublabel: 'Industry Experience', icon: '🏗️' },
+            { value: '5000+', label: 'Tons', sublabel: 'Ready Inventory', icon: '📦' },
+            { value: '350+', label: 'Projects', sublabel: 'Successfully Delivered', icon: '✅' },
+            { value: '100%', label: 'On-Time', sublabel: 'Delivery Commitment', icon: '⏱️' },
+          ].map((stat, index) => (
+            <div 
+              key={index} 
+              data-testid={`stat-${index}`} 
+              className="text-center animate-fade-in-up opacity-0"
+              style={{animationDelay: `${0.1 + index * 0.1}s`, animationFillMode: 'forwards'}}
+            >
+              <div className="text-4xl mb-2">{stat.icon}</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#f5a623] mb-1">{stat.value}</div>
+              <div className="text-sm font-medium text-white">{stat.label}</div>
+              <div className="text-xs text-white/60 mt-0.5">{stat.sublabel}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
