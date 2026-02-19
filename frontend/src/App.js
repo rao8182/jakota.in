@@ -297,7 +297,8 @@ const HeroSection = ({ setCurrentPage }) => {
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // Stats Section - Navy branded
 const StatsSection = () => (
