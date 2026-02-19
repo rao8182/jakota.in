@@ -256,6 +256,61 @@ const StatsSection = () => (
   </section>
 );
 
+// Vision Mission Goals Section
+const VisionMissionGoals = () => (
+  <section className="py-20 bg-white" data-testid="vision-mission-section">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="text-center mb-16">
+        <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">WHO WE ARE</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f]">Our Foundation</h2>
+        <div className="w-20 h-1 bg-[#f5a623] mx-auto mt-4"></div>
+      </div>
+      
+      <div className="grid md:grid-cols-3 gap-8">
+        {/* Vision */}
+        <div className="bg-[#1e3a5f] rounded-2xl p-8 text-white transform hover:-translate-y-1 transition-transform">
+          <div className="w-14 h-14 bg-[#f5a623] rounded-xl flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#1e3a5f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold mb-4 text-white">Our Vision</h3>
+          <p className="text-white/80 leading-relaxed">
+            To be India's most trusted partner in construction infrastructure, setting the benchmark for quality, reliability, and innovation in formwork and scaffolding solutions.
+          </p>
+        </div>
+
+        {/* Mission */}
+        <div className="bg-steel-50 rounded-2xl p-8 border-2 border-[#1e3a5f]/10 transform hover:-translate-y-1 transition-transform">
+          <div className="w-14 h-14 bg-[#1e3a5f] rounded-xl flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#f5a623]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold mb-4 text-[#1e3a5f]">Our Mission</h3>
+          <p className="text-steel-600 leading-relaxed">
+            To empower contractors and builders with precision-engineered systems that ensure faster execution, superior safety, and consistent quality — delivered with accountability and zero compromise.
+          </p>
+        </div>
+
+        {/* Goals */}
+        <div className="bg-[#f5a623] rounded-2xl p-8 transform hover:-translate-y-1 transition-transform">
+          <div className="w-14 h-14 bg-[#1e3a5f] rounded-xl flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#f5a623]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold mb-4 text-[#1e3a5f]">Our Goals</h3>
+          <p className="text-[#1e3a5f]/80 leading-relaxed">
+            Expand our inventory to 10,000+ tons, serve 500+ projects annually, and establish JAKOTA as the preferred scaffolding partner for India's top construction firms.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 // Equipment Section - Card-based, professional
 const EquipmentSection = ({ setCurrentPage }) => {
   const equipment = [
