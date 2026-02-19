@@ -839,6 +839,7 @@ const HomePage = ({ setCurrentPage }) => (
   <>
     <HeroSection setCurrentPage={setCurrentPage} />
     <StatsSection />
+    <VisionMissionGoals />
     <ProjectShowcase setCurrentPage={setCurrentPage} />
     <ServicesSection setCurrentPage={setCurrentPage} />
     <WhySection />
