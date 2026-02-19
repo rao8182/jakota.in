@@ -160,7 +160,7 @@ const HeroSection = ({ setCurrentPage }) => {
           <div>
             <h1 className="mb-6 animate-fade-in-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
               <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wide">JAKOTA</span>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-semibold text-white mt-3 tracking-wide">Engineered Formwork & Scaffolds</span>
+              <span className="block text-lg md:text-xl lg:text-2xl font-normal text-white/90 mt-3 tracking-wide">Engineered Formwork & Scaffolds</span>
             </h1>
             
             <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-xl animate-fade-in-up opacity-0" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
