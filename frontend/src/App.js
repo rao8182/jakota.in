@@ -2157,6 +2157,210 @@ const ContactPage = () => {
   );
 };
 
+// Careers Page
+const CareersPage = () => {
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    remarks: '',
+    cv: null
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [fileName, setFileName] = useState('');
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setForm({ ...form, cv: file });
+      setFileName(file.name);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    // Simulate form submission (in production, this would upload to backend)
+    setTimeout(() => {
+      setSuccess(true);
+      setLoading(false);
+      setForm({ name: '', phone: '', email: '', remarks: '', cv: null });
+      setFileName('');
+    }, 1500);
+  };
+
+  return (
+    <div data-testid="careers-page" className="pt-20">
+      {/* Hero Section */}
+      <section className="py-16 bg-[#1e3a5f]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold text-[#f5a623] tracking-widest uppercase mb-3">CAREERS</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Join the JAKOTA Team
+            </h1>
+            <p className="text-lg text-white/80 leading-relaxed">
+              Be part of a team that's building India's construction infrastructure. We're always looking for talented individuals who share our passion for excellence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Join Us */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                title: 'Growth Opportunities',
+                desc: 'Learn and grow with 40+ years of industry expertise. We invest in our people.',
+                icon: '📈'
+              },
+              {
+                title: 'Impactful Work',
+                desc: 'Work on landmark projects that shape India\'s skyline and infrastructure.',
+                icon: '🏗️'
+              },
+              {
+                title: 'Collaborative Culture',
+                desc: 'Join a team that values integrity, precision, and teamwork.',
+                icon: '🤝'
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="text-center p-6">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-lg font-semibold text-[#1e3a5f] mb-2">{item.title}</h3>
+                <p className="text-steel-500 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Application Form */}
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-steel-50 rounded-2xl p-8 md:p-10">
+              <h2 className="text-2xl font-bold text-[#1e3a5f] mb-2 text-center">Apply Now</h2>
+              <p className="text-steel-500 text-center mb-8">Fill out the form below and we'll get back to you</p>
+
+              {success ? (
+                <div className="text-center py-10">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle size={32} className="text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-steel-900 mb-2">Application Submitted!</h3>
+                  <p className="text-steel-500">Thank you for your interest in joining JAKOTA. We'll review your application and get back to you soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-medium text-steel-700 mb-1.5">Full Name *</label>
+                    <input 
+                      type="text"
+                      required
+                      placeholder="Enter your full name"
+                      value={form.name}
+                      onChange={(e) => setForm({...form, name: e.target.value})}
+                      className="w-full px-4 py-3 bg-white border border-steel-200 rounded-lg text-sm focus:ring-2 focus:ring-[#1e3a5f]/20 focus:border-[#1e3a5f] transition-all"
+                      data-testid="career-name"
+                    />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-steel-700 mb-1.5">Phone Number *</label>
+                      <input 
+                        type="tel"
+                        required
+                        placeholder="+91 98765 43210"
+                        value={form.phone}
+                        onChange={(e) => setForm({...form, phone: e.target.value})}
+                        className="w-full px-4 py-3 bg-white border border-steel-200 rounded-lg text-sm focus:ring-2 focus:ring-[#1e3a5f]/20 focus:border-[#1e3a5f] transition-all"
+                        data-testid="career-phone"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-steel-700 mb-1.5">Email Address *</label>
+                      <input 
+                        type="email"
+                        required
+                        placeholder="you@example.com"
+                        value={form.email}
+                        onChange={(e) => setForm({...form, email: e.target.value})}
+                        className="w-full px-4 py-3 bg-white border border-steel-200 rounded-lg text-sm focus:ring-2 focus:ring-[#1e3a5f]/20 focus:border-[#1e3a5f] transition-all"
+                        data-testid="career-email"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-steel-700 mb-1.5">Remarks / Cover Note</label>
+                    <textarea 
+                      rows="4"
+                      placeholder="Tell us about yourself, your experience, and why you'd like to join JAKOTA..."
+                      value={form.remarks}
+                      onChange={(e) => setForm({...form, remarks: e.target.value})}
+                      className="w-full px-4 py-3 bg-white border border-steel-200 rounded-lg text-sm focus:ring-2 focus:ring-[#1e3a5f]/20 focus:border-[#1e3a5f] transition-all resize-none"
+                      data-testid="career-remarks"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-steel-700 mb-1.5">Upload CV/Resume *</label>
+                    <div className="relative">
+                      <input 
+                        type="file"
+                        required
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                        data-testid="career-cv"
+                      />
+                      <div className="w-full px-4 py-4 bg-white border-2 border-dashed border-steel-300 rounded-lg text-center hover:border-[#1e3a5f] transition-colors">
+                        {fileName ? (
+                          <div className="flex items-center justify-center text-[#1e3a5f]">
+                            <FileText size={20} className="mr-2" />
+                            <span className="text-sm font-medium">{fileName}</span>
+                          </div>
+                        ) : (
+                          <div className="text-steel-500">
+                            <FileText size={24} className="mx-auto mb-2 text-steel-400" />
+                            <span className="text-sm">Click to upload or drag and drop</span>
+                            <p className="text-xs text-steel-400 mt-1">PDF, DOC, DOCX (Max 5MB)</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    disabled={loading}
+                    className="w-full py-4 bg-[#1e3a5f] text-white text-sm font-semibold rounded-lg hover:bg-[#152d4a] transition-colors disabled:opacity-50 flex items-center justify-center"
+                    data-testid="career-submit"
+                  >
+                    {loading ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Submitting...
+                      </>
+                    ) : (
+                      'Submit Application'
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
 // Main App Component
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
