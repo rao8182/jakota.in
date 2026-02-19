@@ -2380,6 +2380,7 @@ function App() {
       case 'testimonials': return <TestimonialsPage />;
       case 'clients': return <TestimonialsPage />;
       case 'contact': return <ContactPage />;
+      case 'careers': return <CareersPage />;
       default: return <HomePage setCurrentPage={setCurrentPage} />;
     }
   };
