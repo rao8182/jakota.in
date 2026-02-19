@@ -234,6 +234,7 @@ const HeroSection = ({ setCurrentPage }) => (
             { src: '/clients/godrej.png', alt: 'Godrej' },
             { src: '/clients/m3m.png', alt: 'M3M' },
             { src: '/clients/medanta.png', alt: 'Medanta' },
+            { src: '/clients/samsara.png', alt: 'Samsara' },
           ].map((logo, idx) => (
             <div key={idx} className="flex-shrink-0 mx-12 flex items-center justify-center h-16">
               <img src={logo.src} alt={logo.alt} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
@@ -246,6 +247,7 @@ const HeroSection = ({ setCurrentPage }) => (
             { src: '/clients/godrej.png', alt: 'Godrej' },
             { src: '/clients/m3m.png', alt: 'M3M' },
             { src: '/clients/medanta.png', alt: 'Medanta' },
+            { src: '/clients/samsara.png', alt: 'Samsara' },
           ].map((logo, idx) => (
             <div key={`dup-${idx}`} className="flex-shrink-0 mx-12 flex items-center justify-center h-16">
               <img src={logo.src} alt={logo.alt} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
