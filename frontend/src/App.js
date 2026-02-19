@@ -132,8 +132,26 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   );
 };
 
-// Hero Section - Bold JAKOTA Branding
-const HeroSection = ({ setCurrentPage }) => (
+// Hero Section - Bold JAKOTA Branding with Image Carousel
+const HeroSection = ({ setCurrentPage }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const heroImages = [
+    '/hero/slide1.jpg',
+    '/hero/slide2.jpg',
+    '/hero/slide3.jpg',
+    '/hero/slide4.jpg',
+    '/hero/slide5.jpg',
+    '/hero/slide6.jpg',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
+  return (
   <section className="relative pt-20 pb-0 overflow-hidden bg-[#1e3a5f]" data-testid="hero-section">
     {/* Navy branded top section */}
     <div className="bg-[#1e3a5f] text-white pt-8 pb-20 md:pb-28">
@@ -187,15 +205,37 @@ const HeroSection = ({ setCurrentPage }) => (
             </div>
           </div>
           
-          {/* Hero Image */}
+          {/* Hero Image Carousel */}
           <div className="hidden lg:block relative animate-fade-in-up opacity-0" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src="/hero-bg.jpg" 
-                alt="JAKOTA Scaffolding in action"
-                className="w-full h-[500px] object-cover"
-              />
+              {/* Image Slides */}
+              <div className="relative h-[500px]">
+                {heroImages.map((img, idx) => (
+                  <img 
+                    key={idx}
+                    src={img} 
+                    alt={`JAKOTA Project ${idx + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                      currentSlide === idx ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ))}
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/60 to-transparent"></div>
+              
+              {/* Slide Indicators */}
+              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {heroImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      currentSlide === idx ? 'bg-[#f5a623] w-6' : 'bg-white/50 hover:bg-white/80'
+                    }`}
+                  />
+                ))}
+              </div>
+              
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
                   <div className="flex items-center justify-between">
