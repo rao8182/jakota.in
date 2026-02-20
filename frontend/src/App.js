@@ -263,6 +263,50 @@ const HeroSection = ({ setCurrentPage }) => {
     {/* Yellow accent strip */}
     <div className="h-2 bg-[#f5a623]"></div>
     
+    {/* Moving Client Logo Band */}
+    <div className="bg-white py-6 border-b border-steel-100">
+      <div className="overflow-hidden">
+        <div className="flex animate-scroll" style={{ width: 'fit-content' }}>
+          {/* First set of logos */}
+          {[
+            { src: '/clients/dlf.png', alt: 'DLF' },
+            { src: '/clients/emaar.png', alt: 'Emaar' },
+            { src: '/clients/godrej.png', alt: 'Godrej' },
+            { src: '/clients/m3m.png', alt: 'M3M' },
+            { src: '/clients/medanta.png', alt: 'Medanta' },
+            { src: '/clients/samsara.png', alt: 'Adani Samsara' },
+            { src: '/clients/adani.png', alt: 'Adani' },
+            { src: '/clients/indian-oil.png', alt: 'Indian Oil' },
+            { src: '/clients/dmrc.png', alt: 'DMRC' },
+            { src: '/clients/nbcc.png', alt: 'NBCC' },
+            { src: '/clients/nestle.jpg', alt: 'Nestle' },
+          ].map((logo, idx) => (
+            <div key={idx} className="flex-shrink-0 mx-10 flex items-center justify-center h-16">
+              <img src={logo.src} alt={logo.alt} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+            </div>
+          ))}
+          {/* Duplicate set for seamless loop */}
+          {[
+            { src: '/clients/dlf.png', alt: 'DLF' },
+            { src: '/clients/emaar.png', alt: 'Emaar' },
+            { src: '/clients/godrej.png', alt: 'Godrej' },
+            { src: '/clients/m3m.png', alt: 'M3M' },
+            { src: '/clients/medanta.png', alt: 'Medanta' },
+            { src: '/clients/samsara.png', alt: 'Adani Samsara' },
+            { src: '/clients/adani.png', alt: 'Adani' },
+            { src: '/clients/indian-oil.png', alt: 'Indian Oil' },
+            { src: '/clients/dmrc.png', alt: 'DMRC' },
+            { src: '/clients/nbcc.png', alt: 'NBCC' },
+            { src: '/clients/nestle.jpg', alt: 'Nestle' },
+          ].map((logo, idx) => (
+            <div key={`dup-${idx}`} className="flex-shrink-0 mx-10 flex items-center justify-center h-16">
+              <img src={logo.src} alt={logo.alt} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    
     {/* Esteemed Clients Section */}
     <div className="bg-white py-10 border-b border-steel-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
