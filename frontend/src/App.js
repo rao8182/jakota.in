@@ -142,6 +142,9 @@ const HeroSection = ({ setCurrentPage }) => {
     '/hero/slide4.jpg',
     '/hero/slide5.jpg',
     '/hero/slide6.jpg',
+    '/hero/slide7.jpg',
+    '/hero/slide8.jpg',
+    '/hero/slide9.jpg',
   ];
 
   useEffect(() => {
