@@ -799,7 +799,7 @@ const CTASection = () => (
           Ready to discuss your project?
         </h2>
         <p className="text-lg text-primary-100 mb-10">
-          Get a detailed quote within 2 hours. No forms, just a conversation.
+          Get a detailed techno commercial proposal within 2 hours. No forms, just a conversation.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
