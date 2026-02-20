@@ -1248,7 +1248,7 @@ const InventoryPage = () => {
               <div className="w-16 h-0.5 bg-[#1e3a5f] mb-4"></div>
               <p className="text-steel-600 mb-8">These accessories perform critical control functions within formwork and support systems — reinforcing alignment, regulating load transfer, and ensuring stability during execution.</p>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   {
                     title: 'MS Angles',
@@ -1261,18 +1261,13 @@ const InventoryPage = () => {
                     image: '/solutions/base-plates.jpg'
                   },
                   {
-                    title: 'Prop Nuts',
-                    desc: 'Enable controlled height adjustment and secure locking of adjustable props with precision threading for smooth movement and accurate elevation setting.',
-                    image: '/solutions/prop-nuts.webp'
-                  },
-                  {
-                    title: 'Prop Sleeves',
-                    desc: 'Act as reinforcement and adjustment interfaces within adjustable prop systems, enhancing load capacity and maintaining concentric alignment.',
-                    image: '/solutions/prop-sleeves.jpg'
+                    title: 'Prop Nuts & Sleeves',
+                    desc: 'Enable controlled height adjustment and secure locking of adjustable props. Sleeves act as reinforcement interfaces, enhancing load capacity and maintaining concentric alignment.',
+                    image: '/solutions/prop-nut-sleeve.jpg'
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="bg-steel-50 rounded-lg overflow-hidden border border-steel-100 hover:shadow-lg transition-shadow">
-                    <div className="h-36 overflow-hidden bg-white">
+                    <div className="h-44 overflow-hidden bg-white">
                       <img src={item.image} alt={item.title} className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="p-4 border-t border-steel-100">
