@@ -1519,7 +1519,7 @@ const InventoryPage = () => {
             className="inline-flex items-center px-6 py-3 text-sm font-medium bg-[#1e3a5f] text-white rounded-md hover:bg-[#152d4a] transition-colors"
           >
             <MessageCircle size={18} className="mr-2" />
-            Request Quote on WhatsApp
+            Request Techno Commercial Proposal on WhatsApp
           </a>
         </div>
       </section>
