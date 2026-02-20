@@ -880,7 +880,7 @@ const Footer = ({ setCurrentPage }) => (
             </li>
             <li className="flex items-center">
               <Phone size={14} className="mr-2 flex-shrink-0" />
-              <a href={`tel:${PHONE_NUMBER}`} className="hover:text-white transition-colors">+91 98765 43210</a>
+              <a href={`tel:${PHONE_NUMBER}`} className="hover:text-white transition-colors">+91 95404 33347</a>
             </li>
             <li className="flex items-center">
               <MessageCircle size={14} className="mr-2 flex-shrink-0" />
