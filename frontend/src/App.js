@@ -68,7 +68,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
               className="text-sm text-[#1e3a5f] hover:text-[#f5a623] transition-colors"
               data-testid="header-call-btn"
             >
-              +91 98765 43210
+              +91 95404 33347
             </a>
             <a 
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss scaffolding requirements for my project`}
