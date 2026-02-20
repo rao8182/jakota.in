@@ -1221,23 +1221,6 @@ const InventoryPage = () => {
                     />
                   </div>
                 </div>
-
-                {/* MS Pipes */}
-                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
-                  <div className="h-48 overflow-hidden bg-steel-100">
-                    <img src="/solutions/ms-pipes.jpg" alt="MS Pipes" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-                  </div>
-                  <div className="p-6">
-                    <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Pipes</h4>
-                    <ReadMoreSection
-                      id="pipes-formwork"
-                      shortText="MS Pipes serve as versatile structural members within scaffolding and formwork applications, used for load support, bracing, and customized site configurations."
-                      fullText={
-                        <p>Produced from quality-controlled mild steel and formed to precise dimensional tolerances, JAKOTA MS Pipes offer excellent load-bearing capacity, resistance to bending, and long service life. Their uniform circular profile ensures predictable structural behavior, making them suitable for both standard and customized scaffold arrangements. Designed for high reuse cycles and rugged site conditions, they integrate seamlessly with couplers, clamps, braces, and other scaffolding accessories.</p>
-                      }
-                    />
-                  </div>
-                </div>
               </div>
             </div>
 
