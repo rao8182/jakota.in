@@ -263,41 +263,44 @@ const HeroSection = ({ setCurrentPage }) => {
     {/* Yellow accent strip */}
     <div className="h-2 bg-[#f5a623]"></div>
     
-    {/* Client Logo Band */}
-    <div className="bg-white py-6 border-b border-steel-100">
+    {/* Esteemed Clients Section */}
+    <div className="bg-white py-10 border-b border-steel-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <p className="text-center text-xs font-semibold text-steel-400 uppercase tracking-widest mb-4">Trusted By Industry Leaders</p>
-      </div>
-      <div className="overflow-hidden">
-        <div className="flex animate-scroll" style={{ width: 'fit-content' }}>
-          {/* First set of logos */}
+        <p className="text-center text-xs font-semibold text-[#1e3a5f] uppercase tracking-widest mb-2">Our Esteemed Clients</p>
+        <h3 className="text-center text-xl font-bold text-[#1e3a5f] mb-8">Trusted by Industry Leaders</h3>
+        
+        {/* Client Names Grid */}
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6">
           {[
-            { src: '/clients/dlf.png', alt: 'DLF' },
-            { src: '/clients/emaar.png', alt: 'Emaar' },
-            { src: '/clients/godrej.png', alt: 'Godrej' },
-            { src: '/clients/m3m.png', alt: 'M3M' },
-            { src: '/clients/medanta.png', alt: 'Medanta' },
-            { src: '/clients/samsara.png', alt: 'Samsara' },
-          ].map((logo, idx) => (
-            <div key={idx} className="flex-shrink-0 mx-12 flex items-center justify-center h-16">
-              <img src={logo.src} alt={logo.alt} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
-            </div>
-          ))}
-          {/* Duplicate set for seamless loop */}
-          {[
-            { src: '/clients/dlf.png', alt: 'DLF' },
-            { src: '/clients/emaar.png', alt: 'Emaar' },
-            { src: '/clients/godrej.png', alt: 'Godrej' },
-            { src: '/clients/m3m.png', alt: 'M3M' },
-            { src: '/clients/medanta.png', alt: 'Medanta' },
-            { src: '/clients/samsara.png', alt: 'Samsara' },
-          ].map((logo, idx) => (
-            <div key={`dup-${idx}`} className="flex-shrink-0 mx-12 flex items-center justify-center h-16">
-              <img src={logo.src} alt={logo.alt} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+            'Shapoorji Pallonji',
+            'Colliers International',
+            'Action Cancer Hospital',
+            'Suncity Projects',
+            'Whiteland Corporation',
+            'NBCC',
+            'ADANI',
+            'DLF',
+            'GODREJ',
+            'EMAAR',
+            'DMRC',
+            'Indian Oil Corporation Ltd',
+            'OMAX',
+            'Nestle',
+            'Vatika',
+            'M3M',
+            'Medanta',
+            'Oil India Limited'
+          ].map((client, idx) => (
+            <div 
+              key={idx} 
+              className="bg-steel-50 px-4 py-3 rounded-lg text-center hover:bg-[#1e3a5f] hover:text-white transition-all group"
+            >
+              <span className="text-xs md:text-sm font-medium text-[#1e3a5f] group-hover:text-white">{client}</span>
             </div>
           ))}
         </div>
       </div>
+    </div>
     </div>
   </section>
   );
