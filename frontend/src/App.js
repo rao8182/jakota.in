@@ -1732,6 +1732,42 @@ const ProjectsPage = () => {
       description: 'Airport terminal expansion and development project',
       equipment: 'Ringlock Scaffolding',
     },
+    {
+      id: '10',
+      title: 'GA Terminal IGI Airport',
+      location: 'New Delhi',
+      category: 'Infrastructure',
+      image: '/projects/ga-terminal-igi.jpg',
+      description: 'General Aviation Terminal construction at Indira Gandhi International Airport',
+      equipment: 'Cuplock Scaffolding',
+    },
+    {
+      id: '11',
+      title: 'Central University Jammu',
+      location: 'Jammu',
+      category: 'Educational',
+      image: '/projects/central-university-jammu.jpg',
+      description: 'University campus development and academic building construction',
+      equipment: 'Cuplock Scaffolding',
+    },
+    {
+      id: '12',
+      title: 'Nestle Factory',
+      location: 'Himachal Pradesh',
+      category: 'Industrial',
+      image: '/projects/nestle-himachal.avif',
+      description: 'Food processing and manufacturing facility construction',
+      equipment: 'Ringlock Scaffolding',
+    },
+    {
+      id: '13',
+      title: 'Supreme Court Metro Station',
+      location: 'New Delhi',
+      category: 'Infrastructure',
+      image: '/projects/supreme-court-metro.avif',
+      description: 'Metro station construction for Delhi Metro Rail Corporation',
+      equipment: 'Cuplock Scaffolding',
+    },
   ];
 
   return (
