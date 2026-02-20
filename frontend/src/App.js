@@ -622,7 +622,7 @@ const CostCalculator = () => {
                   data-testid="calc-whatsapp"
                 >
                   <MessageCircle size={16} className="mr-2" />
-                  Get Final Quote
+                  Get Final Techno Commercial Proposal
                 </a>
               </div>
             )}
