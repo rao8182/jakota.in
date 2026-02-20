@@ -77,7 +77,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
               className="inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-[#f5a623] text-[#1e3a5f] rounded-md hover:bg-[#e09000] transition-colors"
               data-testid="header-whatsapp-btn"
             >
-              Get Quote
+              Get Techno Commercial Proposal
               <ArrowUpRight size={14} className="ml-1.5" />
             </a>
           </div>
@@ -122,7 +122,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-5 py-3 text-sm font-semibold bg-[#f5a623] text-[#1e3a5f] rounded-md"
               >
-                Get Quote <ArrowUpRight size={14} className="ml-1.5" />
+                Get Techno Commercial Proposal <ArrowUpRight size={14} className="ml-1.5" />
               </a>
             </div>
           </div>
