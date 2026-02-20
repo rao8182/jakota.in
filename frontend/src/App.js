@@ -114,7 +114,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 href={`tel:${PHONE_NUMBER}`}
                 className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium border border-[#1e3a5f] text-[#1e3a5f] rounded-md"
               >
-                <Phone size={16} className="mr-2" /> +91 98765 43210
+                <Phone size={16} className="mr-2" /> +91 95404 33347
               </a>
               <a 
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
