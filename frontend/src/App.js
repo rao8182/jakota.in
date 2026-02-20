@@ -1052,16 +1052,28 @@ const InventoryPage = () => {
 
   return (
     <div data-testid="inventory-page" className="pt-20">
-      {/* Hero Section */}
-      <section className="py-16 bg-steel-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Hero Section with Banner Image */}
+      <section className="relative py-20 bg-[#1e3a5f] overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/solutions/formwork-hero.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.3
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f] via-[#1e3a5f]/90 to-[#1e3a5f]/70 z-1"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">JAKOTA SOLUTIONS</p>
-            <h1 className="text-3xl md:text-4xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">
+            <p className="text-sm font-semibold text-[#f5a623] tracking-widest uppercase mb-3">JAKOTA SOLUTIONS</p>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">
               MS Formwork & Scaffolding Systems
             </h1>
-            <div className="w-24 h-1 bg-[#1e3a5f] mb-6"></div>
-            <p className="text-lg text-steel-500 leading-relaxed">
+            <div className="w-24 h-1 bg-[#f5a623] mb-6"></div>
+            <p className="text-lg text-white/80 leading-relaxed">
               Engineered systems built for precision, durability, and operational efficiency across large-scale construction projects.
             </p>
           </div>
