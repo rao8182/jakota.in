@@ -1400,64 +1400,84 @@ const InventoryPage = () => {
               <div className="w-16 h-0.5 bg-[#1e3a5f] mb-8"></div>
               
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Base Jacks */}
-                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">Base Jacks</h4>
-                  <ReadMoreSection
-                    id="basejacks"
-                    shortText="Base Jacks establish the first point of control in a scaffolding system. They are responsible for correcting ground irregularities, stabilizing vertical alignment, and ensuring that loads enter the structure in a controlled and predictable manner."
-                    fullText={
-                      <div className="space-y-3">
-                        <p>Fabricated from heavy-duty steel and designed to perform under continuous compressive stress, JAKOTA Base Jacks maintain thread integrity and structural stiffness even under demanding site loads. The precision-machined spindle allows fine height adjustment, enabling accurate leveling and reducing stress concentration at the base of the scaffold.</p>
-                        <p>By controlling load entry and alignment at ground level, JAKOTA Base Jacks improve overall system stability, erection accuracy, and long-term safety performance.</p>
-                      </div>
-                    }
-                  />
-                </div>
-
-                {/* U Jacks */}
-                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">U Jacks</h4>
-                  <ReadMoreSection
-                    id="ujacks"
-                    shortText="U Jacks function as the final load interface between the scaffolding system and supported structural elements such as beams and formwork panels. At JAKOTA, U Jacks are engineered as precision load-positioning components."
-                    fullText={
-                      <div className="space-y-3">
-                        <p>Manufactured from high-strength steel with reinforced threaded spindles, JAKOTA U Jacks provide controlled height adjustment while maintaining rigidity under fresh concrete loads. The accurately formed U-head ensures proper seating of beams, minimizing displacement and maintaining consistent load transfer during pouring operations.</p>
-                        <p>By delivering controlled load positioning and alignment at the top of the system, JAKOTA U Jacks support faster execution, improved accuracy, and reduced on-site correction.</p>
-                      </div>
-                    }
-                  />
+                {/* Base Jacks & U Jacks */}
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-white">
+                    <img src="/solutions/u-base-jacks.jpg" alt="U Jacks & Base Jacks" className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">Base Jacks & U Jacks</h4>
+                    <ReadMoreSection
+                      id="basejacks"
+                      shortText="Base Jacks establish the first point of control, correcting ground irregularities and stabilizing vertical alignment. U Jacks function as the final load interface for beams and formwork panels."
+                      fullText={
+                        <div className="space-y-3">
+                          <p>Fabricated from heavy-duty steel, JAKOTA Base Jacks maintain thread integrity under demanding loads. The precision-machined spindle allows fine height adjustment for accurate leveling.</p>
+                          <p>JAKOTA U Jacks provide controlled height adjustment with reinforced threaded spindles, ensuring proper beam seating and consistent load transfer during pouring operations.</p>
+                        </div>
+                      }
+                    />
+                  </div>
                 </div>
 
                 {/* Clamps/Couplers */}
-                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">Clamps / Couplers</h4>
-                  <ReadMoreSection
-                    id="clamps"
-                    shortText="Clamps are the decision points in a scaffolding system — they determine how forces are transferred, how geometry is maintained, and how reliably the structure behaves under load. At JAKOTA, clamps are engineered as structural connectors, not temporary fasteners."
-                    fullText={
-                      <div className="space-y-3">
-                        <p>Manufactured from high-grade steel and formed to precise tolerances, JAKOTA Clamps are designed to deliver consistent grip, controlled torque response, and resistance to slippage under dynamic site conditions. Their geometry ensures secure pipe engagement while preserving the integrity of connected members.</p>
-                        <p>JAKOTA offers a complete range of clamps — including right-angle, swivel, and specialized couplers — enabling accurate alignment, load continuity, and adaptability across varied scaffold configurations. Each clamp is built to maintain connection reliability through repeated tightening cycles without loss of performance.</p>
-                      </div>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-white">
+                    <img src="/solutions/clamps.jpg" alt="Clamps and Couplers" className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">Clamps / Couplers</h4>
+                    <ReadMoreSection
+                      id="clamps"
+                      shortText="Clamps are the decision points in a scaffolding system — determining how forces are transferred and how geometry is maintained. Engineered as structural connectors, not temporary fasteners."
+                      fullText={
+                        <div className="space-y-3">
+                          <p>Manufactured from high-grade steel with precise tolerances, JAKOTA Clamps deliver consistent grip, controlled torque response, and resistance to slippage.</p>
+                          <p>Available in right-angle, swivel, and specialized couplers for accurate alignment and load continuity across varied scaffold configurations.</p>
+                        </div>
+                      }
+                    />
+                  </div>
                 </div>
 
                 {/* Spigot / Joint Pins */}
-                <div className="bg-steel-50 p-6 rounded-lg border-l-4 border-[#1e3a5f]">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">Spigot / Joint Pins</h4>
-                  <ReadMoreSection
-                    id="spigots"
-                    shortText="Joint Pins act as vertical continuity elements within a scaffolding system, ensuring that stacked members behave as a single, uninterrupted structural line. At JAKOTA, Joint Pins are engineered as alignment-critical connectors."
-                    fullText={
-                      <div className="space-y-3">
-                        <p>Manufactured from high-strength steel with controlled dimensional tolerances, JAKOTA Joint Pins ensure accurate engagement between vertical members, minimizing eccentric loading and unwanted movement at joints. Their geometry is designed to maintain coaxial alignment, allowing compressive loads to pass cleanly through connected standards without inducing stress concentrations.</p>
-                        <p>By safeguarding vertical alignment and load continuity, JAKOTA Joint Pins play a critical role in improving system stiffness, erection accuracy, and overall safety performance across multi-level scaffolding installations.</p>
-                      </div>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-white">
+                    <img src="/solutions/joint-pins.jpg" alt="Joint Pins" className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">Spigot / Joint Pins</h4>
+                    <ReadMoreSection
+                      id="spigots"
+                      shortText="Joint Pins act as vertical continuity elements, ensuring that stacked members behave as a single, uninterrupted structural line with alignment-critical connections."
+                      fullText={
+                        <div className="space-y-3">
+                          <p>Manufactured from high-strength steel with controlled tolerances, JAKOTA Joint Pins ensure accurate engagement between vertical members, minimizing eccentric loading.</p>
+                          <p>Critical for improving system stiffness, erection accuracy, and safety across multi-level scaffolding installations.</p>
+                        </div>
+                      }
+                    />
+                  </div>
+                </div>
+
+                {/* Walkway Planks / Steel Challi */}
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-white">
+                    <img src="/solutions/challi-yellow.jpg" alt="Walkway Planks / Steel Challi" className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">Walkway Planks / Steel Challi</h4>
+                    <ReadMoreSection
+                      id="planks"
+                      shortText="Walkway Planks form the working surface of a scaffolding system, directly influencing site safety, movement efficiency, and load distribution. Engineered as load-rated access elements."
+                      fullText={
+                        <div className="space-y-3">
+                          <p>Manufactured from high-strength steel with controlled fabrication tolerances, JAKOTA Walkway Planks deliver consistent load performance and resistance to deflection.</p>
+                          <p>The perforated or textured surface enhances grip and drainage, reducing slip risk in wet or debris-prone conditions.</p>
+                        </div>
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>
