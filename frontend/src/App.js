@@ -2324,7 +2324,7 @@ const CareersPage = () => {
                       <input 
                         type="tel"
                         required
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 95404 33347"
                         value={form.phone}
                         onChange={(e) => setForm({...form, phone: e.target.value})}
                         className="w-full px-4 py-3 bg-white border border-steel-200 rounded-lg text-sm focus:ring-2 focus:ring-[#1e3a5f]/20 focus:border-[#1e3a5f] transition-all"
