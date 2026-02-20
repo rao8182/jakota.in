@@ -301,7 +301,6 @@ const HeroSection = ({ setCurrentPage }) => {
         </div>
       </div>
     </div>
-    </div>
   </section>
   );
 };
