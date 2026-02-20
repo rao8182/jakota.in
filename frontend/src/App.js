@@ -2044,7 +2044,7 @@ const ContactPage = () => {
                     <Phone size={18} className="text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-steel-800 text-sm">+91 98765 43210</p>
+                    <p className="font-medium text-steel-800 text-sm">+91 95404 33347</p>
                     <p className="text-steel-500 text-xs">Mon–Sat, 8 AM – 8 PM</p>
                   </div>
                 </a>
