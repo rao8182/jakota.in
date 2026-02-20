@@ -1768,6 +1768,24 @@ const ProjectsPage = () => {
       description: 'Metro station construction for Delhi Metro Rail Corporation',
       equipment: 'Cuplock Scaffolding',
     },
+    {
+      id: '14',
+      title: 'IILM University',
+      location: 'Greater Noida',
+      category: 'Educational',
+      image: '/projects/iilm-university.jpg',
+      description: 'University campus and academic building construction',
+      equipment: 'Cuplock Scaffolding',
+    },
+    {
+      id: '15',
+      title: 'K.R. Mangalam University',
+      location: 'Gurugram',
+      category: 'Educational',
+      image: '/projects/kr-mangalam-university.webp',
+      description: 'Premium university campus development with modern infrastructure',
+      equipment: 'Cuplock Scaffolding',
+    },
   ];
 
   return (
