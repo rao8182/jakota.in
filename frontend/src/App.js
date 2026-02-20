@@ -1249,24 +1249,33 @@ const InventoryPage = () => {
                 {[
                   {
                     title: 'MS Angles',
-                    desc: 'Used as secondary framing and edge-support members, providing stiffness and shape control in slab edges, beam sides, and customized formwork arrangements.'
+                    desc: 'Used as secondary framing and edge-support members, providing stiffness and shape control in slab edges, beam sides, and customized formwork arrangements.',
+                    image: '/solutions/ms-angles.jpg'
                   },
                   {
                     title: 'Base Plates',
-                    desc: 'Distribute concentrated loads from props and supports over a wider surface area, reducing ground stress and improving foundation stability.'
+                    desc: 'Distribute concentrated loads from props and supports over a wider surface area, reducing ground stress and improving foundation stability.',
+                    image: '/solutions/base-plates.jpg'
                   },
                   {
                     title: 'Prop Nuts',
-                    desc: 'Enable controlled height adjustment and secure locking of adjustable props with precision threading for smooth movement and accurate elevation setting.'
+                    desc: 'Enable controlled height adjustment and secure locking of adjustable props with precision threading for smooth movement and accurate elevation setting.',
+                    image: '/solutions/prop-nuts.webp'
                   },
                   {
                     title: 'Prop Sleeves',
-                    desc: 'Act as reinforcement and adjustment interfaces within adjustable prop systems, enhancing load capacity and maintaining concentric alignment.'
+                    desc: 'Act as reinforcement and adjustment interfaces within adjustable prop systems, enhancing load capacity and maintaining concentric alignment.',
+                    image: '/solutions/prop-sleeves.jpg'
                   }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-steel-50 p-5 rounded-lg border-l-4 border-[#1e3a5f]">
-                    <h4 className="font-semibold text-[#1e3a5f] mb-2 text-sm">{item.title}</h4>
-                    <p className="text-xs text-steel-600 leading-relaxed">{item.desc}</p>
+                  <div key={idx} className="bg-steel-50 rounded-lg overflow-hidden border border-steel-100 hover:shadow-lg transition-shadow">
+                    <div className="h-36 overflow-hidden bg-white">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="p-4 border-t border-steel-100">
+                      <h4 className="font-semibold text-[#1e3a5f] mb-2 text-sm">{item.title}</h4>
+                      <p className="text-xs text-steel-600 leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
