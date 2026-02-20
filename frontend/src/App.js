@@ -1169,51 +1169,71 @@ const InventoryPage = () => {
               
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Adjustable Props */}
-                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Adjustable Props</h4>
-                  <ReadMoreSection
-                    id="props"
-                    shortText="MS Adjustable Props are precision load-support devices used in formwork systems to temporarily carry slab and beam loads while allowing accurate height control during construction."
-                    fullText={
-                      <p>Manufactured from high-grade mild steel with reinforced inner–outer tube construction, JAKOTA MS Adjustable Props deliver high axial load capacity and resistance to buckling under fresh concrete loads. The precision-threaded adjustment mechanism allows fine elevation control, ensuring correct slab levels and consistent formwork alignment across pours. Designed for repetitive deployment and heavy site use, they retain smooth adjustability and structural integrity over extended service life.</p>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-steel-100">
+                    <img src="/solutions/ms-props.jpg" alt="MS Adjustable Props" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Adjustable Props</h4>
+                    <ReadMoreSection
+                      id="props"
+                      shortText="MS Adjustable Props are precision load-support devices used in formwork systems to temporarily carry slab and beam loads while allowing accurate height control during construction."
+                      fullText={
+                        <p>Manufactured from high-grade mild steel with reinforced inner–outer tube construction, JAKOTA MS Adjustable Props deliver high axial load capacity and resistance to buckling under fresh concrete loads. The precision-threaded adjustment mechanism allows fine elevation control, ensuring correct slab levels and consistent formwork alignment across pours. Designed for repetitive deployment and heavy site use, they retain smooth adjustability and structural integrity over extended service life.</p>
+                      }
+                    />
+                  </div>
                 </div>
 
                 {/* MS Plates */}
-                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Plates</h4>
-                  <ReadMoreSection
-                    id="plates"
-                    shortText="MS Plates serve as load distribution and reinforcement elements within scaffolding and formwork systems, used wherever concentrated loads need to be spread or surfaces need protection."
-                    fullText={
-                      <p>Manufactured from quality-controlled mild steel with consistent thickness and flatness, JAKOTA MS Plates provide high compressive resistance and dimensional stability under sustained site loads. Their rigid profile helps prevent point loading, ground settlement, and surface damage when used beneath base jacks, props, or temporary supports. Designed for rugged, repetitive site use, they maintain shape and performance across multiple deployment cycles.</p>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-steel-100">
+                    <img src="/solutions/ms-plates.jpg" alt="MS Plates" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Plates</h4>
+                    <ReadMoreSection
+                      id="plates"
+                      shortText="MS Plates serve as load distribution and reinforcement elements within scaffolding and formwork systems, used wherever concentrated loads need to be spread or surfaces need protection."
+                      fullText={
+                        <p>Manufactured from quality-controlled mild steel with consistent thickness and flatness, JAKOTA MS Plates provide high compressive resistance and dimensional stability under sustained site loads. Their rigid profile helps prevent point loading, ground settlement, and surface damage when used beneath base jacks, props, or temporary supports. Designed for rugged, repetitive site use, they maintain shape and performance across multiple deployment cycles.</p>
+                      }
+                    />
+                  </div>
                 </div>
 
                 {/* MS Channels */}
-                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Channels</h4>
-                  <ReadMoreSection
-                    id="channels"
-                    shortText="MS Channels function as secondary structural members within scaffolding and formwork applications, used to support spans, distribute loads, and create rigid framing."
-                    fullText={
-                      <p>Manufactured from quality-controlled mild steel with uniform section profiles, JAKOTA MS Channels provide high bending strength and consistent load behavior across repeated use. Their open-section geometry allows efficient integration with props, jacks, clamps, and panels, making them ideal for slab edges, beam supports, and customized formwork arrangements. Designed for demanding site conditions and high reuse cycles, they retain dimensional integrity and performance over extended deployment.</p>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-steel-100">
+                    <img src="/solutions/ms-channels.jpg" alt="MS Channels" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Channels</h4>
+                    <ReadMoreSection
+                      id="channels"
+                      shortText="MS Channels function as secondary structural members within scaffolding and formwork applications, used to support spans, distribute loads, and create rigid framing."
+                      fullText={
+                        <p>Manufactured from quality-controlled mild steel with uniform section profiles, JAKOTA MS Channels provide high bending strength and consistent load behavior across repeated use. Their open-section geometry allows efficient integration with props, jacks, clamps, and panels, making them ideal for slab edges, beam supports, and customized formwork arrangements. Designed for demanding site conditions and high reuse cycles, they retain dimensional integrity and performance over extended deployment.</p>
+                      }
+                    />
+                  </div>
                 </div>
 
                 {/* MS Pipes */}
-                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Pipes</h4>
-                  <ReadMoreSection
-                    id="pipes-formwork"
-                    shortText="MS Pipes serve as versatile structural members within scaffolding and formwork applications, used for load support, bracing, and customized site configurations."
-                    fullText={
-                      <p>Produced from quality-controlled mild steel and formed to precise dimensional tolerances, JAKOTA MS Pipes offer excellent load-bearing capacity, resistance to bending, and long service life. Their uniform circular profile ensures predictable structural behavior, making them suitable for both standard and customized scaffold arrangements. Designed for high reuse cycles and rugged site conditions, they integrate seamlessly with couplers, clamps, braces, and other scaffolding accessories.</p>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-steel-100">
+                    <img src="/solutions/ms-pipes.jpg" alt="MS Pipes" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3">MS Pipes</h4>
+                    <ReadMoreSection
+                      id="pipes-formwork"
+                      shortText="MS Pipes serve as versatile structural members within scaffolding and formwork applications, used for load support, bracing, and customized site configurations."
+                      fullText={
+                        <p>Produced from quality-controlled mild steel and formed to precise dimensional tolerances, JAKOTA MS Pipes offer excellent load-bearing capacity, resistance to bending, and long service life. Their uniform circular profile ensures predictable structural behavior, making them suitable for both standard and customized scaffold arrangements. Designed for high reuse cycles and rugged site conditions, they integrate seamlessly with couplers, clamps, braces, and other scaffolding accessories.</p>
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>
