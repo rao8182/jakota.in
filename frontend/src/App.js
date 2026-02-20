@@ -2012,7 +2012,7 @@ const ContactPage = () => {
             {/* Quote Form */}
             <div className="lg:col-span-3">
               <div className="bg-steel-50 p-8 rounded-lg border border-steel-100">
-                <h2 className="text-lg font-semibold text-steel-900 mb-6">Request a quote</h2>
+                <h2 className="text-lg font-semibold text-steel-900 mb-6">Request Techno Commercial Proposal</h2>
                 
                 {success ? (
                   <div className="text-center py-12" data-testid="form-success">
