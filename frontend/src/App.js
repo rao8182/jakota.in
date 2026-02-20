@@ -1297,73 +1297,98 @@ const InventoryPage = () => {
 
       {/* Scaffolding Content */}
       {activeTab === 'scaffolding' && (
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            {/* Introduction */}
-            <div className="max-w-4xl mb-16">
-              <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">SCAFFOLDING SOLUTIONS</p>
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#1e3a5f] mb-6 tracking-wide">Engineered Safety & Productivity Systems</h2>
-              <div className="space-y-4 text-steel-600 leading-relaxed">
-                <p>
-                  At <span className="font-semibold text-[#1e3a5f]">JAKOTA</span>, scaffolding is engineered as a critical safety and productivity system — not a temporary structure. Our scaffolding solutions provide secure access, dependable support, and stable working platforms, forming the foundation for disciplined and efficient construction environments.
-                </p>
-                <p>
-                  Manufactured using high-grade steel and precision-engineered components, <span className="font-semibold text-[#1e3a5f]">JAKOTA</span> scaffolding systems deliver exceptional load capacity, structural stability, and repeatable performance across residential, commercial, industrial, and infrastructure projects. The modular design enables rapid erection and dismantling, ensuring faster site cycles without compromising safety.
+        <section className="py-0 bg-white">
+          {/* Scaffolding Hero Banner */}
+          <div className="relative py-20 bg-[#1e3a5f] overflow-hidden mb-16">
+            <div 
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: 'url(/solutions/scaffolding-hero.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.35
+              }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f] via-[#1e3a5f]/90 to-[#1e3a5f]/70 z-1"></div>
+            
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold text-[#f5a623] tracking-widest uppercase mb-3">SCAFFOLDING SOLUTIONS</p>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 tracking-wide">Engineered Safety & Productivity Systems</h2>
+                <div className="w-20 h-1 bg-[#f5a623] mb-6"></div>
+                <p className="text-white/80 leading-relaxed">
+                  At <span className="font-semibold text-white">JAKOTA</span>, scaffolding is engineered as a critical safety and productivity system — not a temporary structure. Our scaffolding solutions provide secure access, dependable support, and stable working platforms.
                 </p>
               </div>
             </div>
+          </div>
 
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
             {/* Structural Components */}
             <div className="mb-16">
               <p className="text-sm font-semibold text-[#1e3a5f] tracking-widest uppercase mb-3">STRUCTURAL COMPONENTS</p>
               <h3 className="text-xl font-semibold text-[#1e3a5f] mb-2 tracking-wide">Primary Load-Bearing Elements</h3>
               <div className="w-16 h-0.5 bg-[#1e3a5f] mb-8"></div>
               
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 {/* Verticals */}
-                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">Vertical Standards</h4>
-                  <ReadMoreSection
-                    id="verticals"
-                    shortText="Vertical Standards are the primary load-bearing elements of a scaffolding system, responsible for transferring working loads safely from elevated platforms to the ground. At JAKOTA, vertical standards are engineered as precision structural components, designed to deliver strength, stability, and consistent alignment across all working levels."
-                    fullText={
-                      <div className="space-y-3">
-                        <p>Manufactured from high-strength steel under stringent quality controls, JAKOTA Vertical Standards provide excellent axial load capacity, resistance to deformation, and long-term durability. The standardized connection points ensure accurate ledger and brace integration, maintaining uniform geometry and structural integrity throughout the scaffold structure.</p>
-                        <p>To support varied height requirements and site conditions, JAKOTA Vertical Standards are available in six standardized lengths ranging from 0.5 metres to 3.0 metres. This dimensional flexibility allows contractors to achieve precise elevations while minimizing adjustments, material wastage, and erection time.</p>
-                        <p>Designed for rapid assembly, high reuse cycles, and demanding construction environments, JAKOTA Vertical Standards integrate seamlessly with base jacks, ledgers, braces, and accessories — forming a reliable and scalable scaffolding framework.</p>
-                      </div>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-steel-100">
+                    <img src="/solutions/vertical-standards.jpg" alt="Vertical Standards" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">Vertical Standards</h4>
+                    <ReadMoreSection
+                      id="verticals"
+                      shortText="Vertical Standards are the primary load-bearing elements of a scaffolding system, responsible for transferring working loads safely from elevated platforms to the ground."
+                      fullText={
+                        <div className="space-y-3">
+                          <p>Manufactured from high-strength steel under stringent quality controls, JAKOTA Vertical Standards provide excellent axial load capacity, resistance to deformation, and long-term durability.</p>
+                          <p>Available in six standardized lengths ranging from 0.5 metres to 3.0 metres for precise elevations.</p>
+                        </div>
+                      }
+                    />
+                  </div>
                 </div>
 
                 {/* Horizontal Ledgers */}
-                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">Horizontal Ledgers</h4>
-                  <ReadMoreSection
-                    id="ledgers"
-                    shortText="Ledgers are the primary horizontal members of a scaffolding system, connecting vertical standards and forming the framework that supports working platforms and distributes loads evenly across the structure. At JAKOTA, ledgers are engineered as precision structural components, designed to deliver rigidity, alignment, and dependable load transfer at every working level."
-                    fullText={
-                      <div className="space-y-3">
-                        <p>Manufactured from high-strength steel under strict quality controls, JAKOTA Ledgers provide excellent bending strength and resistance to deflection, ensuring consistent system geometry even under heavy working loads. The accurately positioned connection ends allow quick and secure engagement with vertical standards, maintaining structural continuity throughout the scaffold.</p>
-                        <p>Designed for rapid installation, high reuse cycles, and demanding site conditions, JAKOTA Ledgers integrate seamlessly with standards, braces, platforms, and safety components — creating a rigid and stable working framework.</p>
-                      </div>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-steel-100">
+                    <img src="/solutions/horizontal-ledgers.jpg" alt="Horizontal Ledgers" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">Horizontal Ledgers</h4>
+                    <ReadMoreSection
+                      id="ledgers"
+                      shortText="Ledgers are the primary horizontal members connecting vertical standards and forming the framework that supports working platforms and distributes loads evenly."
+                      fullText={
+                        <div className="space-y-3">
+                          <p>Manufactured from high-strength steel under strict quality controls, JAKOTA Ledgers provide excellent bending strength and resistance to deflection.</p>
+                          <p>Designed for rapid installation, high reuse cycles, and demanding site conditions.</p>
+                        </div>
+                      }
+                    />
+                  </div>
                 </div>
 
                 {/* MS Pipes */}
-                <div className="border border-[#1e3a5f]/20 p-6 rounded-lg hover:border-[#1e3a5f]/40 transition-colors">
-                  <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">MS Pipes</h4>
-                  <ReadMoreSection
-                    id="pipes"
-                    shortText="MS Pipes serve as versatile structural members within scaffolding and formwork applications, used for load support, bracing, and customized site configurations. At JAKOTA, MS Pipes are manufactured as high-integrity steel components, engineered to deliver strength, reliability, and consistent performance across demanding construction environments."
-                    fullText={
-                      <div className="space-y-3">
-                        <p>Produced from quality-controlled mild steel and formed to precise dimensional tolerances, JAKOTA MS Pipes offer excellent load-bearing capacity, resistance to bending, and long service life. Their uniform circular profile ensures predictable structural behavior, making them suitable for both standard and customized scaffold arrangements.</p>
-                        <p>Designed for high reuse cycles and rugged site conditions, JAKOTA MS Pipes integrate seamlessly with couplers, clamps, braces, and other scaffolding accessories — enabling flexible configurations without compromising structural integrity.</p>
-                      </div>
-                    }
-                  />
+                <div className="border border-[#1e3a5f]/20 rounded-lg overflow-hidden hover:border-[#1e3a5f]/40 transition-colors">
+                  <div className="h-48 overflow-hidden bg-steel-100">
+                    <img src="/solutions/scaffolding-pipes.jpg" alt="MS Scaffolding Pipes" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-[#1e3a5f] mb-3 text-lg">MS Pipes</h4>
+                    <ReadMoreSection
+                      id="pipes"
+                      shortText="MS Pipes serve as versatile structural members for load support, bracing, and customized site configurations in scaffolding applications."
+                      fullText={
+                        <div className="space-y-3">
+                          <p>Produced from quality-controlled mild steel with precise dimensional tolerances, JAKOTA MS Pipes offer excellent load-bearing capacity and long service life.</p>
+                          <p>Designed for high reuse cycles and rugged site conditions.</p>
+                        </div>
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>
