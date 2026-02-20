@@ -892,7 +892,7 @@ const Footer = ({ setCurrentPage }) => (
       
       <div className="border-t border-steel-800 pt-8 text-steel-500 text-sm">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2024 Jakota. All rights reserved.</p>
+          <p>© 2026 Jakota. All rights reserved.</p>
           <p>Serving Gurgaon, Noida, Faridabad, Greater Noida & NCR</p>
         </div>
       </div>
