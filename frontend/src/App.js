@@ -821,7 +821,7 @@ const CTASection = () => (
             data-testid="cta-call"
           >
             <Phone size={16} className="mr-2" />
-            +91 98765 43210
+            +91 95404 33347
           </a>
         </div>
       </div>
