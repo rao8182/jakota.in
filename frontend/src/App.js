@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, MapPin, Clock, Shield, Truck, CheckCircle, ChevronRight, Menu, X, Calculator, Users, Building2, Wrench, FileText, ArrowRight, Star, ChevronDown, ArrowUpRight, Award } from 'lucide-react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
-const WHATSAPP_NUMBER = '919876543210';
-const PHONE_NUMBER = '+919876543210';
+const WHATSAPP_NUMBER = '919540433347';
+const PHONE_NUMBER = '+919540433347';
 
 // Navigation Component - Clean, minimal
 const Navigation = ({ currentPage, setCurrentPage }) => {
