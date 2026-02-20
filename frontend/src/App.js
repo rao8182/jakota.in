@@ -176,7 +176,7 @@ const HeroSection = ({ setCurrentPage }) => {
                 className="btn-hover inline-flex items-center justify-center px-8 py-4 text-sm font-semibold bg-[#f5a623] text-[#1e3a5f] rounded-md hover:bg-[#e09000] transition-all shadow-lg"
                 data-testid="hero-whatsapp-btn"
               >
-                Get a Quote
+                Get Techno Commercial Proposal
                 <ArrowRight size={18} className="ml-2" />
               </a>
               <button 
